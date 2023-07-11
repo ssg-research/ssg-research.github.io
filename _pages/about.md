@@ -1,26 +1,26 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='https://crysp.uwaterloo.ca/'>Cryptography, Security, and Privacy (CrySP) Lab</a>, <a href='https://uwaterloo.ca/'>University of Waterloo</a>
 
-profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+selected_papers: false # includes a list of papers marked as "selected={true}"
+social: false  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Secure Systems Group (SSG) is part [CrySP](https://crysp.uwaterloo.ca/) at the [University of Waterloo](https://uwaterloo.ca/). SSG's focus is on understanding how to design and build systems that are simultaneously secure, easy to use, and inexpensive to deploy. This involves both building and evaluating systems but also occasionally breaking the security and privacy guarantees claimed by existing systems.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+SSG came to Waterloo when [Prof. N. Asokan](https://asokan.org/asokan/) moved from [Aalto University](https://cs.aalto.fi/) to [David R. Cheriton School of Computer Science](https://cs.uwaterloo.ca/) in Fall 2019. You can see more information about our past projects at the [Aalto SSG pages](https://ssg.aalto.fi/). 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Our Research
+
+Our current research interests fall into the following major themes: (for the time being, the links below take you to Aalto SSG pages).
+
+  - Platform security and applications: we investigate the design of new hardware and software platform security techniques as well as the use of current, widely deployed platform security techniques to secure applications and services.
+
+  - Machine learning and security/privacy: we study how to apply machine learning techniques to solve security and privacy problems as well as security and privacy challenges that arise in machine learning applications in general.
+
+In addition to these major themes, we have several other themes where we do exploratory work. 
