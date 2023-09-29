@@ -29,6 +29,6 @@ In addition to these major themes, we have several other themes where we do expl
 ### Teaching and Student Research Projects
 Our teaching activities and and topics for student research can be found in the respective university pages.
 
-At the University of Waterloo courses taught by SSG personnel will be listed in the [CrySP list of coruses](https://crysp.uwaterloo.ca/courses). Openings for Undergraduate Research Assistants (when available) will appear on the [School of Computer Science URA page](https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/undergraduate-research-assistantship-ura-program).
+At the University of Waterloo courses taught by SSG personnel will be listed in the [CrySP list of courses](https://crysp.uwaterloo.ca/courses). Openings for Undergraduate Research Assistants (when available) will appear on the [School of Computer Science URA page](https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/undergraduate-research-assistantship-ura-program).
 
 At Aalto University, courses taught by SSG personnel are listed [here](https://ssg.aalto.fi/education/). Research topics available for students are listed [here](https://wiki.aalto.fi/display/sesy/Available+Research+Topics+for+Students).
