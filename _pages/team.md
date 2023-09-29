@@ -8,29 +8,37 @@ nav_order: 5
 ---
 
 
-### PhD Students
+### PhD Students (@ University of Waterloo)
 
-Vasisht Duddu
-Michael Wrona (co-supervsion with Diogo Barradas)
-Parjanya Vyas (co-supervision with Yousra Aafer)
-Hossam ElAtali
-
-
-### Masters Students
-
-RuiZhe Wang
+- [Vasisht Duddu](https://vasishtduddu.github.io/)\
+- Michael Wrona (co-supervsion with Diogo Barradas)\
+- Parjanya Vyas (co-supervision with Yousra Aafer)\
+- Hossam ElAtali
 
 
-### Alumni
+### Masters Students (@ University of Waterloo)
 
-#### Phd Students
-Asim Waheed
-Owura Asare
-Setareh Ghorshi
-Shelly Wang
+- Ruizhe Wang (co-supervsion with Meng Xu)
+- Mehdi Aghakishiyev (co-supervsion with Meng Xu)
 
+
+
+### Alumni (@ University of Waterloo)
 
 #### Master Students
-
+- Xiaohe Duan
+- Asim Waheed
+- Owura Asare (co-supervsion with Mei Nagappan)
+- Vasisht Duddu
+- Setareh Ghorshi
+- Shelly Wang
+- Karthik Ramesh 
 
 #### Visiting Students
+
+- Zhang Rui (PhD student @ Zheizhang University)
+
+
+
+### [Students and Alumni (@Aalto University)](https://ssg.aalto.fi/people/)
+
