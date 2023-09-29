@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='https://uwaterloo.ca/'>University of Waterloo</a>, and<a href='https://aalto.fi/'>Aalto University</a>.
+subtitle: <a href='https://uwaterloo.ca/'>University of Waterloo</a> and <a href='https://aalto.fi/'>Aalto University</a>.
 
 
 news: false  # includes a list of news items
