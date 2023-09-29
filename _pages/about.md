@@ -2,7 +2,6 @@
 layout: about
 title: About
 permalink: /
-[subtitle: <a href='https://crysp.uwaterloo.ca/'>Cryptography, Security, and Privacy (CrySP) Lab</a>, <a href='https://uwaterloo.ca/'>University of Waterloo</a>]
 subtitle: <a href='https://uwaterloo.ca/'>University of Waterloo</a>, and<a href='https://aalto.fi/'>Aalto University</a>.
 
 
