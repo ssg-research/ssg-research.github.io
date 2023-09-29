@@ -7,8 +7,12 @@ nav: true
 nav_order: 5
 ---
 
+### Faculty Members (@ University of Waterloo)
 
-### PhD Students (@ University of Waterloo)
+- [N. Asokan](https://asokan.org/asokan/)
+- [Meng Xu](https://cs.uwaterloo.ca/~m285xu/) 
+
+### Doctoral Students (@ University of Waterloo)
 
 - [Vasisht Duddu](https://vasishtduddu.github.io/)
 - Michael Wrona (co-supervsion with Diogo Barradas)
@@ -21,11 +25,15 @@ nav_order: 5
 - Ruizhe Wang (co-supervsion with Meng Xu)
 - Mehdi Aghakishiyev (co-supervsion with Meng Xu)
 
+#### Visitors
+
+- Zhang Rui (Doctoral student @ Zhejiang University)
 
 
 ### Alumni (@ University of Waterloo)
 
-#### Master Students
+#### Masters Students
+
 - Xiaohe Duan
 - Asim Waheed
 - Owura Asare (co-supervsion with Mei Nagappan)
@@ -34,11 +42,10 @@ nav_order: 5
 - Shelly Wang
 - Karthik Ramesh 
 
-#### Visiting Students
+#### Past Visitors
 
-- Zhang Rui (PhD student @ Zheizhang University)
+- Lachlan J. Gunn (Lecturer @ Aalto University)
+- Sebastian Szyller (Doctoral Student @ Aalto University)
 
-
-
-### [Students and Alumni (@Aalto University)](https://ssg.aalto.fi/people/)
+### [Faculty, Students, and Alumni (@Aalto University)](https://ssg.aalto.fi/people/)
 
