@@ -1,6 +1,6 @@
 ---
 layout: page
-title: PlatSec
+title: Platform Security and Applications
 permalink: /platsec/
 description: Webpage for platform security and applications
 nav: true
@@ -9,21 +9,14 @@ display_categories: [work, fun]
 horizontal: false
 ---
 
-# Platform Security and Applications
-
 At SSG, we investigate the design of new hardware and software platform security techniques as well as the use of current, widely deployed platform security techniques to secure applications and services.  Our work spans all classes of systems, from small embedded devices through to cloud platforms.
 
-# Current Research
+# Current Projects
 
-### Future Internet Architectures
+### [BliME] (https://ssg-research.github.io/blime/) 
 
-Recent initiatives known as Future Internet Architectures (FIAs) seek to redesign the Internet to improve performance, scalability, and security. However, some governments perceive Internet access as a threat to their political standing and engage in widespread network surveillance and censorship.  We are aiming to provide an in-depth analysis into the designs of prominent FIAs, to help understand of how FIAs impact surveillance and censorship abilities.
+### [Future Internet Architectures](fias)
 
-[More Info](fias)
-
-### Other Project
-
-[More Info](link)
 
 # Past Research Projects
 
