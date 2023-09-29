@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Low-level CPU model &#8212; Blinded Memory  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cm.tango.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fslit.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.min.js"></script>
+    <script src="../../_static/fstar.cm.js"></script>
+    <script src="../../_static/fslit.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Load-store model" href="InstructionDecoder.html" />
+    <link rel="prev" title="Formal model of BliME" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="low-level-cpu-model">
+<h1>Low-level CPU model<a class="headerlink" href="#low-level-cpu-model" title="Permalink to this heading">¶</a></h1>
+<p>This file provides a generic model of a CPU and memory, with each
+instruction producing an arbitrary transition between system states.</p>
+<pre class="code fstar literal-block"><code>module Cpu
+
+open Memory
+open Value</code></pre>
+<section id="system-state">
+<h2>System state<a class="headerlink" href="#system-state" title="Permalink to this heading">¶</a></h2>
+<p>We start by defining the low-level state of the system.</p>
+<p>What does an address look like, and what does a word in memory look like?</p>
+<pre class="code fstar literal-block"><code>type address = FStar.UInt64.t
+type word = FStar.UInt64.t</code></pre>
+<p>Furthermore what is the size of the memory?  Since an address is a UInt64, the
+memory should have at most <span class="math notranslate nohighlight">\(2^{64}\)</span> cells.</p>
+<pre class="code fstar literal-block"><code>type memory_size = n:int{FStar.UInt.fits n FStar.UInt64.n}</code></pre>
+<p>Next we describe the state of the caches.  We don’t need to include the
+actual cache lines; for our purposes, an array of cache line assignments
+is enough.</p>
+<pre class="code fstar literal-block"><code>type cache_state (n:memory_size) =
+       (list (a:address{FStar.UInt64.v a &lt; n}))</code></pre>
+<p>Finally, we can define the state of the overall system.  This type is
+parametrized by the sizes of the memory and register file, as described in
+§6.2.2 of the paper.</p>
+<pre class="code fstar literal-block"><code>type systemState (#n #r:memory_size)
+     = { memory: (memory:memoryState{(FStar.List.length memory) = n});
+    cache_lines: (list (a:address{FStar.UInt64.v a &lt; n}));
+             pc: (pc:word{FStar.UInt64.v pc &lt; n});
+      registers: (registers:memoryState{FStar.List.length registers = r})}</code></pre>
+<section id="equivalence">
+<h3>Equivalence<a class="headerlink" href="#equivalence" title="Permalink to this heading">¶</a></h3>
+<p>Next we define and analyze the notion of system equivalence, <span class="math notranslate nohighlight">\(\stackrel{\mathrm{state}}{\equiv}\)</span>, as in §6.2.2 of the paper.</p>
+<dl class="simple">
+<dt>Two systems are in equivalent states if</dt><dd><ul class="simple">
+<li><p>their memory banks and register files have the same size,</p></li>
+<li><p>their program counters point to the same address,</p></li>
+<li><p>their cache line assignments are identical,</p></li>
+<li><p>their memory banks and register files are equivalent, in the sense of <a class="reference internal" href="Value.html#equiv-list"><span class="std std-ref">equiv_list</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<pre class="code fstar literal-block" id="equiv-system"><code>let equiv_system (#m #q #n #r: memory_size) (lhs:systemState #m #q) (rhs:systemState #n #r)
+    = (m = n)
+       /\ (q = r)
+       /\ (lhs.pc = rhs.pc)
+       /\ (equiv_list lhs.registers rhs.registers)
+       /\ (equiv_list lhs.memory rhs.memory)
+       /\ (equivalent_lists_have_equal_lengths lhs.memory rhs.memory;
+          lhs.cache_lines = rhs.cache_lines)</code></pre>
+<dl>
+<dt>We then prove several properties of <span class="math notranslate nohighlight">\(\stackrel{\mathrm{state}}{\equiv}\)</span>:</dt><dd><ul class="simple">
+<li><p><strong>Equality implies equivalence</strong>: <span class="math notranslate nohighlight">\(s_1 = s_2 \Rightarrow s_1 \stackrel{\mathrm{state}}{\equiv} s_2\)</span></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let equal_systems_are_equivalent (#n #r:memory_size)
+                                 (lhs:systemState #n #r) (rhs:systemState #n #r):
+  Lemma (requires lhs = rhs) (ensures (equiv_system #n #r #n #r lhs rhs)) =
+  equal_lists_are_equivalent _ lhs.registers rhs.registers;
+  equal_lists_are_equivalent _ lhs.memory rhs.memory</code></pre>
+<ul class="simple">
+<li><p><strong>Transitivity</strong>: <span class="math notranslate nohighlight">\(s_1 \stackrel{\mathrm{state}}{\equiv} s_2 \wedge s_2 \stackrel{\mathrm{state}}{\equiv} s_3 \Rightarrow s_1 \stackrel{\mathrm{state}}{\equiv} s_3\)</span></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let system_equivalence_is_transitive (#m #q #n #r #o #s: memory_size)
+                                     (lhs:systemState #m #q)
+                                     (mid:systemState #n #r)
+                                     (rhs:systemState #o #s):
+    Lemma (requires (equiv_system lhs mid) /\ (equiv_system mid rhs))
+          (ensures  equiv_system lhs rhs)
+    = assert(lhs.pc = rhs.pc);
+
+      list_equivalence_is_transitive _ lhs.registers mid.registers rhs.registers;
+      list_equivalence_is_transitive _ lhs.memory          mid.memory          rhs.memory;
+
+      equivalent_lists_have_equal_lengths lhs.memory rhs.memory;
+      assert(lhs.cache_lines = rhs.cache_lines)
+</code></pre>
+<ul class="simple">
+<li><p><strong>Symmetry</strong>: <span class="math notranslate nohighlight">\(s_1 \stackrel{\mathrm{state}}{\equiv} s_2 \Leftrightarrow s_2 \stackrel{\mathrm{state}}{\equiv} s_1\)</span></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let system_equivalence_is_symmetric (#m #q #n #r: memory_size)
+                                    (lhs: systemState #m #q)
+                                    (rhs:systemState #n #r):
+    Lemma (requires equiv_system lhs rhs)
+          (ensures  equiv_system rhs lhs)
+    = assert(lhs.pc = rhs.pc);
+
+      equivalent_lists_have_equal_lengths lhs.memory rhs.memory;
+      assert(lhs.cache_lines = rhs.cache_lines);
+
+      list_equivalence_is_symmetric _ lhs.registers rhs.registers;
+      list_equivalence_is_symmetric _ lhs.memory          rhs.memory</code></pre>
+</dd>
+</dl>
+</section>
+<section id="redaction">
+<h3>Redaction<a class="headerlink" href="#redaction" title="Permalink to this heading">¶</a></h3>
+<p>Equivalence is not always the easiest notion to work with, since the
+associated theorems often take the form of</p>
+<div class="math notranslate nohighlight">
+\[\forall s_1, s_2. s_1 \stackrel{\mathrm{state}}{\equiv} s_2 \Rightarrow f(s_1) \stackrel{\mathrm{state}}{\equiv} f(s_2),\]</div>
+<p>which we need to prove despite not knowing anything about <span class="math notranslate nohighlight">\(s_1\)</span>
+or <span class="math notranslate nohighlight">\(s_2\)</span> or their relationship to one another.</p>
+<p>We introduce the concept of <em>redaction</em>, which is to zero all of the data in
+blinded values of the system.</p>
+<pre class="code fstar literal-block"><code>let redact_system (#n #r: memory_size) (s:systemState #n #r): systemState #n #r = {
+    pc = (let zero: (inner #blindedWord) = 0uL in
+          redaction_preserves_length _ s.memory zero;
+          let redacted_memory = redact_list s.memory zero in
+          s.pc);
+    cache_lines = s.cache_lines;
+    registers = (let zero: (inner #blindedWord) = 0uL in
+                 redaction_preserves_length _ s.registers zero;
+                 redact_list s.registers zero);
+    memory    = let zero: (inner #blindedWord) = 0uL in
+                redact_list s.memory zero
+    }</code></pre>
+<p>We then prove that systems are equivalent to their redaction:</p>
+<pre class="code fstar literal-block"><code>let systems_are_equivalent_to_their_redaction (#n #r: memory_size) (s:systemState #n #r):
+    Lemma (ensures equiv_system s (redact_system s))
+    = let zero: (inner #blindedWord) = 0uL in
+      lists_are_equivalent_to_their_redaction  _ s.registers zero;
+      lists_are_equivalent_to_their_redaction  _ s.memory zero</code></pre>
+<p>and that the redactions of equivalent systems are equal:</p>
+<pre class="code fstar literal-block"><code>let equivalent_systems_have_equal_redactions (#m #q #n #r: memory_size)
+                                             (s1:systemState #m #q)
+                                             (s2:systemState #n #r):
+    Lemma (requires (equiv_system s1 s2)) (ensures ((redact_system s1) == (redact_system s2)))
+    = assert(m = n);
+      let zero: (inner #blindedWord) = 0uL in
+      equivalent_lists_have_equal_redactions _ s1.registers s2.registers zero;
+      equivalent_lists_have_equal_redactions _ s1.memory s2.memory zero</code></pre>
+<p>Together, these theorems let us more easily prove theorems of the form</p>
+<div class="math notranslate nohighlight">
+\[\forall s_1, s_2: s_1 \stackrel{\mathrm{state}}{\equiv} s_2 \Rightarrow f(s_1) \stackrel{\mathrm{state}}{\equiv} f(s_2).\]</div>
+<p>by instead proving that</p>
+<div class="math notranslate nohighlight">
+\[\forall s: f(s) \stackrel{\mathrm{state}}{\equiv} f(\mathrm{redact}\; s)\]</div>
+<p>which by <code class="docutils literal notranslate"><span class="pre">systems_are_equivalent_to_their_redaction</span></code> and <code class="docutils literal notranslate"><span class="pre">equivalent_systems_have_equal_redactions</span></code> yield</p>
+<div class="math notranslate nohighlight">
+\[\forall s_1, s_2: s_1 \stackrel{\mathrm{state}}{\equiv} s_2 \Rightarrow  f(s_1) \stackrel{\mathrm{state}}{\equiv} f(\mathrm{redact}\; s_1) = f(\mathrm{redact}\; s_2) \stackrel{\mathrm{state}}{\equiv} f(s_2) .\]</div>
+</section>
+</section>
+<section id="execution-model">
+<span id="id1"></span><h2>Execution model<a class="headerlink" href="#execution-model" title="Permalink to this heading">¶</a></h2>
+<p>The next step is to describe how the system actually executes.</p>
+<p>We represent this using:</p>
+<ul class="simple" id="execution-unit">
+<li><p>an execution unit (essentially, an ISA)</p></li>
+</ul>
+<pre class="code fstar literal-block"><code>type execution_unit (#n #r:memory_size) = word -&gt; systemState #n #r -&gt; systemState #n #r</code></pre>
+<ul>
+<li><p>a function that “steps” the processor state, which in this case
+means to load an instruction from memory and execute it in a
+single cycle.</p>
+<pre class="code fstar literal-block"><code>val step (#n #r:memory_size)
+    (exec:execution_unit #n #r)
+    (pre_state: systemState #n #r)
+    : systemState #n #r
+
+let step exec pre_state =
+    let instruction = Memory.nth pre_state.memory pre_state.pc in
+        match is_blinded instruction with
+        | true -&gt; { pre_state with pc = 0uL }
+        | false -&gt; exec (unwrap instruction) pre_state
+</code></pre>
+</li>
+</ul>
+</section>
+<section id="safety-definitions">
+<h2>Safety definitions<a class="headerlink" href="#safety-definitions" title="Permalink to this heading">¶</a></h2>
+<section id="equivalence-based-safety">
+<h3>Equivalence-based safety<a class="headerlink" href="#equivalence-based-safety" title="Permalink to this heading">¶</a></h3>
+<p>We define safety in this case to be that the system is safe if executing on
+equivalent (and so indistinguishable) states always results in equivalent
+output states.</p>
+<p>We start by defining a test that checks whether this is the case for a
+particular set of equivalent initial states:</p>
+<pre class="code fstar literal-block"><code>let equivalent_inputs_yield_equivalent_states (#n #r:memory_size)
+                                              (exec:execution_unit #n #r)
+                                              (pre1:systemState #n #r)
+                                              (pre2:(systemState #n #r){equiv_system pre1 pre2}) =
+    equiv_system (step exec pre1) (step exec pre2)</code></pre>
+<p>Then, we define safety by whether execution preserves state equivalence for
+<em>all</em> possible inputs.</p>
+<pre class="code fstar literal-block"><code>let is_safe (#n #r:memory_size) (exec:execution_unit #n #r) =
+    forall (pre1 pre2 : systemState).
+        (equiv_system pre1 pre2) ==&gt; equivalent_inputs_yield_equivalent_states exec pre1 pre2
+
+type safe_execution_unit (#n #r:memory_size) = exec:(execution_unit #n #r){is_safe exec}</code></pre>
+</section>
+<section id="redaction-based-safety">
+<h3>Redaction-based safety<a class="headerlink" href="#redaction-based-safety" title="Permalink to this heading">¶</a></h3>
+<p>As an alternative to the notion of safety defined above, we define another
+notion of safety in terms of redaction equivalence of the execution unit
+only.</p>
+<p>We say that an execution unit <span class="math notranslate nohighlight">\(X(i, s)\)</span>, that maps an instruction and
+a state to a new state, is redacting-equivalent if its action on a redacted state yields an equivalent result to its action on the original state:</p>
+<div class="math notranslate nohighlight">
+\[\forall i: X(i, s) \stackrel{\mathrm{state}}{\equiv} X(i, \mathrm{redact}\; s),\]</div>
+<p>as expressed below:</p>
+<pre class="code fstar literal-block"><code> let is_redacting_equivalent_execution_unit (#n #r:memory_size) (exec:execution_unit #n #r)
+   = forall(pre:systemState) (inst:word).
+        (equiv_system (exec inst pre) (exec inst (redact_system pre)))
+
+type redacting_equivalent_execution_unit (#n #r:memory_size)
+   = exec:(execution_unit #n #r){is_redacting_equivalent_execution_unit exec}
+</code></pre>
+<p>Then we show that a redacting-equivalent execution unit yields a
+redacting-equivalent system; that is to say, that it is redacting-equivalent
+even if the instruction is loaded from memory rather than being specified
+identically for the original and redacted system states.</p>
+<pre class="code fstar literal-block"><code>let is_redacting_equivalent_system_single_step_somewhere (#n #r:memory_size)
+                                                         (exec:execution_unit #n #r)
+                                                         (pre:systemState #n #r) =
+    (equiv_system (step exec pre) (step exec (redact_system pre)))
+
+let is_redacting_equivalent_system_single_step_everywhere (#n #r:memory_size)
+                                                          (exec:execution_unit #n #r) =
+    forall (pre:systemState). is_redacting_equivalent_system_single_step_somewhere exec pre
+
+let redacting_equivalent_execution_units_lead_to_redacting_equivalent_systems_somewhere
+                                                      (#n #r:memory_size)
+                                                      (exec:redacting_equivalent_execution_unit #n #r)
+                                                      (pre:systemState #n #r):
+    Lemma (ensures is_redacting_equivalent_system_single_step_somewhere exec pre) =
+      // We showed already that the execution unit itself is
+      // redacting-equivalent for any given instruction.  But this time we
+      // load the instruction from memory, so we need to show that redaction
+      // doesn't affect which instruction is executed.
+
+      // First, we check that the instruction will be loaded from the same
+      // address despite the redaction.  This comes easily, since any state
+      // is equivalent to its redaction, and equivalent states have equal PCs.
+      let redaction = redact_system pre in
+      systems_are_equivalent_to_their_redaction pre;
+      assert(pre.pc = redaction.pc);
+
+      // Since the PCs are equal and memories are equivalent, the instructions
+      // read from memory are equivalent.  Since the processor will fault if
+      // we try to execute a blinded instruction, equivalence is enough for the
+      // execution results to be equivalent.
+      let pc = pre.pc in
+      equivalent_memories_have_equivalent_values pre.memory redaction.memory pc;
+      assert(equiv_list pre.memory redaction.memory);
+      assert(equiv (Memory.nth pre.memory pc) (Memory.nth redaction.memory pc))</code></pre>
+<p>Next, we show that a redacting-equivalent execution unit leads to a
+redacting-equivalent overall system.</p>
+<pre class="code fstar literal-block"><code>let redacting_equivalent_systems_give_equivalent_outputs_for_equivalent_inputs (#n #r:memory_size)
+    (exec:redacting_equivalent_execution_unit #n #r)
+    (pre_1:systemState #n #r) (pre_2:systemState #n #r)
+      : Lemma (requires equiv_system pre_1 pre_2)
+              (ensures equiv_system (step exec pre_1) (step exec pre_2))
+              [SMTPat (equiv_system (step exec pre_1) (step exec pre_2))]
+      = redacting_equivalent_execution_units_lead_to_redacting_equivalent_systems_somewhere exec pre_1;
+        redacting_equivalent_execution_units_lead_to_redacting_equivalent_systems_somewhere exec pre_2;
+        equivalent_systems_have_equal_redactions pre_1 pre_2;
+        assert( (step exec (redact_system pre_1)) == (step exec (redact_system pre_2)) );
+        system_equivalence_is_symmetric (step exec pre_2) (step exec (redact_system pre_2));
+        assert( equiv_system (step exec (redact_system pre_2)) (step exec pre_2) );
+        system_equivalence_is_transitive (step exec pre_1)
+                                         (step exec (redact_system pre_1))
+                                         (step exec pre_2)</code></pre>
+<p>Finally, we show that a redacting-equivalent execution unit leads to a
+processor that is safe (in the sense that equivalent states remain
+equivalent after each execution step).</p>
+<pre class="code fstar literal-block"><code>let redacting_equivalent_execution_units_are_safe (#n #r:memory_size)
+    (exec:redacting_equivalent_execution_unit #n #r):
+    Lemma (ensures is_safe exec)
+      = ()</code></pre>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Blinded Memory</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://arxiv.org/abs/2204.09649">Preprint</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ssg-research/blime">Source code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Formal model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Formal model of BliME</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Formal model of BliME</a></li>
+      <li>Next: <a href="InstructionDecoder.html" title="next chapter">Load-store model</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022&ndash;2023 Secure Systems Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../../_sources/blime-model/src/Cpu.fst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

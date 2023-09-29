@@ -204,7 +204,7 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ['_pages']
+include: ['_pages', '_static', '_sources']
 exclude:
   - bin
   - Gemfile
@@ -214,6 +214,7 @@ keep_files:
   - CNAME
   - .nojekyll
   - .git
+  - blime
 
 # Plug-ins
 plugins:

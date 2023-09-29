@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Blindable values &#8212; Blinded Memory  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cm.tango.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fslit.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.min.js"></script>
+    <script src="../../_static/fstar.cm.js"></script>
+    <script src="../../_static/fslit.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Memory state" href="Memory.html" />
+    <link rel="prev" title="Model ISA" href="ISA.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="blindable-values">
+<h1>Blindable values<a class="headerlink" href="#blindable-values" title="Permalink to this heading">¶</a></h1>
+<p>This module contains types to represent blindable values and operations
+on them.</p>
+<pre class="code fstar literal-block"><code>module Value</code></pre>
+<p>First, we define what a “blindable” value should look like, so that many
+different data representations can be used in our proofs.</p>
+<pre class="code fstar literal-block"><code>class blinded_data_representation (outer:eqtype) = {
+  inner: eqtype;
+  equiv: outer -&gt; outer -&gt; bool;
+  is_blinded: outer -&gt; bool;
+  redact: outer -&gt; inner -&gt; outer;
+  unwrap: outer -&gt; inner;
+  make_clear: inner -&gt; outer;
+  [&#64;&#64;&#64;FStar.Tactics.Typeclasses.no_method]
+  properties: squash (
+    (forall (x y: outer). x = y ==&gt; equiv x y) /\
+    (forall (x y: outer). equiv x y &lt;==&gt; equiv y x) /\
+    (forall (x y: outer). equiv x y ==&gt; is_blinded x = is_blinded y) /\
+    (forall (x y z: outer). equiv x y /\ equiv y z ==&gt; equiv x z) /\
+    (forall (x: outer) (d: inner). equiv x (redact x d)) /\
+    (forall (x y: outer) (d: inner). equiv x y &lt;==&gt; redact x d = redact y d)
+  )
+}
+
+let (≡) #a {| blinded_data_representation a |} (lhs rhs : a): bool = equiv lhs rhs</code></pre>
+<p>The <code class="docutils literal notranslate"><span class="pre">maybeBlinded</span></code> type represents a type that may be blinded:</p>
+<pre class="code fstar literal-block"><code>type maybeBlinded (#t:Type) =
+   | Clear   : v:t -&gt; maybeBlinded #t (* Represents a non-blinded value *)
+   | Blinded : v:t -&gt; maybeBlinded #t (* Represents a blinded value *)
+</code></pre>
+<p>But since most software is not written with knowledge of blindable values,
+we need a way to unwrap the blindable value and get the value inside.</p>
+<pre class="code fstar literal-block"><code>let unwrap1 (#t:Type) (mb:maybeBlinded #t): t =
+  match mb with
+   | Clear v -&gt; v
+   | Blinded v -&gt; v</code></pre>
+<section id="equivalence">
+<h2>Equivalence<a class="headerlink" href="#equivalence" title="Permalink to this heading">¶</a></h2>
+<section id="equivalence-of-blindable-values">
+<h3>Equivalence of blindable values<a class="headerlink" href="#equivalence-of-blindable-values" title="Permalink to this heading">¶</a></h3>
+<p>We define an equivalence relation on blindable values, so that two
+values are equivalent if they are indistinguishable from one another.</p>
+<p>This means that they must have the same blindedness, and if they aren’t
+blinded then they must have the same values too:</p>
+<pre class="code fstar literal-block"><code>val equiv1 (#t:eqtype)
+    (lhs:maybeBlinded #t)
+    (rhs:maybeBlinded #t)
+    : r:bool{r &lt;==&gt; (    (Blinded? lhs /\ Blinded? rhs)
+                      \/ (Clear?   lhs /\ Clear?   rhs  /\ Clear?.v lhs = Clear?.v rhs) )}
+
+let equiv1 lhs rhs
+    = match lhs, rhs with
+      | Clear x, Clear y -&gt; (x = y)
+      | Blinded _, Blinded _ -&gt; true
+      | _ -&gt; false</code></pre>
+<p>Next we prove that equivalence is an equivalence relation:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Reflexivity</strong></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let equal_values_are_equivalent (t:eqtype) (lhs rhs:maybeBlinded #t):
+  Lemma (requires lhs = rhs)
+        (ensures equiv1 lhs rhs) =
+  ()</code></pre>
+<ul class="simple">
+<li><p><strong>Symmetry</strong></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let equivalence_is_symmetric (t:eqtype) (lhs rhs: maybeBlinded #t):
+    Lemma (requires equiv1 lhs rhs)
+          (ensures  equiv1 rhs lhs)
+    = ()</code></pre>
+<ul class="simple">
+<li><p><strong>Transitivity</strong></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let equivalence_is_transitive (t:eqtype) (lhs mid rhs:maybeBlinded #t):
+    Lemma (requires (equiv1 lhs mid) /\ (equiv1 mid rhs))
+          (ensures   equiv1 lhs rhs)
+    = ()</code></pre>
+</div></blockquote>
+<p>Finally, we show that equivalence on non-blinded values is just the
+normal equality relation.</p>
+<pre class="code fstar literal-block"><code>let equivalent_clear_values_are_equal (t:eqtype) (x y:maybeBlinded #t):
+    Lemma (requires Clear? x /\ Clear? y /\ equiv1 x y)
+          (ensures x = y)
+    = ()</code></pre>
+</section>
+</section>
+<section id="redaction">
+<h2>Redaction<a class="headerlink" href="#redaction" title="Permalink to this heading">¶</a></h2>
+<p>Next we define a notion of redaction.  This replaces blinded values
+with some fixed blinded value, so that the redaction of a blindable value
+is a representative of its equivalence class.</p>
+<pre class="code fstar literal-block"><code>let redact1 (#t:Type) (x: maybeBlinded #t) (d:t): maybeBlinded #t =
+    match x with
+    | Clear   v -&gt; Clear v
+    | Blinded t -&gt; Blinded d
+
+let _ = assert(forall (t:eqtype) (x y d: t). redact1 (Blinded x) d == redact1 (Blinded y) d)</code></pre>
+<p>The result is that we obtain an equivalent value to the input that is
+independent of all of its sensitive values.</p>
+<pre class="code fstar literal-block"><code>let values_are_equivalent_to_their_redaction (t:eqtype) (x:maybeBlinded #t) (d:t):
+    Lemma (ensures equiv1 x (redact1 x d))
+    = ()</code></pre>
+<p>Since the redaction of an element is a representative of its equivalence class,
+the redaction of two values is equal if and only if they are equivalent.</p>
+<pre class="code fstar literal-block"><code>let equivalent_values_have_equal_redactions (t:eqtype) (x y:maybeBlinded #t) (d:t):
+    Lemma (ensures equiv1 x y &lt;==&gt; redact1 x d = redact1 y d)
+    = ()</code></pre>
+<p>Now we can say that this maybeBlinded is a blinded_data_representation.</p>
+<pre class="code fstar literal-block"><code>instance single_bit_blinding (#t:eqtype) : blinded_data_representation (maybeBlinded #t) = {
+  inner = t;
+  equiv = equiv1;
+  is_blinded = (fun (x: maybeBlinded #t) -&gt; Blinded? x);
+  redact = redact1;
+  unwrap = unwrap1;
+  properties =  ();
+  make_clear = Clear
+}
+
+</code></pre>
+<section id="equivalence-of-lists-of-blindable-values">
+<h3>Equivalence of lists of blindable values<a class="headerlink" href="#equivalence-of-lists-of-blindable-values" title="Permalink to this heading">¶</a></h3>
+<p>We then define a similar relation on lists of blindable values, where lists
+are equivalent if each of their values are equivalent.</p>
+<pre class="code fstar literal-block" id="equiv-list"><code>let rec equiv_list #t {| blinded_data_representation t |} (lhs:list t) (rhs: list t): bool
+    = match lhs, rhs with
+       | Nil,      Nil      -&gt; true
+       | Nil,      Cons _ _ -&gt; false
+       | Cons _ _, Nil      -&gt; false
+       | lh :: lt,  rh :: rt  -&gt; (lh ≡ rh) &amp;&amp; (equiv_list lt rt)
+</code></pre>
+<p>First, we show that equivalent lists must have equal lengths.</p>
+<pre class="code fstar literal-block"><code>let rec equivalent_lists_have_equal_lengths #t {| blinded_data_representation t |} (l1 l2:list t)
+  : Lemma (requires equiv_list l1 l2)
+          (ensures FStar.List.length l1 = FStar.List.length l2)
+  = match l1, l2 with
+    | h1 :: t1, h2 :: t2 -&gt; equivalent_lists_have_equal_lengths t1 t2
+    | _ -&gt; ()</code></pre>
+<p>Then we show that list equivalence is an equivalence relation:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Reflexivity</strong></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let rec equal_lists_are_equivalent t {| blinded_data_representation t |} (lhs rhs:list t):
+    Lemma (requires lhs = rhs)
+          (ensures equiv_list lhs rhs) =
+    match lhs, rhs with
+      | Nil, Nil -&gt; ()
+      | hl :: tl, hr :: tr -&gt; (//equal_values_are_equivalent #t hl hr;
+                             equal_lists_are_equivalent t tl tr)</code></pre>
+<ul class="simple">
+<li><p><strong>Symmetry</strong></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let rec list_equivalence_is_symmetric t {| blinded_data_representation t |} (lhs rhs: list t):
+    Lemma (requires equiv_list #t lhs rhs)
+          (ensures  equiv_list #t rhs lhs)
+//          [SMTPat (equiv_list #t lhs rhs)]
+    = match lhs, rhs  with
+      | hl :: tl, hr :: tr -&gt; list_equivalence_is_symmetric t tl tr
+      | _ -&gt; ()</code></pre>
+<ul class="simple">
+<li><p><strong>Transitivity</strong></p></li>
+</ul>
+<pre class="code fstar literal-block"><code>let rec list_equivalence_is_transitive t {| blinded_data_representation t |} (lhs mid rhs: list t):
+    Lemma (requires (equiv_list lhs mid) /\ (equiv_list mid rhs))
+          (ensures   equiv_list lhs rhs)
+    = match lhs, mid, rhs  with
+      | hl :: tl, hm :: tm, hr :: tr -&gt; list_equivalence_is_transitive t tl tm tr
+      | _ -&gt; ()
+</code></pre>
+</div></blockquote>
+<p>For convenience, we define our own <code class="docutils literal notranslate"><span class="pre">nth</span></code> function to extract the value at
+a particular index.</p>
+<pre class="code fstar literal-block"><code>let nth  t {| blinded_data_representation t |} (m: list t) (n:nat{n &lt; FStar.List.length m}): t =
+  FStar.List.Tot.index m n</code></pre>
+<p>Then, we prove that extracting values from equivalent lists yields
+equivalent values:</p>
+<pre class="code fstar literal-block"><code>let rec equivalent_lists_have_equivalent_values t {| blinded_data_representation t |}
+                                                (a b: list t)
+                                                (n: nat{n &lt; FStar.List.length a &amp;&amp;
+                                                      n &lt; FStar.List.length b}):
+    Lemma (requires equiv_list a b)
+          (ensures (FStar.List.Tot.index a n) ≡ (FStar.List.Tot.index b n))
+    = match n, a, b  with
+      | 0, _, _ -&gt; ()
+      | _, hl :: tl, hr :: tr -&gt; equivalent_lists_have_equivalent_values _ tl tr (n - 1)
+      | _ -&gt; ()</code></pre>
+<p>We also show all lists of blinded values are equivalent to one another, so
+long as they have the same length.</p>
+<pre class="code fstar literal-block"><code>let rec all_values_are_blinded #t {| blinded_data_representation t |} (l: list t) =
+  match l with
+    | hd :: tl -&gt; if not (is_blinded hd) then false else all_values_are_blinded tl
+    | _ -&gt; true
+
+let rec lists_of_blinded_values_of_equal_length_are_equivalent #t {| blinded_data_representation t |} (a b: list (maybeBlinded #t)):
+  Lemma (requires (FStar.List.length a = FStar.List.length b)
+                /\ (all_values_are_blinded a) /\ (all_values_are_blinded b))
+        (ensures equiv_list a b) =
+  match a, b with
+    | h1 :: t1, h2 :: t2 -&gt; (
+         assert(is_blinded h1 /\ is_blinded h2);
+         assert(h1 ≡ h2);
+         lists_of_blinded_values_of_equal_length_are_equivalent #t t1 t2
+      )
+    | _ -&gt; ()
+
+let rec any_value_is_blinded #t {| blinded_data_representation t |} (l: list t) =
+  match l with
+    | hd :: tl -&gt; if is_blinded hd then true else any_value_is_blinded #t tl
+    | _ -&gt; false
+
+let rec equivalent_lists_have_identical_any_blindedness #t {| blinded_data_representation t |} (a b: list t):
+  Lemma (requires (equiv_list a b))
+        (ensures (any_value_is_blinded a) = (any_value_is_blinded b))
+  = match a, b with
+      | hl::tl, hr::tr -&gt; (assert(equiv hl hr);
+                          assert((is_blinded hl) == (is_blinded hr));
+                          equivalent_lists_have_identical_any_blindedness tl tr)
+      | _ -&gt; ()
+</code></pre>
+<p>We can also define redaction on lists, by redacting each of their elements.</p>
+<pre class="code fstar literal-block"><code>let rec redact_list #t {| blinded_data_representation t |} (pre:list t) (d: (inner #t)):
+                r:(list t){FStar.List.length r = FStar.List.length pre}
+    = match pre with
+      | Nil         -&gt; Nil
+      | head :: tail -&gt; (redact head d) :: (redact_list tail d)
+</code></pre>
+<p>This doesn’t affect the length of the list:</p>
+<pre class="code fstar literal-block"><code>let rec redaction_preserves_length t {| blinded_data_representation t |} (x:list t) (d: (inner #t))
+  : Lemma (ensures FStar.List.length x = FStar.List.length (redact_list x d))
+  = match x with
+    | Nil -&gt; ()
+    | hd :: tl -&gt; redaction_preserves_length t tl d
+</code></pre>
+<p>We prove the same properties as for the redactions of individual values.</p>
+<p>First, the redaction of a list is in the same equivalence class.</p>
+<pre class="code fstar literal-block"><code>let rec lists_are_equivalent_to_their_redaction t {| blinded_data_representation t |} (x:list t) (d: (inner #t))
+    : Lemma (ensures equiv_list x (redact_list x d))
+    = match x with
+      | Nil -&gt; ()
+      | hd :: tl -&gt; lists_are_equivalent_to_their_redaction t tl d</code></pre>
+<p>The redaction of lists of lists are equal if and only if they are equivalent.</p>
+<pre class="code fstar literal-block"><code>let rec equivalent_lists_have_equal_redactions t {| blinded_data_representation t |} (x y: list t) (d: (inner #t))
+    : Lemma (ensures equiv_list x y &lt;==&gt; redact_list x d = redact_list y d)
+    = match x, y with
+       | Nil, Nil -&gt; ()
+       | Nil, Cons _ _ -&gt; ()
+       | Cons _ _, Nil -&gt; ()
+       | hl :: tl, hr :: tr -&gt; equivalent_lists_have_equal_redactions t tl tr d</code></pre>
+<p>Redacting a list redacts each of its values.</p>
+<pre class="code fstar literal-block"><code>let rec redacted_lists_have_redacted_values (t:eqtype) {| blinded_data_representation t |}
+                                            (a: list t)
+                                            (d: (inner #t))
+                                            (n: nat{n &lt; FStar.List.length a}):
+  Lemma (ensures FStar.List.Tot.index (redact_list a d) n = redact (FStar.List.Tot.index a n) d)
+        [SMTPat (FStar.List.Tot.index (redact_list a d) n)]
+    = match n, a with
+      | 0, _ -&gt; ()
+      | _, hl :: tl -&gt; redacted_lists_have_redacted_values _ tl d (n - 1)
+      | _ -&gt; ()</code></pre>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Blinded Memory</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://arxiv.org/abs/2204.09649">Preprint</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ssg-research/blime">Source code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Formal model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Formal model of BliME</a><ul>
+      <li>Previous: <a href="ISA.html" title="previous chapter">Model ISA</a></li>
+      <li>Next: <a href="Memory.html" title="next chapter">Memory state</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022&ndash;2023 Secure Systems Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../../_sources/blime-model/src/Value.fst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
