@@ -10,9 +10,9 @@ nav_order: 5
 
 ### PhD Students (@ University of Waterloo)
 
-- [Vasisht Duddu](https://vasishtduddu.github.io/)\
-- Michael Wrona (co-supervsion with Diogo Barradas)\
-- Parjanya Vyas (co-supervision with Yousra Aafer)\
+- [Vasisht Duddu](https://vasishtduddu.github.io/)
+- Michael Wrona (co-supervsion with Diogo Barradas)
+- Parjanya Vyas (co-supervision with Yousra Aafer)
 - Hossam ElAtali
 
 
