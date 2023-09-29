@@ -27,7 +27,7 @@ Our current research interests fall into the following major themes:
 In addition to these major themes, we have several other themes where we do exploratory work.
 
 ### Dissemination
-You can find pointers to our papers, software, and blog on the [dissemination page]([dissemination.md](https://ssg-research.github.io/dissemination/))
+You can find pointers to our papers, software, and blog on the [dissemination page](https://ssg-research.github.io/dissemination/)
 
 ### Student Research Projects and Teaching
 Our teaching activities and and topics for student research can be found in the respective university pages.
