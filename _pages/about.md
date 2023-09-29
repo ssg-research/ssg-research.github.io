@@ -26,7 +26,7 @@ Our current research interests fall into the following major themes:
 
 In addition to these major themes, we have several other themes where we do exploratory work.
 
-### Teaching and Student Research Projects
+### Student Research Projects and Teaching
 Our teaching activities and and topics for student research can be found in the respective university pages.
 
 At the University of Waterloo courses taught by SSG personnel will be listed in the [CrySP list of courses](https://crysp.uwaterloo.ca/courses). Openings for Undergraduate Research Assistants (when available) will appear on the [School of Computer Science URA page](https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/undergraduate-research-assistantship-ura-program).
