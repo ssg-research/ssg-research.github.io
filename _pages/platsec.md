@@ -1,6 +1,6 @@
 ---
 layout: page
-title: PlatSec
+title: Platform Security and Applications
 permalink: /platsec/
 description: Webpage for platform security and applications
 nav: true
