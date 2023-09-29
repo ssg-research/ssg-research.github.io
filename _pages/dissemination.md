@@ -1,0 +1,37 @@
+---
+layout: page
+title: Dissemination
+permalink: /dissemination/
+description: Publications and Software
+nav: true
+nav_order: 5
+display_categories: [work, fun]
+horizontal: false
+---
+
+### Publications
+Our publications from 2019 onwards can be found on the [CrySP publications page](https://crysp.uwaterloo.ca/publications). Earlier publications are available on the Aalto [SSG publications page](https://ssg.aalto.fi/publications/).
+
+Sometimes we [blog about our research results](https://blog.ssg.aalto.fi/). 
+
+### Software
+
+Below is a list of publicly available source code related to past and current SSG projects.
+
+- [AD3: Adversarial input detector for deep reinforncement learning (DRL)](https://github.com/ssg-research/ad3-action-distribution-divergence-detector)
+- [BliMe: Blinded Memory](https://github.com/ssg-research/BliMe)
+- [C-FLAT: Control flow attestation for embetded systems software](https://github.com/control-flow-attestation/c-flat)
+- [CONF-ML: Conflicts between ML protection mechanisms](https://github.com/ssg-research/conflicts-in-ml-protection-mechanisms)
+- [DAWN: Dynamic adversarial watermarking of neural networks](https://github.com/ssg-research/dawn-dynamic-adversarial-watermarking-of-neural-networks)
+- [FLARE: Fingerprinting Deep Reinforcement Learning Agents using Universal Adversarial Masks](https://github.com/ssg-research/FLARE)
+- [GroVE: Ownership Verification of Graph Neural Networks using Embeddings](https://github.com/ssg-research/GrOVe)
+- [HardScope: Run-time scope enforement on RISC-V](https://github.com/runtime-scope-enforcement)
+- [Intel SGX related projects: Projects related to Intel Software Guard Extensions (SGX)](https://ssg-research.github.io/ssg-sgx)
+- [Language data augmentation: Data augmentation techniques for toxic language classification](https://github.com/ssg-research/language-data-augmentation)
+- [MiniONN: Privacy-preserving neural networks](https://github.com/SSGAalto/minionn)
+- [Open-TEE: Virtual TEE compliant with the GlobalPlatform TEE specification](https://open-tee.github.io/)
+- [RecAgglo: Recursive Agglomerative Clustering (RecAgglo) for categorical data](https://github.com/SSGAalto/recagglo)
+- [ParChoice: Effective writing style transfer via combinatorial paraphrasing](https://gitlab.com/ssg-research/mlsec/parchoice)
+- [Pointer Authentication: Projects related to ARMv8.3-PAuth](https://pointer-authentication.github.io/)
+- [PRADA: Protection against DNN model stealing attacks](https://github.com/SSGAalto/prada-protecting-against-dnn-model-stealing-attacks)
+- [WAFFLE: Watermarking in federated learning](https://github.com/ssg-research/WAFFLE)
