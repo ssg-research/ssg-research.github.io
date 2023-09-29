@@ -1,14 +1,35 @@
 ---
 layout: page
-permalink: /mlsec/
 title: MLSec
-description: Webpage for ML Security and Privacy
+permalink: /mlsec/
+description: Webpage for machine learning security and privacy
 nav: true
-nav_order: 1
+nav_order: 2
+display_categories: [work, fun]
+horizontal: false
 ---
-<!-- _pages/publications.md -->
-<div class="publications">
 
-{% bibliography -f {{ site.scholar.bibliography }} %}
+Our work in this theme is along two dimensions:
 
-</div>
+- How to effectively apply machine learning techniques to address difficult security and privacy problems? Our work has ranged from detecting phishing websites and making security/privacy mechanisms easy to use.
+- Understanding security/privacy concerns inherent in machine learning applications in general and developing ways to mitigate these concerns. Our work addresses concerns like privacy-preserving predictions and guarding against model extraction attacks.
+
+
+# Current Research
+
+- [Model extraction attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-extraction/)
+
+
+# Past Research
+
+- [Automated generation of deceptive text](https://ssg.aalto.fi/research/projects/mlsec/deceptive-text/)
+- [Privacy-preserving machine learning predictions](https://ssg.aalto.fi/research/projects/mlsec/ppml/)
+- [Deception Detection via Text Analysis](https://ssg.aalto.fi/research/projects/deception-detection-via-text-analysis/)
+- [Automated detection of organized eCommerce fraud](https://ssg.aalto.fi/research/projects/mlsec/fraud-detection/)
+- [Model evasion attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-evasion/)
+
+Our work in this theme spans several projects:
+- [PrivateAI](https://www.private-ai.org/)
+- [ICRI-CARS](https://www.icri-cars.org/)
+- [SELIoT](https://ssg.aalto.fi/research/projects/seliot-project/)
+- [CloSer](https://ssg.aalto.fi/research/projects/closer/project-summary/)
