@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Platform Security and Applications
+title: PlatSec
 permalink: /platsec/
-description: Webpage for platform security and applications
+description: Platform Security and Applications
 nav: true
 nav_order: 2
 display_categories: [work, fun]
 horizontal: false
 ---
 
-At SSG, we investigate the design of new hardware and software platform security techniques as well as the use of current, widely deployed platform security techniques to secure applications and services.  Our work spans all classes of systems, from small embedded devices through to cloud platforms.
+At SSG, we investigate the design of new hardware and software platform security techniques as well as the use of current, widely deployed platform security techniques to secure applications and services. Our work spans all classes of systems, from small embedded devices through to cloud platforms.
 
 # Current Projects
 
@@ -17,7 +17,7 @@ At SSG, we investigate the design of new hardware and software platform security
 - [Future Internet Architectures](fias)
 
 
-# Past Research Projects
+# Past Projects
 
 - [On-Board Credentials](https://ssg.aalto.fi/research/projects/on-board-credentials/)
 - [Open-TEE](https://open-tee.github.io/)
@@ -29,4 +29,8 @@ At SSG, we investigate the design of new hardware and software platform security
 - [Kernel Hardening](https://ssg.aalto.fi/research/projects/kernel-hardening/)
 - [SEAndroid Analysis](https://ssg.aalto.fi/research/projects/seandroid-analysis/)
 - [Blockchain Consensus and Beyond](https://ssg.aalto.fi/research/projects/bcon/)
-- [CARS](http://www.icri-cars.org/)
+
+# Research Insitutes
+- [PrivateAI](https://www.private-ai.org/)
+- [ICRI-CARS](https://www.icri-cars.org/)
+- [ICRI-SC](https://www.icri-sc.org/)
