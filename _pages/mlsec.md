@@ -1,8 +1,8 @@
 ---
 layout: page
-title: ML Security and Privacy
+title: MLSec
 permalink: /mlsec/
-description: Webpage for machine learning security and privacy
+description: Machine Learning Security and Privacy
 nav: true
 nav_order: 2
 display_categories: [work, fun]
@@ -15,12 +15,12 @@ Our work in this theme is along two dimensions:
 - Understanding security/privacy concerns inherent in machine learning applications in general and developing ways to mitigate these concerns. Our work addresses concerns like privacy-preserving predictions and guarding against model extraction attacks.
 
 
-# Current Research
+# Current Projects
 
 - [Model extraction attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-extraction/)
 
 
-# Past Research
+# Past Projects
 
 - [Automated generation of deceptive text](https://ssg.aalto.fi/research/projects/mlsec/deceptive-text/)
 - [Privacy-preserving machine learning predictions](https://ssg.aalto.fi/research/projects/mlsec/ppml/)
@@ -28,7 +28,8 @@ Our work in this theme is along two dimensions:
 - [Automated detection of organized eCommerce fraud](https://ssg.aalto.fi/research/projects/mlsec/fraud-detection/)
 - [Model evasion attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-evasion/)
 
-Our work in this theme spans several projects:
+# Research Institutes/Programs
+
 - [PrivateAI](https://www.private-ai.org/)
 - [ICRI-CARS](https://www.icri-cars.org/)
 - [SELIoT](https://ssg.aalto.fi/research/projects/seliot-project/)
