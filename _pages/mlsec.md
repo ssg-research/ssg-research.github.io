@@ -1,6 +1,6 @@
 ---
 layout: page
-title: MLSec
+title: ML Security and Privacy
 permalink: /mlsec/
 description: Webpage for machine learning security and privacy
 nav: true
