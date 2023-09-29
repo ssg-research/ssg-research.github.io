@@ -20,9 +20,9 @@ SSG came to Waterloo when [Prof. N. Asokan](https://asokan.org/asokan/) moved fr
 
 Our current research interests fall into the following major themes:
 
-  - Platform security and applications (`permalink: /platsec/`): we investigate the design of new hardware and software platform security techniques as well as the use of current, widely deployed platform security techniques to secure applications and services.
+  - [Platform security and applications](https://ssg-research.github.io/platsec/) we investigate the design of new hardware and software platform security techniques as well as the use of current, widely deployed platform security techniques to secure applications and services.
 
-  - Machine learning and security/privacy (`permalink: /mlsec/`): we study how to apply machine learning techniques to solve security and privacy problems as well as security and privacy challenges that arise in machine learning applications in general.
+  - [Machine learning and security/privacy](https://ssg-research.github.io/mlsec/): we study how to apply machine learning techniques to solve security and privacy problems as well as security and privacy challenges that arise in machine learning applications in general.
 
 In addition to these major themes, we have several other themes where we do exploratory work.
 
