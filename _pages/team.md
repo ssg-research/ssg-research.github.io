@@ -7,45 +7,49 @@ nav: true
 nav_order: 5
 ---
 
-### Faculty Members (@ University of Waterloo)
+### Affilited Faculty Members (@ University of Waterloo)
 
 - [N. Asokan](https://asokan.org/asokan/)
 - [Meng Xu](https://cs.uwaterloo.ca/~m285xu/) 
 
 ### Doctoral Students (@ University of Waterloo)
 
-- [Vasisht Duddu](https://vasishtduddu.github.io/)
-- Michael Wrona (co-supervsion with Diogo Barradas)
-- Parjanya Vyas (co-supervision with Yousra Aafer)
-- Hossam ElAtali
+- [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-)
+- Michael Wrona (co-supervised by Diogo Barradas and N. Asokan, 2022-)
+- Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-)
+- Hossam ElAtali (supervised by N. Asokan. 2021-)
 
 
 ### Masters Students (@ University of Waterloo)
 
-- Ruizhe Wang (co-supervsion with Meng Xu)
-- Mehdi Aghakishiyev (co-supervsion with Meng Xu)
+- Ruizhe Wang (co-supervised by Meng Xu and N. Asokan, 2022-)
+- Mehdi Aghakishiyev (co-supervised by Meng Xu and N. Asokan, 2023-)
 
 #### Visitors
 
-- Zhang Rui (Doctoral student @ Zhejiang University)
+- Zhang Rui (Doctoral student @ Zhejiang University, 2023-)
 
 
 ### Alumni (@ University of Waterloo)
 
+#### Post-doctoral researchers
+- Hans Liljestrand (supervised by N. Asokan 2020-2022)
+- Mika Juuti (supervised by N. Asokan, 2019-2020)
+
 #### Masters Students
 
-- Xiaohe Duan
-- Asim Waheed
-- Owura Asare (co-supervsion with Mei Nagappan)
-- Vasisht Duddu
-- Setareh Ghorshi
-- Shelly Wang
-- Karthik Ramesh 
+- Xiaohe Duan (supervised by N. Asokan, 2021-2023)
+- Asim Waheed (supervised by N. Asokan, 2021-2023)
+- Owura Asare (co-supervised by Mei Nagappan and N. Asokan, 2021-2023)
+- Vasisht Duddu (supervised by N. Asokan, 2020-2022)
+- Setareh Ghorshi (supervised by N. Asokan, 2020-2022)
+- Shelly Wang (supervised by N. Asokan, 2020-2022)
+- Karthik Ramesh (supervised by N. Asokan, 2019-2022)
 
 #### Past Visitors
 
-- Lachlan J. Gunn (Lecturer @ Aalto University)
-- Sebastian Szyller (Doctoral Student @ Aalto University)
+- Lachlan J. Gunn (Lecturer @ Aalto University, 2022)
+- Sebastian Szyller (Doctoral Student @ Aalto University, 2022)
 
 ### [Faculty, Students, and Alumni (@Aalto University)](https://ssg.aalto.fi/people/)
 
