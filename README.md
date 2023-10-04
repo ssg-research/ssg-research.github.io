@@ -6,9 +6,7 @@ We provide instructions on how to modify webapges in this repository or create a
 
 ### Run the repository locally and test
 
-isntructions
-
-send a pull request
+docker-compose up
 
 ### Directly modifying the repositroy on github (not recommended)
 
