@@ -17,7 +17,7 @@ Our work in this theme is along two dimensions:
 
 # Current Projects
 
-- [Model extraction attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-extraction/)
+- [Model extraction attacks and defenses](modelExtDef)
 
 
 # Past Projects
