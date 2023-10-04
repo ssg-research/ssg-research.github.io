@@ -10,7 +10,8 @@ nav_order: 5
 ### Affilited Faculty Members (@ University of Waterloo)
 
 - [N. Asokan](https://asokan.org/asokan/)
-- [Meng Xu](https://cs.uwaterloo.ca/~m285xu/) 
+- [Meng Xu](https://cs.uwaterloo.ca/~m285xu/)
+- [Mei Nagappan](https://cs.uwaterloo.ca/~m2nagapp/)
 
 ### Doctoral Students (@ University of Waterloo)
 
