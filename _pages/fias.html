@@ -7,49 +7,10 @@ horizontal: false
 
 <!doctype html>
 
-<html lang=en">
-
-  <head>
-  </head>
-
 <style>
-    .summary-card {
-        background: linear-gradient(to left, #69e2ed, #9139f5) right;
-        background-size: 200%;
-        transition: .3s ease-out;
-        border: none;
-        color: #fff;
-    }
-    .summary-card:hover{
-        background-position: left;
-    }
-    .automation-text{
-        background: -webkit-linear-gradient(#ffdea8, #fec84e);
-    }
-    .aeroponic-text{
-        background: -webkit-linear-gradient(#83eaf1, #63a4ff);
-    }
-    .produce-text{
-        background: -webkit-linear-gradient(#80ff72, #7ee8fa);
-    }
-    .nothing{
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .fia-image{
-        filter: invert(1);
-    }
-
     .bg-lighter{
         background-color: #f8f9fa;
     }
-
-    .card-title{
-        color:#fff !important;
-        font-weight:900;
-    }
-
 </style>
 
 <body>
@@ -57,106 +18,34 @@ horizontal: false
     <section>
         <div class="container">
             <h1>Background</h1>
-            <div class="p-md-2"></div>
             <p>The dramatic growth of the Internet has enabled ubiquitous access to information, fostering seamless communication and promoting effective collaboration.  Unfortunately, these capabilities have empowered state-level actors to deploy large-scale surveillance and censorship mechanisms to monitor people's Internet activities or limit their ability to freely access and publish information.  Although Internet surveillance and censorship mechanisms have substantially broadened and become more capable over the past decades, the deployment of effective privacy-enhancing tools remains a significant challenge.</p>
         </div>
     </section>
-    
-    <section>
-        <div class="container">
-            <h1>Future Internet Architectures</h1>
-            <div class="p-md-2"></div>
-            <p class="fs-5">
-                Multiple initiatives have pushed towards an overhaul of the Internet by applying the lessons learned throughout 30 years of practical network engineering experience. These initiatives, known as Future Internet Architectures, seek to remove legacy Internet design constraints and improve performance, scalability, and mobility while adding much-needed security features.  For instance, content-centric networks like Named Data Networking focus on making data contents named, addressable, and routable, while also helping to provide integrity and authenticity at an architectural level.  As of today, FIAs are being gradually deployed around the world in various industries. For example, Swiss banks and financial technology companies (e.g., Finastra) are exploring the use of FIAs to protect against cyberthreats like distributed denial-of-service or routing attacks.
-            </p>
-            <div class="p-md-3"></div>
-            <div class="row justify-content-around text-center">
-                <div class="col-12">
-                    <div class="summary-card rounded p-2 my-2" onclick="location.href='#aeroponic-section';">
-                        <div class="row">
-                            <div class="col-3">
-                                <img src="/assets/images/performance.png" class="img-fluid p-md-4 fia-image">
-                            </div>
-                            <div class="col-8 d-flex align-items-center justify-content-center">
-                                <h1 class="card-title">Performance</h1>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="summary-card rounded p-2 my-2" onclick="location.href='#automation-section';">
-                        <div class="row">
-                            <div class="col-3">
-                                <img src="/assets/images/scalability.png" class="img-fluid p-md-4 fia-image">
-                            </div>
-                            <div class="col-8 d-flex align-items-center justify-content-center">
-                                <h1 class="card-title">Scalibility</h1>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="summary-card rounded p-2 my-2" onclick="location.href='#nutrition-section';">
-                        <div class="row">
-                            <div class="col-3">
-                                <img src="/assets/images/security.png" class="img-fluid p-md-4 fia-image">
-                            </div>
-                            <div class="col-8 d-flex align-items-center justify-content-center">
-                                <h1 class="card-title">Security</h1>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="p-md-3"></div>
+    <div class="p-md-2"></div>
     <section>
             <div class="container">
                 <h1>Surveillance and Censorship</h1>
                 <p> As of today, state-level actors have been found to leverage different features of the IP protocol to undertake censorship efforts.  Many of these same methods can also be effectively used in FIAs.</p>
-                <div class="p-md-2"></div>
-                <div class="row bg-lighter rounded py-4">
-                    <div class="col-4">
-                        <img src="/assets/images/inspect.png" class="img-fluid">
-                    </div>
-                    <div class="col-8">
+                <div class="row bg-lighter rounded p-4">
                         <h4>Packet Inspection</h4>
                         <p>In deep packet inspection, the payload and headers of a packet are compared with a set of pre-defined patterns to identify similarities.  When a network packet matches the established criteria, the state-level adversary can take some action.  Many of the FIAs include additional information and functionality in their network-layer packet design such as complete routes, service-layer information, and content addresses. Access to this additional information may allow adversaries to enhance DPI-based surveillance efforts and develop more fine-grained filtering policies. The obscurity in packet source/destination introduced by content-centric designs is offset by their content address.</p>
-                    </div>
                 </div>
                 <div class="p-md-2"></div>
-                <div class="row bg-lighter rounded py-4">
-                    <div class="col-4">
-                        <img src="/assets/images/manipulate.png" class="img-fluid">
-                    </div>
-                    <div class="col-8">
-                        <h4>Packet Manipulation</h4>
-                        Besides seeking to identify or outright block specific flows in a network, adversaries might also seek to modify packet contents or change the way these packets move through the network. Packet manipulation generally violates the integrity of communications, and can allow an adversary to, for instance, intercept sensitive data and alter the communication between two parties.  Packet manipulation is markedly more difficult in many FIAs, as integrity checks and defenses were carefully considered in the design documents.  One overlooked aspect is the ability of an adversary to re-route packets through locations of their choosing, an attack that has few practical uses outside of censorship and surveillance.
-                    </div>
+                <div class="row bg-lighter rounded p-4">
+                    <h4>Packet Manipulation</h4>
+                    Besides seeking to identify or outright block specific flows in a network, adversaries might also seek to modify packet contents or change the way these packets move through the network. Packet manipulation generally violates the integrity of communications, and can allow an adversary to, for instance, intercept sensitive data and alter the communication between two parties.  Packet manipulation is markedly more difficult in many FIAs, as integrity checks and defenses were carefully considered in the design documents.  One overlooked aspect is the ability of an adversary to re-route packets through locations of their choosing, an attack that has few practical uses outside of censorship and surveillance.
                 </div>
                 <div class="p-md-2"></div>
-                <div class="row bg-lighter rounded py-4">
-                    <div class="col-4">
-                        <img src="/assets/images/analyze.png" class="img-fluid">
-                    </div>
-                    <div class="col-8">
-                        <h4>Traffic Analysis</h4>
-                        Traffic analysis is the process of examining a network's connection metadata with the purpose of inferring information about the communications of users (e.g., the websites they browse or whom they speak to in instant-messaging applications), even when these communications are encrypted.  Although every FIA makes some adjustment to how packets are passed to and from users, there is little evidence to suggest that FIA designs are inherently resistant to traffic analysis attacks. More practical research is required to assess FIAs' susceptibility to traffic analysis attacks that involve, for instance, fingerprinting attempts.
-                    </div>
+                <div class="row bg-lighter rounded p-4">
+                    <h4>Traffic Analysis</h4>
+                    Traffic analysis is the process of examining a network's connection metadata with the purpose of inferring information about the communications of users (e.g., the websites they browse or whom they speak to in instant-messaging applications), even when these communications are encrypted.  Although every FIA makes some adjustment to how packets are passed to and from users, there is little evidence to suggest that FIA designs are inherently resistant to traffic analysis attacks. More practical research is required to assess FIAs' susceptibility to traffic analysis attacks that involve, for instance, fingerprinting attempts.
                 </div>
             </div>
     </section>
-
-
-
+    <div class="p-md-2"></div>
     <section>
         <div class="container">
             <h1>Research</h1>
-            <div class="p-md-2"></div>
             <p>Currently, we have analyzed the different design elements of six prominent FIAs, pinpointing conceivable avenues of attack that could be exploited by powerful network adversaries to surveil and censor Internet communications. Our analysis encompasses past efforts in designing countermeasures against such practices, while shedding light on areas requiring further attention.. Furthermore, we have surveyed the applicability of privacy-enhancing technologies to FIAs. We also provide guidelines for future research into novel FIA-based privacy-enhancing technologies, and recommendations to guide the evaluation of these technologies.</p>
             <p>For the future of this project we plan to perform empirical testing to evaluate how various censorship evasion tools perform when applied to FIAs.  </p>
         </div>
