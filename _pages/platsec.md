@@ -13,7 +13,7 @@ At SSG, we investigate the design of new hardware and software platform security
 
 # Current Projects
 
-- [BliME](https://ssg-research.github.io/blime/)
+- [BliME](blime)
 - [Future Internet Architectures](fias)
 - [Access Control in Android](aosp)
 - [Secure Memory Allocators](memallo)
