@@ -4,7 +4,7 @@ permalink: /team/
 title: Team
 description: Current and past researchers of SSG
 nav: true
-nav_order: 5
+nav_order: 6
 ---
 
 ### Affilited Faculty Members (@ University of Waterloo)
