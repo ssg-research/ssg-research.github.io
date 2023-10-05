@@ -6,7 +6,7 @@ We provide instructions on how to modify webapges in this repository or create a
 
 ### Run the repository locally and test
 
-With [https://www.docker.com/](docker) installed: 
+With [docker](https://www.docker.com/) installed: 
 
 `docker-compose up`
 
