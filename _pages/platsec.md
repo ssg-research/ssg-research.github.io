@@ -4,7 +4,7 @@ title: PlatSec
 permalink: /platsec/
 description: Platform Security and Applications
 nav: true
-nav_order: 2
+nav_order: 3
 display_categories: [work, fun]
 horizontal: false
 ---
@@ -14,7 +14,6 @@ At SSG, we investigate the design of new hardware and software platform security
 # Current Projects
 
 - [BliME](blime)
-- [Future Internet Architectures](fias)
 - [Access Control in Android](aosp)
 - [Secure Memory Allocators](memallo)
 
