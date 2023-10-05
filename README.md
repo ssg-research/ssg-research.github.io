@@ -6,12 +6,14 @@ We provide instructions on how to modify webapges in this repository or create a
 
 ### Run the repository locally and test
 
-docker-compose up
+With [https://www.docker.com/](docker) installed: 
 
-### Directly modifying the repositroy on github (not recommended)
+`docker-compose up`
+
+### Directly modifying the repository on github (not recommended)
 
 You can edit the files directly on github for any minor changes (e.g., typos, change in links)
-but for any creation of new files with extensive changes, please run the repository locally and send a pull request.
+but for any creation of new files with extensive changes, please fork and send a pull request.
 
 ## How to create a project webpage?
 
