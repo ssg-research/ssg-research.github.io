@@ -26,4 +26,4 @@ Please make changes only to your own project pages and not the rest of the websi
 
 ## Contact
 
-For any questions, please contact Michael or Vashisht
+For any questions, please contact Michael or Vasisht
