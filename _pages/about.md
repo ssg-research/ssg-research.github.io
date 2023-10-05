@@ -24,7 +24,7 @@ Our current research interests fall into the following major themes:
 
   - [Machine learning and security/privacy](https://ssg-research.github.io/mlsec/): we study how to apply machine learning techniques to solve security and privacy problems as well as security and privacy challenges that arise in machine learning applications in general.
 
-In addition to these major themes, we have several other themes where we do exploratory work.
+In addition to these major themes, we have several [other themes](https://ssg-research.github.io/others/) where we do exploratory work.
 
 ### Dissemination
 You can find pointers to our papers, software, and blog on the [dissemination page](https://ssg-research.github.io/dissemination/).
