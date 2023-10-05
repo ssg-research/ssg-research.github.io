@@ -2,9 +2,9 @@
 layout: page
 title: Other
 permalink: /others/
-description: Other Research Themese
+description: Other Research Themes
 nav: true
-nav_order: 5
+nav_order: 4
 display_categories: [work, fun]
 horizontal: false
 ---
