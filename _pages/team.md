@@ -9,7 +9,7 @@ nav_order: 6
 
 ### Affilited Faculty Members (@ University of Waterloo)
 
-- [Yousra Aafer] (https://cs.uwaterloo.ca/~yaafer/)
+- [Yousra Aafer](https://cs.uwaterloo.ca/~yaafer/)
 - [N. Asokan](https://asokan.org/asokan/)
 - [Mei Nagappan](https://cs.uwaterloo.ca/~m2nagapp/)
 - [Meng Xu](https://cs.uwaterloo.ca/~m285xu/)
