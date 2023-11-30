@@ -9,9 +9,10 @@ nav_order: 6
 
 ### Affilited Faculty Members (@ University of Waterloo)
 
+- [Yousra Aafer] [https://cs.uwaterloo.ca/~yaafer/]
 - [N. Asokan](https://asokan.org/asokan/)
-- [Meng Xu](https://cs.uwaterloo.ca/~m285xu/)
 - [Mei Nagappan](https://cs.uwaterloo.ca/~m2nagapp/)
+- [Meng Xu](https://cs.uwaterloo.ca/~m285xu/)
 
 ### Doctoral Students (@ University of Waterloo)
 
@@ -21,7 +22,7 @@ nav_order: 6
 - Hossam ElAtali (supervised by N. Asokan. 2021-)
 
 
-### Masters Students (@ University of Waterloo)
+### Master's Students (@ University of Waterloo)
 
 - Ruizhe Wang (co-supervised by Meng Xu and N. Asokan, 2022-)
 - Mehdi Aghakishiyev (co-supervised by Meng Xu and N. Asokan, 2023-)
