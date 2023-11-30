@@ -18,7 +18,7 @@ proof of a simplified model ISA with BliMe extensions.
 
 ## Conference/journal paper publications
 
-{% bibliography --query ['blime24'] %}
+{% bibliography --query [blime24] %}
 
 ## Source code
 
