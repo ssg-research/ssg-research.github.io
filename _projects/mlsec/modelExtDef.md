@@ -18,7 +18,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 - Buse Gul Atli Tekgul, N Asokan: **FLARE: Fingerprinting Deep Reinforcement Learning Agents using Universal Adversarial Masks.** [ACSAC 2023](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2307.14751](https://arxiv.org/abs/2307.14751)
 - Sebastian Szyller, Rui Zhang, Jian Liu, N. Asokan: **On the Robustness of Dataset Inference.** [TMLR 2023](https://openreview.net/forum?id=LKz5SqIXPJ)</a>. arXiv preprint [arXiv:2210.13631](https://arxiv.org/abs/2210.13631)
 - Sebastian Szyller, N. Asokan: **Conflicting Interactions Among Protection Mechanisms for Machine Learning Models**. [AAAI 2023](https://aaai-23.aaai.org). arXiv preprint [arXiv:2207.01991](https://arxiv.org/abs/2207.01991)
-- Buse G. A. Tekgul, N. Asokan:** On the Effectiveness of Dataset Watermarking.** [CODASPY-IWSPA 2022](https://sites.google.com/view/iwspa-2022/). arXiv preprint [arXiv:2202.12506](https://arxiv.org/abs/2202.12506)
+- Buse G. A. Tekgul, N. Asokan: **On the Effectiveness of Dataset Watermarking.** [CODASPY-IWSPA 2022](https://sites.google.com/view/iwspa-2022/). arXiv preprint [arXiv:2202.12506](https://arxiv.org/abs/2202.12506)
 - Sebastian Szyller, Buse G. A. Tekgul, Samuel Marchal, N. Asokan: **DAWN: Dynamic Adversarial Watermarking of Neural Networks.** [ACM Multimedia 2021](https://2021.acmmm.org/). arXiv preprint [arXiv:1906.00830](https://arxiv.org/abs/1906.00830)
 - Buse G. A. Tekgul, Yuxi Xia, Samuel Marchal, N. Asokan. **WAFFLE: Watermarking in Federated Learning.** [SRDS 2021](https://srds-conference.org/). arXiv preprint [arXiv:2008.07298](https://arxiv.org/abs/2008.07298)
 - Buse G. A. Tekgul, Sebastian Szyller, Mika Juuti, Samuel Marchal, N. Asokan: **Extraction of Complex DNN Models: Real Threat or Boogeyman?** [AAAI-EDSMLS 2020](https://sites.google.com/view/edsmls2020/home). arXiv preprint: [arXiv:1910.05429](https://arxiv.org/abs/1910.05429)
@@ -38,15 +38,15 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Talks
 
-- On the Effectiveness of Dataset Watermarking: IWSPA'22 talk [<a href="/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf">pdf</a>]</li>
-- WAFFLE: SRDS'21 talk [<a href="/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf">pdf</a>]</li>
-- Extraction of Complex DNN models: Brief overview [<a href="/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf">pdf</a>], AAAI-EDSMLS'20 talk [<a href="/wp-content/uploads/2019/12/EDSMLS_presentation.pdf">pdf</a>]</li>
-- PRADA: Euro S&P'19 talk [<a href="/wp-content/uploads/2019/08/EuroSP19.pdf">pdf</a>]</li>
+- On the Effectiveness of Dataset Watermarking: IWSPA'22 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf)
+- WAFFLE: SRDS'21 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf)
+- Extraction of Complex DNN models: Brief overview [pdf](https://ssg.aalto.fi/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf), AAAI-EDSMLS'20 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/12/EDSMLS_presentation.pdf)
+- PRADA: Euro S&P'19 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/08/EuroSP19.pdf)
 
 ## Demos and Posters
 
 - [CS Research Day 2020](https://www.aalto.fi/en/events/cs-research-day-2020): **WAFFLE: Watermarking in Federated Learning** (October 1, Aalto University, Finland), [presentation](https://www.youtube.com/watch?v=C_zoHSU1wOs)
-- [Secure Systems Demo Day 2019](https://ssg.aalto.fi/events/demo-day-2019/): **Stealing Complex DNN Models: Limitations and Defense Strategies** (May 29, Aalto University, Finland), [poster](/wp-content/uploads/2019/05/20_Atli.pdf)
+- [Secure Systems Demo Day 2019](https://ssg.aalto.fi/events/demo-day-2019/): **Stealing Complex DNN Models: Limitations and Defense Strategies** (May 29, Aalto University, Finland), [poster](https://ssg.aalto.fi/wp-content/uploads/2019/05/20_Atli.pdf)
 
 ## Source code
 
