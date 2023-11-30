@@ -10,14 +10,18 @@ nav_order: 6
 ### Affilited Faculty Members (@ University of Waterloo)
 
 - [Yousra Aafer](https://cs.uwaterloo.ca/~yaafer/)
+- [Diogo Barradas](https://cs.uwaterloo.ca/~dbarrada/)
 - [N. Asokan](https://asokan.org/asokan/)
 - [Mei Nagappan](https://cs.uwaterloo.ca/~m2nagapp/)
 - [Meng Xu](https://cs.uwaterloo.ca/~m285xu/)
 
+### Post-doctoral researchers
+- Uzma Maroof (co-supervised by Diogo Barradas and N. Asokan, 2023-)
+
 ### Doctoral Students (@ University of Waterloo)
 
 - [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-)
-- Michael Wrona (co-supervised by Diogo Barradas and N. Asokan, 2022-)
+- Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 - Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-)
 - Hossam ElAtali (supervised by N. Asokan. 2021-)
 

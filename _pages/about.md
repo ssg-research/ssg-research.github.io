@@ -11,7 +11,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-Secure Systems Group (SSG) is consists of researchers from both [University of Waterloo](https://crysp.uwaterloo.ca/ssg) and [Aalto University](https://ssg.aalto.fi). At UWaterloo, SSG is part of [CrySP](https://crysp.uwaterloo.ca/). SSG's focus is on understanding how to design and build systems that are simultaneously secure, easy to use, and inexpensive to deploy. This involves both building and evaluating systems but also occasionally breaking the security and privacy guarantees claimed by existing systems.
+The Secure Systems Group (SSG) consists of researchers from both [University of Waterloo](https://crysp.uwaterloo.ca/ssg) and [Aalto University](https://ssg.aalto.fi). At UWaterloo, SSG is part of [CrySP](https://crysp.uwaterloo.ca/). SSG's focus is on understanding how to design and build systems that are simultaneously secure, easy to use, and inexpensive to deploy. This involves both building and evaluating systems but also occasionally breaking the security and privacy guarantees claimed by existing systems.
 
 SSG came to Waterloo when [Prof. N. Asokan](https://asokan.org/asokan/) moved from [Aalto University](https://cs.aalto.fi/) to [David R. Cheriton School of Computer Science](https://cs.uwaterloo.ca/) in Fall 2019.
 [You can see more information about our past projects at the [Aalto SSG pages](https://ssg.aalto.fi/).] 
