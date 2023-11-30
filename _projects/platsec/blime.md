@@ -18,11 +18,7 @@ proof of a simplified model ISA with BliMe extensions.
 
 ## Conference/journal paper publications
 
-{% reference blime24 %}
-
-<!--
-H. ElAtali, L. J. Gunn, H. Liljestrand, N. Asokan, "**BliMe: Verifiably Secure Outsourced Computation with Hardware-Enforced Taint Tracking**", *Network and Distributed Systems Symposium (NDSS)*, San Diego, CA, USA. 2024. ArXiV:2204.09649. [Preprint](https://arxiv.org/abs/2204.09649)
--->
+{% bibliography --query ['blime24'] %}
 
 ## Source code
 
