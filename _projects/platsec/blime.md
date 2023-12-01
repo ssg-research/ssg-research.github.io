@@ -1,6 +1,8 @@
 ---
 layout: default
 permalink: /platsec/blime
+redirect_from:
+  - /blime/
 nav: false
 horizontal: false
 title: Blinded Memory
