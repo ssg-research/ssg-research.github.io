@@ -20,7 +20,13 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
 
 ## Conference/journal paper publications
 
+<!--
 - {% reference blime24 %}
+-->
+
+<div class="publications">
+  {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @*[selected=blime]* %}
+</div>
 
 
 ## Source code
