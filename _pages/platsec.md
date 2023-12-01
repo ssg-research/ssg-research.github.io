@@ -14,7 +14,7 @@ At SSG, we investigate the design of new hardware and software platform security
 # Current Projects
 
 - [BliME](blime)
-- [Access Control in Android](aosp)
+- [Probably Android](probandroid)
 - [Secure Memory Allocators](memallo)
 
 # Past Projects
