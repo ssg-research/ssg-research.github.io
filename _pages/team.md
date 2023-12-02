@@ -23,7 +23,7 @@ nav_order: 6
 - [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-)
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 - Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-)
-- Hossam ElAtali (supervised by N. Asokan. 2021-)
+- [Hossam ElAtali](https://elatalhm.github.io/) (supervised by N. Asokan. 2021-)
 
 
 ### Master's Students (@ University of Waterloo)
