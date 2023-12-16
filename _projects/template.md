@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /mlsec/modelExtDef
+permalink: /mlsec/template
 nav: false
 horizontal: false
 title: Model Extraction Attacks and Defenses
