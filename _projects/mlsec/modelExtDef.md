@@ -38,6 +38,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Talks
 
+
 - On the Effectiveness of Dataset Watermarking: IWSPA'22 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf)
 - WAFFLE: SRDS'21 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf)
 - Extraction of Complex DNN models: Brief overview [pdf](https://ssg.aalto.fi/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf), AAAI-EDSMLS'20 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/12/EDSMLS_presentation.pdf)
