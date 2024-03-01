@@ -14,6 +14,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Conference/journal paper publications
 
+- Rui Zhang, Jian Liu, Sebastian Szyller, Kui Ren, N. Asokan: **False Claims Against Model Ownership Resolution.** [Usenix Sec 2024](https://www.usenix.org/conference/usenixsecurity24) arXiv preprint [arXiv:2304.06607](https://arxiv.org/abs/2304.06607)
 - Asim Waheed, Vasisht Duddu, N. Asokan: **GrOVe: Ownership Verification of Graph Neural Networks using Embeddings.** [IEEE S&P 2024](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2304.08566](https://arxiv.org/abs/2304.08566)
 - Buse Gul Atli Tekgul, N Asokan: **FLARE: Fingerprinting Deep Reinforcement Learning Agents using Universal Adversarial Masks.** [ACSAC 2023](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2307.14751](https://arxiv.org/abs/2307.14751)
 - Sebastian Szyller, Rui Zhang, Jian Liu, N. Asokan: **On the Robustness of Dataset Inference.** [TMLR 2023](https://openreview.net/forum?id=LKz5SqIXPJ)</a>. arXiv preprint [arXiv:2210.13631](https://arxiv.org/abs/2210.13631)
@@ -26,7 +27,6 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Technical reports
 
-- Rui Zhang, Jian Liu, Sebastian Szyller, Kui Ren, N. Asokan: **False Claims Against Model Ownership Resolution.** arXiv preprint [arXiv:2304.06607](https://arxiv.org/abs/2304.06607)
 - Sebastian Szyller, Vasisht Duddu, Tommi Gröndahl, N. Asokan: **Good Artists Copy, Great Artists Steal: Model Extraction Attacks Against Image Translation Generative Adversarial Networks.** arXiv preprint [arXiv:2104.12623](https://arxiv.org/abs/2104.12623)
 
 ## Theses
