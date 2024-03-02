@@ -17,6 +17,7 @@ Our work in this theme is along two dimensions:
 
 # Current Projects
 
+- [Interactions among Machine Learning Defenses and Risks](interactions)
 - [Model extraction attacks and defenses](modelExtDef)
 
 
