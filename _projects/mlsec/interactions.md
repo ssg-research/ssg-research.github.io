@@ -3,11 +3,11 @@ layout: default
 permalink: /mlsec/interactions
 nav: false
 horizontal: false
-title: Interactions among Machine Learning Risks and Defenses
+title: Interactions among ML Risks and Defenses
 ---
 
 
-# Interactions among Machine Learning Risks and Defenses
+# Interactions among ML Risks and Defenses
 
 ## Background 
 
