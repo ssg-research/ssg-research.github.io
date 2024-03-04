@@ -12,7 +12,7 @@ horizontal: false
 ### Publications
 Our publications from 2019 onwards can be found on the [CrySP publications page](https://crysp.uwaterloo.ca/publications). Earlier publications are available on the Aalto [SSG publications page](https://ssg.aalto.fi/publications/).
 
-Sometimes we [blog about our research results](https://blog.ssg.aalto.fi/). 
+Sometimes we [blog about our research results](https://crysp.uwaterloo.ca/ssg/blog). 
 
 ### Software
 
