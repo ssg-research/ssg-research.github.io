@@ -15,7 +15,7 @@ Machine learning models are susceptible to a wide range of risks to security, pr
 Several defenses have been proposed to mitigate these risks. 
 However, defending against a specific risk can result in an unintended increase or decrease in susceptibility to other risks. 
 One approach to address these unintended interactions is by combining multiple defenses together. 
-However, there could be conflicting interactions among different defenses which need to be accounted for by a ML practioners.
+However, there could be conflicting interactions among different defenses which need to be accounted by ML practitioners.
 
 ## Conference/journal paper publications
 
