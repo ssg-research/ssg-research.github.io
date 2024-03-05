@@ -18,6 +18,7 @@ Sometimes we [blog about our research results](https://crysp.uwaterloo.ca/ssg/bl
 
 Below is a list of publicly available source code related to past and current SSG projects.
 
+- [False Claims against Model Ownership Resolution](https://github.com/ssg-research/Falseclaims) (2024)
 - [BliMe: Blinded Memory](https://github.com/ssg-research/BliMe) (2024)
 - [GroVE: Ownership Verification of Graph Neural Networks using Embeddings](https://github.com/ssg-research/GrOVe) (2024)
 - [CONF-ML: Conflicts between ML protection mechanisms](https://github.com/ssg-research/conflicts-in-ml-protection-mechanisms) (2023)
