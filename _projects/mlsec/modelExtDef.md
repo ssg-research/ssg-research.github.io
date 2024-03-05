@@ -51,6 +51,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Source code
 
+- [GitHub source code for False-Claims](https://github.com/ssg-research/Falseclaims)
 - [GitHub source code for GrOVe](https://github.com/ssg-research/GrOVe")
 - [GitHub source code for FLARE](https://github.com/ssg-research/FLARE)
 - [GitHub source code for Conflicting Interactions](https://github.com/ssg-research/conflicts-in-ml-protection-mechanisms)
