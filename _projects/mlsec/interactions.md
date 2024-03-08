@@ -3,11 +3,11 @@ layout: default
 permalink: /mlsec/interactions
 nav: false
 horizontal: false
-title: Interactions among ML Risks and Defenses
+title: Unintended Interactions among ML Risks and Defenses
 ---
 
 
-# Interactions among ML Risks and Defenses
+# Unintended Interactions among ML Risks and Defenses
 
 ## Background 
 
