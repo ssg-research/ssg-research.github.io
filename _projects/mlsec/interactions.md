@@ -24,7 +24,8 @@ However, there could be conflicting interactions among different defenses which 
 
 ## Talks
 
-- OSoK: Unintended Interactions among Machine Learning Defenses and Risks. [pdf](../../assets/pdf/mlsec/SoK.pdf)
+- SoK: Unintended Interactions among Machine Learning Defenses and Risks. [pdf](../../assets/pdf/mlsec/SoK.pdf)
+- Conflicting Interactions Among Protection Mechanisms for Machine Learning Models. [pdf](../../assets/pdf/mlsec/MLConfGoals-master.pdf)
 
 ## Source code
 
