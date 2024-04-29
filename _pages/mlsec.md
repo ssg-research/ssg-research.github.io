@@ -19,7 +19,7 @@ Our work in this theme is along two dimensions:
 
 - [Unintended Interactions among ML Defenses and Risks](interactions)
 - [Model extraction attacks and defenses](modelExtDef)
-
+- [Machine Learning Property Attestations](mlattestation)
 
 # Past Projects
 
