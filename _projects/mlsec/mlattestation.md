@@ -15,7 +15,7 @@ Providers of machine-learning (ML)-based services make various claims about thei
 Regulators and potential clients must convince themselves that these claims are accurate. 
 Prior works have used purely ML approaches or cryptographic primitives to prove certain properties, such as distributional properties or proof of training. 
 There is a need to efficiently furnish attestations for different types properties across the ML model training and inference pipeline.
-We explore different technical mechanisms to furnish such attestations. 
+We explore different technical mechanisms such as trusted execution environments to furnish such attestations. 
 
 ## Conference/journal paper publications
 
