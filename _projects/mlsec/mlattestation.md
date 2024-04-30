@@ -21,6 +21,9 @@ We explore different technical mechanisms such as trusted execution environments
 
 - Vasisht Duddu, Anudeep Das, Nora Khayata, Hossein Yalame, Thomas Schneider, N. Asokan: **Attesting Distributional Properties of Training Data for Machine Learning.** [ESORICS 2024](https://esorics2024.org/). arXiv preprint [arXiv:2308.09552](https://arxiv.org/abs/2308.09552)
 
+## Ongoing Work
+
+- Vasisht Duddu, Oskari Jarvinen, Lachlan J. Gunn, N. Asokan. **Poster: Machine Learning Property Attestations using TEEs.** To be uploaded.
 
 ## Source code
 
