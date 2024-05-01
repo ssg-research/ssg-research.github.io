@@ -17,16 +17,16 @@ Our work in this theme is along two dimensions:
 
 # Current Projects
 
-- [Unintended Interactions among ML Defenses and Risks](interactions)
+- [Unintended interactions among ML defenses and risks](interactions)
 - [Model extraction attacks and defenses](modelExtDef)
-- [Machine Learning Property Attestations](mlattestation)
-- [Unacceptable Concept Filtering in Text to Image Model](conceptfilter)
+- [Machine learning property attestations](mlattestation)
+- [Unacceptable concept filtering in text-to-image model](conceptfilter)
 
 # Past Projects
 
 - [Automated generation of deceptive text](https://ssg.aalto.fi/research/projects/mlsec/deceptive-text/)
 - [Privacy-preserving machine learning predictions](https://ssg.aalto.fi/research/projects/mlsec/ppml/)
-- [Deception Detection via Text Analysis](https://ssg.aalto.fi/research/projects/deception-detection-via-text-analysis/)
+- [Deception detection via text analysis](https://ssg.aalto.fi/research/projects/deception-detection-via-text-analysis/)
 - [Automated detection of organized eCommerce fraud](https://ssg.aalto.fi/research/projects/mlsec/fraud-detection/)
 - [Model evasion attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-evasion/)
 
