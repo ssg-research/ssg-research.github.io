@@ -38,11 +38,11 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Talks
 
-
-- On the Effectiveness of Dataset Watermarking: IWSPA'22 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf)
-- WAFFLE: SRDS'21 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf)
-- Extraction of Complex DNN models: Brief overview [pdf](https://ssg.aalto.fi/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf), AAAI-EDSMLS'20 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/12/EDSMLS_presentation.pdf)
-- PRADA: Euro S&P'19 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/08/EuroSP19.pdf)
+- On the Robustness of Dataset Watermarking: TMLR'23 [talk](https://www.youtube.com/watch?v=jZ3Lw98gfv8)
+- On the Effectiveness of Dataset Watermarking: IWSPA'22 [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf) [talk](https://www.youtube.com/watch?v=9whoREZim2U&list=PLabB1oNtPsdC7cbfHt0VacTaf1XB8Bmhz&index=10)
+- WAFFLE: SRDS'21 [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf) [talk](https://www.youtube.com/watch?v=C_zoHSU1wOs)
+- Extraction of Complex DNN models: Brief overview [pdf](https://ssg.aalto.fi/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf), AAAI-EDSMLS'20 [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/12/EDSMLS_presentation.pdf)
+- PRADA: Euro S&P'19 [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/08/EuroSP19.pdf)
 
 ## Demos and Posters
 
