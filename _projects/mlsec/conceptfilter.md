@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /mlsec/mlattestation
+permalink: /mlsec/conceptfilter
 nav: false
 horizontal: false
 title: Robust Concept Filtering in Text to Image Models
@@ -21,7 +21,7 @@ We show Espresso is effective in removing unacceptable concepts, utility-preserv
 
 ## Technical Reports
 
-- Anudeep Das, Vasisht Duddu, Rui Zhang, N. Asokan: **Espresso: Robust Concept Filtering in Text-to-Image Models.** arXiv preprint
+- Anudeep Das, Vasisht Duddu, Rui Zhang, N. Asokan: **Espresso: Robust Concept Filtering in Text-to-Image Models.** arXiv preprint. [arxiv:2404.19227](https://arxiv.org/abs/2404.19227)
 
 
 ## Source code
