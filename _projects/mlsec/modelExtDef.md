@@ -46,6 +46,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Demos and Posters
 
+- GrOVe Poster[pdf](../../assets/pdf/mlsec/grove_poster.pdf)
 - [CS Research Day 2020](https://www.aalto.fi/en/events/cs-research-day-2020): **WAFFLE: Watermarking in Federated Learning** (October 1, Aalto University, Finland), [presentation](https://www.youtube.com/watch?v=C_zoHSU1wOs)
 - [Secure Systems Demo Day 2019](https://ssg.aalto.fi/events/demo-day-2019/): **Stealing Complex DNN Models: Limitations and Defense Strategies** (May 29, Aalto University, Finland), [poster](https://ssg.aalto.fi/wp-content/uploads/2019/05/20_Atli.pdf)
 
