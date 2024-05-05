@@ -22,6 +22,10 @@ However, there could be conflicting interactions among different defenses which 
 - Vasisht Duddu, Sebastian Szyller, N. Asokan: **SoK: Unintended Interactions among Machine Learning Defenses and Risks.** [IEEE S&P 2024](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2312.04542](https://arxiv.org/abs/2312.04542)
 - Sebastian Szyller, N. Asokan: **Conflicting Interactions Among Protection Mechanisms for Machine Learning Models**. [AAAI 2023](https://aaai-23.aaai.org). arXiv preprint [arXiv:2207.01991](https://arxiv.org/abs/2207.01991)
 
+## Posters
+
+- Sok Poster[pdf](../../assets/pdf/mlsec/sok_poster.pdf)
+
 ## Talks
 
 - SoK: Unintended Interactions among Machine Learning Defenses and Risks. [pdf](../../assets/pdf/mlsec/SoK.pdf)
