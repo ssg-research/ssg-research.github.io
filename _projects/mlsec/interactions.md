@@ -24,7 +24,7 @@ However, there could be conflicting interactions among different defenses which 
 
 ## Posters
 
-- Sok Poster[pdf](../../assets/pdf/mlsec/sok_poster.pdf)
+- **SoK: Unintended Interactions among Machine Learning Defenses and Risks.** [pdf](../../assets/pdf/mlsec/sok_poster.pdf)
 
 ## Talks
 
