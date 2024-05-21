@@ -23,7 +23,7 @@ We explore different technical mechanisms such as trusted execution environments
 
 ## Posters
 
-- Vasisht Duddu, Oskari Jarvinen, Lachlan J. Gunn, N. Asokan. **Machine Learning Property Attestations using TEEs.** To be uploaded.
+- Vasisht Duddu, Oskari Jarvinen, Lachlan J. Gunn, N. Asokan. **Machine Learning Property Attestations using TEEs.** [pdf](../../assets/pdf/mlsec/AttestedML_poster.pdf)
 
 ## Source code
 
