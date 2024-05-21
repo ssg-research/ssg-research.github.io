@@ -38,6 +38,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Talks
 
+- GrOVe: Ownership Verification of Graph Neural Networks using Embeddings [talk](https://youtu.be/jq25gEOjrCE)
 - On the Robustness of Dataset Watermarking: TMLR'23 [talk](https://www.youtube.com/watch?v=jZ3Lw98gfv8)
 - On the Effectiveness of Dataset Watermarking: IWSPA'22 [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf) [talk](https://www.youtube.com/watch?v=9whoREZim2U&list=PLabB1oNtPsdC7cbfHt0VacTaf1XB8Bmhz&index=10)
 - WAFFLE: SRDS'21 [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf) [talk](https://www.youtube.com/watch?v=C_zoHSU1wOs)
