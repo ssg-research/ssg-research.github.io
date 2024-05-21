@@ -13,9 +13,9 @@ title: Unintended Interactions among ML Risks and Defenses
 
 Machine learning models are susceptible to a wide range of risks to security, privacy, and fairness. 
 Several defenses have been proposed to mitigate these risks. 
-However, defending against a specific risk can result in an unintended increase or decrease in susceptibility to other risks. 
-One approach to address these unintended interactions is by combining multiple defenses together. 
-However, there could be conflicting interactions among different defenses which need to be accounted by ML practitioners.
+However, defending against a specific risk can result in an unintended increase (or decrease) in susceptibility to other risks. 
+Similarly when defenses against multiple risks are applied to a machine learning model, there could be conflicting interactions among among them.
+This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-interactions-among-ml.html) provides additional context for this work.
 
 ## Conference/journal paper publications
 
