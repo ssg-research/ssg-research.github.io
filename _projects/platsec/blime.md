@@ -30,7 +30,8 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
 
 ## Talks
 
-- BliMe: NDSS'24 talk, [pdf](/assets/pdf/platsec/BliMe-NDSS24-slides.pdf), [pptx](/assets/pptx/platsec/BliMe-NDSS24-slides.pdf)
+- BliMe: NDSS'24 [talk](https://youtu.be/cfyvaW1wwQk?si=TuICEfLogqUjTgAp), [pdf](/assets/pdf/platsec/BliMe-NDSS24-slides.pdf), [pptx](/assets/pptx/platsec/BliMe-NDSS24-slides.pdf)
+- Dolma: HOST'24 [poster](/assets/pdf/platsec/Dolma-HOST24-poster.pdf)
 
 ## Source code
 
