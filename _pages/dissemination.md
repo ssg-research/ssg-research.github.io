@@ -18,7 +18,7 @@ Sometimes we [blog about our research results](https://crysp.uwaterloo.ca/ssg/bl
 
 Below is a list of publicly available source code related to past and current SSG projects.
 
-
+- [Amulet](https://github.com/ssg-research/amulet) (2024)
 - [Distributional Attestation](https://github.com/ssg-research/distribution-attestation) (2024)
 - [SoK](https://github.com/ssg-research/sok-unintended-interactions) (2024)
 - [False Claims against Model Ownership Resolution](https://github.com/ssg-research/Falseclaims) (2024)
