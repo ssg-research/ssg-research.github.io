@@ -22,6 +22,10 @@ This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-inter
 - Vasisht Duddu, Sebastian Szyller, N. Asokan: **SoK: Unintended Interactions among Machine Learning Defenses and Risks.** [IEEE S&P 2024](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2312.04542](https://arxiv.org/abs/2312.04542). (Distinguished paper award)
 - Sebastian Szyller, N. Asokan: **Conflicting Interactions Among Protection Mechanisms for Machine Learning Models**. [AAAI 2023](https://aaai-23.aaai.org). arXiv preprint [arXiv:2207.01991](https://arxiv.org/abs/2207.01991)
 
+## Software Library
+
+- **Amulet: A Library for Evaluating interactions among Machine Learning Risks and Defeneses** [Code](https://github.com/ssg-research/amulet)
+
 ## Posters
 
 - **SoK: Unintended Interactions among Machine Learning Defenses and Risks.** [pdf](../../assets/pdf/mlsec/sok_poster.pdf)
@@ -33,6 +37,6 @@ This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-inter
 
 ## Source code
 
-
+- [GitHub source code for Amulet](https://github.com/ssg-research/amulet)
 - [GitHub source code for SoK](https://github.com/ssg-research/sok-unintended-interactions)
 - [GitHub source code for Conflicting Interactions](https://github.com/ssg-research/conflicts-in-ml-protection-mechanisms)
