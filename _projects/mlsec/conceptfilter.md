@@ -23,8 +23,3 @@ We show Espresso is effective in removing unacceptable concepts, utility-preserv
 
 - Anudeep Das, Vasisht Duddu, Rui Zhang, N. Asokan: **Espresso: Robust Concept Filtering in Text-to-Image Models.** arXiv preprint. [arxiv:2404.19227](https://arxiv.org/abs/2404.19227)
 
-
-## Source code
-
-- [GitHub source code for Espresso]()
-
