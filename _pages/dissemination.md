@@ -20,7 +20,7 @@ Below is a list of publicly available source code related to past and current SS
 
 - [Amulet](https://github.com/ssg-research/amulet) (2024)
 - [Distributional Attestation](https://github.com/ssg-research/distribution-attestation) (2024)
-- [Code for SoK](https://github.com/ssg-research/sok-unintended-interactions) (2024)
+- [Code for SoK: Unintended Interactions among ML Defenses](https://github.com/ssg-research/sok-unintended-interactions) (2024)
 - [False Claims against Model Ownership Resolution](https://github.com/ssg-research/Falseclaims) (2024)
 - [BliMe: Blinded Memory](https://github.com/ssg-research/BliMe) (2024)
 - [GroVE: Ownership Verification of Graph Neural Networks using Embeddings](https://github.com/ssg-research/GrOVe) (2024)
