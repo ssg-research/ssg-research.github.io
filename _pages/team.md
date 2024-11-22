@@ -24,17 +24,18 @@ nav_order: 6
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 - Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-)
 - [Hossam ElAtali](https://elatalhm.github.io/) (supervised by N. Asokan. 2021-)
+- Ruizhe Wang (co-supervised by Meng Xu and N. Asokan, 2024-)
 
 
 ### Master's Students (@ University of Waterloo)
 
-- Ruizhe Wang (co-supervised by Meng Xu and N. Asokan, 2022-)
+- Anudeep Das (supervised by N. Asokan, 2024-)
+- Prach Chantasantitam (supervised by N. Asokan, 2024-)
 - Mehdi Aghakishiyev (co-supervised by Meng Xu and N. Asokan, 2023-)
 
 #### Visitors
 
-- Zhang Rui (Doctoral student @ Zhejiang University, 2023-)
-
+- Zhang Rui (Doctoral student @ Zhejiang University, 2023-2024)
 
 ### Alumni (@ University of Waterloo)
 
@@ -44,6 +45,7 @@ nav_order: 6
 
 #### Masters Students
 
+- Ruizhe Wang (co-supervised by Meng Xu and N. Asokan, 2022-2024)
 - Xiaohe Duan (supervised by N. Asokan, 2021-2023)
 - Asim Waheed (supervised by N. Asokan, 2021-2023)
 - Owura Asare (co-supervised by Mei Nagappan and N. Asokan, 2021-2023)
