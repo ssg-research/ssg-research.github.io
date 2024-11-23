@@ -33,10 +33,6 @@ nav_order: 6
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
 - Mehdi Aghakishiyev (co-supervised by Meng Xu and N. Asokan, 2023-)
 
-#### Visitors
-
-- Zhang Rui (Doctoral student @ Zhejiang University, 2023-2024)
-
 ### Alumni (@ University of Waterloo)
 
 #### Post-doctoral researchers
@@ -58,6 +54,7 @@ nav_order: 6
 
 - Lachlan J. Gunn (Lecturer @ Aalto University, 2022)
 - Sebastian Szyller (Doctoral Student @ Aalto University, 2022)
+- Zhang Rui (Doctoral student @ Zhejiang University, 2023-2024)
 
 ### [Faculty, Students, and Alumni (@Aalto University)](https://ssg.aalto.fi/people/)
 
