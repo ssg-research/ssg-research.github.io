@@ -17,6 +17,7 @@ nav_order: 6
 
 ### Post-doctoral researchers
 - Uzma Maroof (co-supervised by Diogo Barradas and N. Asokan, 2023-)
+- [Adam Caulfield](https://adamicaulfield.github.io/) (supervised by N. Asokan. 2024-)
 
 ### Doctoral Students (@ University of Waterloo)
 
@@ -24,8 +25,7 @@ nav_order: 6
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 - Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-)
 - [Hossam ElAtali](https://elatalhm.github.io/) (supervised by N. Asokan. 2021-)
-- Ruizhe Wang (co-supervised by Meng Xu and N. Asokan, 2024-)
-
+- [Ruizhe Wang](https://ruizhe-w.github.io/) (co-supervised by Meng Xu and N. Asokan, 2024-)
 
 ### Master's Students (@ University of Waterloo)
 
