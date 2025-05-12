@@ -32,7 +32,7 @@ This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-inter
 
 ## Posters
 
-- **SoK: Unintended Interactions among Machine Learning Defenses and Risks.** [pdf](../../assets/pdf/mlsec/sok_poster.pdf)
+- **SoK: Unintended Interactions among Machine Learning Defenses and Risks.** [pdf](../../assets/pdf/mlsec/SoK_poster.pdf)
 
 ## Talks
 
