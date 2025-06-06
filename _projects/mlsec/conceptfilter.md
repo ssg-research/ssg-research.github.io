@@ -3,11 +3,11 @@ layout: default
 permalink: /mlsec/conceptfilter
 nav: false
 horizontal: false
-title: Robust Concept Filtering in Text to Image Models
+title: Content Moderation for Generative Models
 ---
 
 
-# Robust Concept Filtering in Text to Image Models
+# Content Moderation for Generative Models
 
 ## Background 
 
@@ -21,5 +21,5 @@ We show Espresso is effective in removing unacceptable concepts, utility-preserv
 
 ## Conference/journal paper publications
 
-- Anudeep Das, Vasisht Duddu, Rui Zhang, N. Asokan: **Espresso: Robust Concept Filtering in Text-to-Image Models.** [ACM CODASPY 2025](https://www.codaspy.org/2025/). arXiv preprint. [arxiv:2404.19227](https://arxiv.org/abs/2404.19227)
+- Anudeep Das, Vasisht Duddu, Rui Zhang, N. Asokan: **Espresso: Robust Concept Filtering in Text-to-Image Models.** [ACM CODASPY 2025](https://www.codaspy.org/2025/). arXiv preprint. [arxiv:2404.19227](https://arxiv.org/abs/2404.19227) (Best paper award)
 
