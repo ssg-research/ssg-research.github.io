@@ -20,7 +20,7 @@ Our work in this theme is along two dimensions:
 - [Unintended interactions among ML defenses and risks](interactions)
 - [Model extraction attacks and defenses](modelExtDef)
 - [Machine learning property attestations](mlattestation)
-- [Unacceptable concept filtering in text-to-image model](conceptfilter)
+- [Content Moderation for Generative Models](conceptfilter)
 
 # Past Projects
 
