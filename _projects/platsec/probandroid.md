@@ -28,6 +28,14 @@ To this end, we focus on (i) discovering various sources of hints that can provi
   {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @*[selected=bluebird]* %}
 </div>
 
+<!--
+- {% reference ariadne25 %}
+-->
+
+<div class="publications">
+  {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @*[selected=ariadne]* %}
+</div>
+
 ## Talks
 
 - Auditing Framework APIs via Inferred App-side Security Specifications: SEC'23 talk [video](https://youtu.be/EnpNT_vyh2g)
