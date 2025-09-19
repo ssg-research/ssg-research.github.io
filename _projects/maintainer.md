@@ -15,5 +15,5 @@ This includes adding relevant project details after publications, and including 
 
 - Vasisht Duddu: Access to MLSec webpages
 - Hossam ElAtli: Access to PlatSec webpages
-- Parjanya Vyas: Access to PlatSec/Probably Android/
+- Parjanya Vyas: Access to PlatSec/Probably Android/ + Maintaining the "paper repository" which includes list of rebuttals and reviews for each paper submission in the group
 - Michael Wrana: Access to Other/Future Internet Architectures/
