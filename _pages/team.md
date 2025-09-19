@@ -17,7 +17,7 @@ nav_order: 6
 
 ### Post-doctoral researchers
 - Uzma Maroof (co-supervised by Diogo Barradas and N. Asokan, 2023-)
-- - [Yihan Wang](https://yihan-wang.com/) (supervised by N. Asokan. 2025-)
+- [Yihan Wang](https://yihan-wang.com/) (supervised by N. Asokan. 2025-)
 - [Adam Caulfield](https://adamicaulfield.github.io/) (supervised by N. Asokan. 2025-)
 
 ### Doctoral Students (@ University of Waterloo)
@@ -54,6 +54,8 @@ nav_order: 6
 
 #### Past Visitors
 
+- Anthony J. Hughes (Doctoral Student @ University of Sheffield, July-August, 2025)
+- Samuel Sousa (Doctoral Student @ TU Graz, 2024)
 - Lachlan J. Gunn (Lecturer @ Aalto University, 2022)
 - Sebastian Szyller (Doctoral Student @ Aalto University, 2022)
 - Zhang Rui (Doctoral student @ Zhejiang University, 2023-2024)
