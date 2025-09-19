@@ -17,10 +17,13 @@ nav_order: 6
 
 ### Post-doctoral researchers
 - Uzma Maroof (co-supervised by Diogo Barradas and N. Asokan, 2023-)
-- [Adam Caulfield](https://adamicaulfield.github.io/) (supervised by N. Asokan. 2024-)
+- - [Yihan Wang](https://yihan-wang.com/) (supervised by N. Asokan. 2025-)
+- [Adam Caulfield](https://adamicaulfield.github.io/) (supervised by N. Asokan. 2025-)
 
 ### Doctoral Students (@ University of Waterloo)
 
+- Anudeep Das (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
+- Asim Waheed (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
 - [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-)
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 - Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-)
@@ -29,9 +32,7 @@ nav_order: 6
 
 ### Master's Students (@ University of Waterloo)
 
-- Anudeep Das (supervised by N. Asokan, 2024-)
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
-- Mehdi Aghakishiyev (co-supervised by Meng Xu and N. Asokan, 2023-)
 
 ### Alumni (@ University of Waterloo)
 
@@ -41,6 +42,7 @@ nav_order: 6
 
 #### Masters Students
 
+- Mehdi Aghakishiyev (co-supervised by Meng Xu and N. Asokan, 2023-2025)
 - Ruizhe Wang (co-supervised by Meng Xu and N. Asokan, 2022-2024)
 - Xiaohe Duan (supervised by N. Asokan, 2021-2023)
 - Asim Waheed (supervised by N. Asokan, 2021-2023)
