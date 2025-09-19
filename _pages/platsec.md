@@ -30,8 +30,3 @@ At SSG, we investigate the design of new hardware and software platform security
 - [SEAndroid Analysis](https://ssg.aalto.fi/research/projects/seandroid-analysis/)
 - [Blockchain Consensus and Beyond](https://ssg.aalto.fi/research/projects/bcon/)
 
-# Research Insitutes/Programs
-
-- [PrivateAI](https://www.private-ai.org/)
-- [ICRI-CARS](https://www.icri-cars.org/)
-- [ICRI-SC](https://www.icri-sc.org/)
