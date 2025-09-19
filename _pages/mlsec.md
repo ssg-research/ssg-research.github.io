@@ -30,9 +30,3 @@ Our work in this theme is along two dimensions:
 - [Automated detection of organized eCommerce fraud](https://ssg.aalto.fi/research/projects/mlsec/fraud-detection/)
 - [Model evasion attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-evasion/)
 
-# Research Institutes/Programs
-
-- [PrivateAI](https://www.private-ai.org/)
-- [ICRI-CARS](https://www.icri-cars.org/)
-- [SELIoT](https://ssg.aalto.fi/research/projects/seliot-project/)
-- [CloSer](https://ssg.aalto.fi/research/projects/closer/project-summary/)
