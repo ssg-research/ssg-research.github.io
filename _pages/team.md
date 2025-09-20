@@ -32,6 +32,7 @@ nav_order: 6
 
 ### Master's Students (@ University of Waterloo)
 
+- [Lipeng (Tony) He](https://lipeng.ac) (supervised by N. Asokan, 2025-)
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
 
 ### Alumni (@ University of Waterloo)
