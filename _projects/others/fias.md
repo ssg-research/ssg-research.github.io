@@ -14,7 +14,9 @@ The dramatic growth of the Internet has enabled ubiquitous access to information
 
 ## Conference/journal paper publications
 
-Michael Wrana, Diogo Barradas, and N. Asokan. 2023. **The Spectre of Surveillance and Censorship in Future Internet Architectures.** ACM Computing Surveys (September 2023), 35 pages. *(Under Review)*
+Michael Wrana, Uzma Maroof, and Diogo Barradas. **TSA-WF: Exploring the Effectiveness of Time Series Analysis for Website Fingerprinting.** In proceedings of Availability, Reliability, and Security (ARES) (August 2025)
+
+Michael Wrana, Diogo Barradas, and N. Asokan. 2023. **SoK: The Spectre of Surveillance and Censorship in Future Internet Architectures.** In Proceedings on Privacy-Enhancing Technologies Symposium (PoPETS) (July 2025)
 
 ## Demos and Posters
 
