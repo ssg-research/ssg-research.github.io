@@ -18,6 +18,7 @@ Sometimes we [blog about our research results](https://crysp.uwaterloo.ca/ssg/bl
 
 Below is a list of publicly available source code related to past and current SSG projects.
 
+- [BLACKOUT](https://github.com/blindedcapabilities) (2025)
 - [Amulet](https://github.com/ssg-research/amulet) (2024)
 - [Distributional Attestation](https://github.com/ssg-research/distribution-attestation) (2024)
 - [Code for SoK: Unintended Interactions among ML Defenses](https://github.com/ssg-research/sok-unintended-interactions) (2024)

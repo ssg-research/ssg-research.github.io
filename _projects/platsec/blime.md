@@ -37,3 +37,7 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
 
 - [BliMe-BOOM on Chipyard/FireSim](https://github.com/ssg-research/BliMe/tree/main/firesim)
 - [Formal model in F*](https://blinded-computation.github.io/blime-model/index.html)
+
+## Follow-up work
+
+- [BLACKOUT](https://blindedcapabilities.github.io/)
