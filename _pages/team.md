@@ -36,7 +36,7 @@ nav_order: 6
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
 
 
-![Group Photo 2025](./assets/gp2025.jpeg)
+![Group Photo 2025](../assets/gp2025.jpeg)
 
 
 ### Alumni (@ University of Waterloo)
