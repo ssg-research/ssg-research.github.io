@@ -18,7 +18,6 @@ nav_order: 6
 - [Meng Xu](https://cs.uwaterloo.ca/~m285xu/)
 
 ### Post-doctoral researchers
-- Uzma Maroof (co-supervised by Diogo Barradas and N. Asokan, 2023-)
 - [Yihan Wang](https://yihan-wang.com/) (supervised by N. Asokan. 2025-)
 - [Adam Caulfield](https://adamicaulfield.github.io/) (supervised by N. Asokan. 2025-)
 
@@ -28,8 +27,6 @@ nav_order: 6
 - Asim Waheed (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
 - [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-)
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
-- Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-)
-- [Hossam ElAtali](https://elatalhm.github.io/) (supervised by N. Asokan. 2021-)
 - [Ruizhe Wang](https://ruizhe-w.github.io/) (co-supervised by Meng Xu and N. Asokan, 2024-)
 
 ### Master's Students (@ University of Waterloo)
@@ -40,8 +37,15 @@ nav_order: 6
 ### Alumni (@ University of Waterloo)
 
 #### Post-doctoral researchers
+
+- Uzma Maroof (co-supervised by Diogo Barradas and N. Asokan, 2023-2025)
 - Hans Liljestrand (supervised by N. Asokan 2020-2022)
 - Mika Juuti (supervised by N. Asokan, 2019-2020)
+
+#### Doctoral researchers
+
+- [Hossam ElAtali](https://elatalhm.github.io/) (supervised by N. Asokan. 2021-2025)
+- Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-2025)
 
 #### Masters Students
 
