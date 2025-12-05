@@ -13,11 +13,12 @@ At SSG, we investigate the design of new hardware and software platform security
 
 # Current Projects
 
-- [BliME](blime)
-- [Probably Android](probandroid)
+
 
 # Past Projects
 
+- [BliME](blime)
+- [Probably Android](probandroid)
 - [Secure Memory Allocators](memallo)
 - [On-Board Credentials](https://ssg.aalto.fi/research/projects/on-board-credentials/)
 - [Open-TEE](https://open-tee.github.io/)
