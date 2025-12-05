@@ -35,6 +35,10 @@ nav_order: 6
 - [Lipeng (Tony) He](https://lipeng.ac) (supervised by N. Asokan, 2025-)
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
 
+
+![Group Photo 2025](./assets/gp2025.jpeg)
+
+
 ### Alumni (@ University of Waterloo)
 
 #### Post-doctoral researchers
