@@ -7,6 +7,8 @@ nav: true
 nav_order: 6
 ---
 
+<img src="../assets/gp2025.jpeg" alt="Group Photo 2025" width="600"/>
+
 ### Affilited Faculty Members (@ University of Waterloo)
 
 - [Yousra Aafer](https://cs.uwaterloo.ca/~yaafer/)
@@ -34,10 +36,6 @@ nav_order: 6
 
 - [Lipeng (Tony) He](https://lipeng.ac) (supervised by N. Asokan, 2025-)
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
-
-
-<img src="../assets/gp2025.jpeg" alt="Group Photo 2025" width="400"/>
-
 
 ### Alumni (@ University of Waterloo)
 
