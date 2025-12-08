@@ -13,7 +13,7 @@ At SSG, we investigate the design of new hardware and software platform security
 
 # Current Projects
 
-
+- [Resolving Availability and Integrity Conflicts](pair)
 
 # Past Projects
 
