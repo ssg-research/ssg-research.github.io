@@ -34,6 +34,7 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
 ## Master's Theses
 
 - Mehdi Aghakishiyev, [Compiler Support for Constant-Time Programs in LLVM](https://uwspace.uwaterloo.ca/items/98518790-b765-4520-946a-3a8656b1a362), University of Waterloo, 2025
+- Xiaohe Duan, [Compiler-Based Approach to Enhance BliMe Hardware Usability](https://uwspace.uwaterloo.ca/items/faf4d40c-71d0-4d98-9222-9a0c04237f5e), University of Waterloo, 2023
 
 ## Talks
 
