@@ -28,6 +28,13 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
   {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @*[selected=blime]* %}
 </div>
 
+## Doctoral Dissertations
+- Hossam ElAtali, [Hardware-Assisted Defenses for Data Integrity and Confidentiality](https://uwspace.uwaterloo.ca/items/b84f777e-53c1-4904-9c5a-b28931e4c7c7), University of Waterloo, 2025
+
+## Master's Theses
+
+- Mehdi Aghakishiyev, [Compiler Support for Constant-Time Programs in LLVM](https://uwspace.uwaterloo.ca/items/98518790-b765-4520-946a-3a8656b1a362), University of Waterloo, 2025
+
 ## Talks
 
 - BliMe: NDSS'24 [talk](https://youtu.be/cfyvaW1wwQk?si=TuICEfLogqUjTgAp), [pdf](/assets/pdf/platsec/BliMe-NDSS24-slides.pdf)
@@ -38,6 +45,6 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
 - [BliMe-BOOM on Chipyard/FireSim](https://github.com/ssg-research/BliMe/tree/main/firesim)
 - [Formal model in F*](https://blinded-computation.github.io/blime-model/index.html)
 
-## Follow-up work
+<!-- ## Follow-up work
 
-- [BLACKOUT](https://blindedcapabilities.github.io/)
+- [BLACKOUT](https://blindedcapabilities.github.io/) -->
