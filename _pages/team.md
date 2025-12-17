@@ -8,6 +8,7 @@ nav_order: 6
 ---
 
 <img src="../assets/gp2025.jpeg" alt="Group Photo 2025" width="600"/>
+<img src="../assets/gp2025-2.jpeg" alt="Group Photo 2025" width="600"/>
 
 ### Affilited Faculty Members (@ University of Waterloo)
 
