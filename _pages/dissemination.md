@@ -14,6 +14,9 @@ Our publications from 2019 onwards can be found on the [CrySP publications page]
 
 Sometimes we [blog about our research results](https://crysp.uwaterloo.ca/ssg/blog). 
 
+### Events
+- [“Systems Security Research at KTH” workshop](url) (24 April 2026)
+
 ### Software
 
 Below is a list of publicly available source code related to past and current SSG projects.
