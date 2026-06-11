@@ -19,11 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.2.2'
+        ruby-version: '4.0'
         bundler-cache: true
     - name: Build
       run: JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter
