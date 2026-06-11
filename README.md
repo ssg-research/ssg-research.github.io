@@ -15,7 +15,7 @@ With [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/) insta
 
 ## How to create a project webpage
 
-For creating the project webpage for the first time, please use the template found under `/projects/template.md`
+For creating the project webpage for the first time, please use the template found under `_projects/template.md` (it has `published: false` in its frontmatter so it never renders on the live site — remove that line in your copy)
 
 The project webpages should be added to _projects/mlsec or _projects/platsec with the filename as <projectname>.md
 Once the project page has been created, link to the project webpage in _pages/mlsec.md or _pages/platsec.md as [Model extraction attacks and defenses](/mlsec/modelExtDef) (use the `permalink:` from the project page's frontmatter, not the file path)
@@ -28,4 +28,4 @@ Please make changes only to your own project pages and not the rest of the websi
 
 ## Contact
 
-For any questions or requests to change a page, please contact Vasisht (Machine Learning), Hossam (Platform Security), Michael (Other Topics)
+For any questions or requests to change a page, please contact Asim (Machine Learning), Adam Caulfield (Platform Security), Michael (Other Topics)

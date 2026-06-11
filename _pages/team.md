@@ -69,4 +69,3 @@ nav_order: 6
 - Zhang Rui (Doctoral student @ Zhejiang University, 2023-2024)
 
 ### [Faculty, Students, and Alumni (@Aalto University)](https://ssg.aalto.fi/people/)
-

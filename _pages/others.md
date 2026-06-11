@@ -33,5 +33,3 @@ At SSG, we investigate additional research themes which we mentioned below.
 - [Context-profiling for Access Control](https://ssg.aalto.fi/research/projects/context-profiling-for-access-control/)
 - [Rating Unsafe Content](https://ssg.aalto.fi/research/projects/rating-unsafe-content/)
 - [Signaling App Safety](https://ssg.aalto.fi/research/projects/signaling-app-safety/)
-
-

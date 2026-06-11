@@ -30,4 +30,3 @@ Our work in this theme is along two dimensions:
 - [Deception detection via text analysis](https://ssg.aalto.fi/research/projects/deception-detection-via-text-analysis/)
 - [Automated detection of organized eCommerce fraud](https://ssg.aalto.fi/research/projects/mlsec/fraud-detection/)
 - [Model evasion attacks and defenses](https://ssg.aalto.fi/research/projects/mlsec/model-evasion/)
-

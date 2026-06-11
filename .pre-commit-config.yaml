@@ -2,9 +2,16 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v6.0.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
     -   id: check-yaml
     -   id: check-added-large-files
+-   repo: https://github.com/codespell-project/codespell
+    rev: v2.4.2
+    hooks:
+    -   id: codespell
+        # rouge = the syntax highlighter; theses = plural of thesis
+        args: [--ignore-words-list, "rouge,theses"]
+        exclude: ^(_bibliography/|vendor/|Gemfile\.lock)
