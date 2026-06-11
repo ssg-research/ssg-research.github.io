@@ -10,8 +10,6 @@ let toggleTheme = (theme) => {
 
 let setTheme = (theme) => {
   transTheme();
-  setHighlight(theme);
-  setGiscusTheme(theme);
 
   if (theme) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -54,30 +52,6 @@ let setTheme = (theme) => {
         ) + "ee", // + 'ee' for trasparency.
     });
   }
-};
-
-let setHighlight = (theme) => {
-  if (theme == "dark") {
-    document.getElementById("highlight_theme_light").media = "none";
-    document.getElementById("highlight_theme_dark").media = "";
-  } else {
-    document.getElementById("highlight_theme_dark").media = "none";
-    document.getElementById("highlight_theme_light").media = "";
-  }
-};
-
-let setGiscusTheme = (theme) => {
-  function sendMessage(message) {
-    const iframe = document.querySelector("iframe.giscus-frame");
-    if (!iframe) return;
-    iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app");
-  }
-
-  sendMessage({
-    setConfig: {
-      theme: theme,
-    },
-  });
 };
 
 let transTheme = () => {

@@ -14,7 +14,7 @@ social: false  # includes social icons at the bottom of the page
 The Secure Systems Group (SSG) consists of researchers from [University of Waterloo](https://crysp.uwaterloo.ca/ssg), KTH Royal Institute of Technology, and [Aalto University](https://ssg.aalto.fi). At UWaterloo, SSG is part of [CrySP](https://crysp.uwaterloo.ca/). SSG's focus is on understanding how to design and build systems that are simultaneously secure, easy to use, and inexpensive to deploy. This involves both building and evaluating systems but also occasionally breaking the security and privacy guarantees claimed by existing systems.
 
 SSG came to Waterloo when [Prof. N. Asokan](https://asokan.org/asokan/) moved from [Aalto University](https://cs.aalto.fi/) to [David R. Cheriton School of Computer Science](https://cs.uwaterloo.ca/) in Fall 2019.
-[You can see more information about our past projects at the [Aalto SSG pages](https://ssg.aalto.fi/). SSG expanded to KTH when [Prof. N. Asokan](https://asokan.org/asokan/) was appointed as a [visiting Wallenberg Chair](https://wasp-sweden.org/people/n-asokan/) at [KTH Royal Institute of Technology](https://kth.se) in January 2026 for a five-year term. 
+You can see more information about our past projects at the [Aalto SSG pages](https://ssg.aalto.fi/). SSG expanded to KTH when [Prof. N. Asokan](https://asokan.org/asokan/) was appointed as a [visiting Wallenberg Chair](https://wasp-sweden.org/people/n-asokan/) at [KTH Royal Institute of Technology](https://kth.se) in January 2026 for a five-year term. 
 
 ### Our Research
 
@@ -30,7 +30,7 @@ In addition to these major themes, we have several [other themes](https://ssg-re
 You can find pointers to our papers, software, and blog on the [dissemination page](https://ssg-research.github.io/dissemination/).
 
 ### Student Research Projects and Teaching
-Our teaching activities and and topics for student research can be found in the respective university pages.
+Our teaching activities and topics for student research can be found in the respective university pages.
 
 At the University of Waterloo courses taught by SSG personnel will be listed in the [CrySP list of courses](https://crysp.uwaterloo.ca/courses). Openings for Undergraduate Research Assistants (when available) will appear on the [School of Computer Science URA page](https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/undergraduate-research-assistantship-ura-program).
 
