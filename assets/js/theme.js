@@ -49,7 +49,7 @@ let setTheme = (theme) => {
       background:
         getComputedStyle(document.documentElement).getPropertyValue(
           "--global-bg-color"
-        ) + "ee", // + 'ee' for trasparency.
+        ) + "ee", // + 'ee' for transparency.
     });
   }
 };

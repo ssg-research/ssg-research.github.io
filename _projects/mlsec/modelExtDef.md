@@ -9,7 +9,7 @@ title: Model Extraction Attacks and Defenses
 
 # Model Extraction Attacks and Defenses
 
-## Background 
+## Background
 As machine learning (ML) applications become increasingly prevalent, protecting the confidentiality of ML models becomes paramount. One way to protect model confidentiality is to limit access to the model only via well-defined prediction APIs. Nevertheless, prediction APIs still leak information so that it is possible to mount model extraction attacks. In model extraction, the adversary only has access to the prediction API of a target model which he queries to extract information about the model internals. The adversary uses this information to gradually train a substitute model that reproduces the predictive behaviour of the target model.
 
 ## Conference/journal paper publications

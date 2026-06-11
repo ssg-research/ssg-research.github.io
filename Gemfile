@@ -9,7 +9,10 @@ group :jekyll_plugins do
     gem 'jekyll-sitemap'
     gem 'jekyll-redirect-from'
     gem 'jemoji'
-    gem 'mini_racer', '< 0.21.2' # 0.21.2 requires Ruby >= 3.3; CI/deploy runs 3.2.2
+    gem 'mini_racer'
     gem 'unicode_utils'
     gem 'webrick'
+end
+group :test do
+    gem 'html-proofer', '~> 5.0'
 end

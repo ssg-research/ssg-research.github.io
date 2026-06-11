@@ -3,13 +3,14 @@ layout: default
 permalink: /mlsec/template
 nav: false
 horizontal: false
+published: false
 title: Model Extraction Attacks and Defenses
 ---
 
 
 # Model Extraction Attacks and Defenses
 
-## Background 
+## Background
 As machine learning (ML) applications become increasingly prevalent, protecting the confidentiality of ML models becomes paramount. One way to protect model confidentiality is to limit access to the model only via well-defined prediction APIs. Nevertheless, prediction APIs still leak information so that it is possible to mount model extraction attacks. In model extraction, the adversary only has access to the prediction API of a target model which he queries to extract information about the model internals. The adversary uses this information to gradually train a substitute model that reproduces the predictive behaviour of the target model.
 
 ## Conference/journal paper publications
@@ -38,19 +39,19 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Talks
 
-- On the Effectiveness of Dataset Watermarking: IWSPA'22 talk [<a href="/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf">pdf</a>]</li>
-- WAFFLE: SRDS'21 talk [<a href="/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf">pdf</a>]</li>
-- Extraction of Complex DNN models: Brief overview [<a href="/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf">pdf</a>], AAAI-EDSMLS'20 talk [<a href="/wp-content/uploads/2019/12/EDSMLS_presentation.pdf">pdf</a>]</li>
-- PRADA: Euro S&P'19 talk [<a href="/wp-content/uploads/2019/08/EuroSP19.pdf">pdf</a>]</li>
+- On the Effectiveness of Dataset Watermarking: IWSPA'22 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf)
+- WAFFLE: SRDS'21 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf)
+- Extraction of Complex DNN models: Brief overview [pdf](https://ssg.aalto.fi/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf), AAAI-EDSMLS'20 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/12/EDSMLS_presentation.pdf)
+- PRADA: Euro S&P'19 talk [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/08/EuroSP19.pdf)
 
 ## Demos and Posters
 
 - [CS Research Day 2020](https://www.aalto.fi/en/events/cs-research-day-2020): **WAFFLE: Watermarking in Federated Learning** (October 1, Aalto University, Finland), [presentation](https://www.youtube.com/watch?v=C_zoHSU1wOs)
-- [Secure Systems Demo Day 2019](https://ssg.aalto.fi/events/demo-day-2019/): **Stealing Complex DNN Models: Limitations and Defense Strategies** (May 29, Aalto University, Finland), [poster](/wp-content/uploads/2019/05/20_Atli.pdf)
+- [Secure Systems Demo Day 2019](https://ssg.aalto.fi/events/demo-day-2019/): **Stealing Complex DNN Models: Limitations and Defense Strategies** (May 29, Aalto University, Finland), [poster](https://ssg.aalto.fi/wp-content/uploads/2019/05/20_Atli.pdf)
 
 ## Source code
 
-- [GitHub source code for GrOVe](https://github.com/ssg-research/GrOVe")
+- [GitHub source code for GrOVe](https://github.com/ssg-research/GrOVe)
 - [GitHub source code for FLARE](https://github.com/ssg-research/FLARE)
 - [GitHub source code for Conflicting Interactions](https://github.com/ssg-research/conflicts-in-ml-protection-mechanisms)
 - [GitHub source code for WAFFLE](https://github.com/ssg-research/WAFFLE)

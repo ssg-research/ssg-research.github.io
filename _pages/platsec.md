@@ -30,4 +30,3 @@ At SSG, we investigate the design of new hardware and software platform security
 - [Kernel Hardening](https://ssg.aalto.fi/research/projects/kernel-hardening/)
 - [SEAndroid Analysis](https://ssg.aalto.fi/research/projects/seandroid-analysis/)
 - [Blockchain Consensus and Beyond](https://ssg.aalto.fi/research/projects/bcon/)
-

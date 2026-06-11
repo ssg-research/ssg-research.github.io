@@ -8,9 +8,9 @@ title: Availability and Run-time Integrity Conflicts
 
 # Availability and Run-time Integrity Conflicts
 
-## Background 
+## Background
 
-Run-time integrity enforcement presents a fundamental conflict with availability, particularly in real-time systems. Existing approaches in this space primarily focus on minimizing the execution-time overehad of monitoring. However after a violation is detected, a trade-off is faced: (1) prioritize availability and allow a compromised system to continue to ensure applications meet their deadlines or (2) prioritize security by generating a fault to abort all execution. This project explores architectural methods to offer a middle ground. 
+Run-time integrity enforcement presents a fundamental conflict with availability, particularly in real-time systems. Existing approaches in this space primarily focus on minimizing the execution-time overehad of monitoring. However after a violation is detected, a trade-off is faced: (1) prioritize availability and allow a compromised system to continue to ensure applications meet their deadlines or (2) prioritize security by generating a fault to abort all execution. This project explores architectural methods to offer a middle ground.
 
 ## Technical reports
 

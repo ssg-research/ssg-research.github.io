@@ -9,13 +9,13 @@ title: Machine Learning Property Attestations
 
 # Machine Learning Property Attestations
 
-## Background 
+## Background
 
-Providers of machine-learning (ML)-based services make various claims about their models, e.g., accuracy, fairness, or the provenance and representativeness of the data used to train it. 
-Regulators and potential clients must convince themselves that these claims are accurate. 
-Prior works have used purely ML approaches or cryptographic primitives to prove certain properties, such as distributional properties or proof of training. 
+Providers of machine-learning (ML)-based services make various claims about their models, e.g., accuracy, fairness, or the provenance and representativeness of the data used to train it.
+Regulators and potential clients must convince themselves that these claims are accurate.
+Prior works have used purely ML approaches or cryptographic primitives to prove certain properties, such as distributional properties or proof of training.
 There is a need to efficiently furnish attestations for different types properties across the ML model training and inference pipeline.
-We explore different technical mechanisms such as trusted execution environments to furnish such attestations. 
+We explore different technical mechanisms such as trusted execution environments to furnish such attestations.
 
 ## Conference/journal paper publications
 
@@ -35,4 +35,3 @@ We explore different technical mechanisms such as trusted execution environments
 
 - [GitHub source code for Laminator](https://github.com/ssg-research/laminator)
 - [GitHub source code for Distributional Attestation](https://github.com/ssg-research/distribution-attestation)
-
