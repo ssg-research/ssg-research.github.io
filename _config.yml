@@ -4,8 +4,8 @@
 
 title: Secure Systems Group # the website title (if blank, full name will be used instead)
 first_name: Secure Systems Group
-middle_name: 
-last_name: 
+middle_name:
+last_name:
 email: asokan@acm.org
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Secure Systems Group (SSG): security and privacy research at the University of Waterloo, KTH Royal Institute of Technology, and Aalto University.
@@ -150,19 +150,12 @@ keep_files:
 
 # Plug-ins
 plugins:
-  - jekyll-archives
-  - jekyll-diagrams
   - jekyll-email-protect
   - jekyll-feed
-  - jekyll-imagemagick
-  - jekyll-jupyter-notebook
   - jekyll-link-attributes
   - jekyll-minifier
-  - jekyll-paginate-v2
   - jekyll/scholar
   - jekyll-sitemap
-  - jekyll-toc
-  - jekyll-twitter-plugin
   - jekyll-redirect-from
   - jemoji
 
@@ -235,35 +228,6 @@ external_links:
   rel: external nofollow noopener
   target: _blank
   exclude:
-
-
-# -----------------------------------------------------------------------------
-# Responsive WebP Images
-# -----------------------------------------------------------------------------
-
-imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
-  widths:
-    - 480
-    - 800
-    - 1400
-  input_directories:
-    - assets/img/
-  input_formats:
-    - ".jpg"
-    - ".jpeg"
-    - ".png"
-    - ".tiff"
-  output_formats:
-    webp: "-resize 800x"
-
-# -----------------------------------------------------------------------------
-# Jekyll Diagrams
-# -----------------------------------------------------------------------------
-
-jekyll-diagrams:
-    # configuration, see https://github.com/zhustec/jekyll-diagrams.
-    # feel free to comment out this section if not using jekyll diagrams.
 
 
 # -----------------------------------------------------------------------------

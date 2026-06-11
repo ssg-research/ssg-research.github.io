@@ -11,7 +11,7 @@ Any changes should not be made by committing directly to this repository.  Eithe
 
 ## How to run the website locally
 
-With [docker](https://www.docker.com/) installed in the cloned repository: `docker-compose up`
+With [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/) installed, from the cloned repository run `bundle install` once, then `bundle exec jekyll serve` to preview the site at `http://localhost:4000`.
 
 ## How to create a project webpage
 
