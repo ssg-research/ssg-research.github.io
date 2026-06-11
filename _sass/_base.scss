@@ -678,16 +678,33 @@ footer.sticky-bottom {
         }
       }
 
-      .hidden {
+      // Abstract / BibTeX toggles use native <details>; the <summary> is
+      // styled to match the .links badge-buttons above.
+      details.abstract,
+      details.bibtex {
+        margin-top: 0.5rem;
         font-size: 0.875rem;
-        max-height: 0px;
-        overflow: hidden;
         text-align: justify;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+
+        >summary {
+          display: inline-block;
+          color: var(--global-text-color);
+          border: 1px solid var(--global-text-color);
+          border-radius: 0.2rem;
+          padding: 0.25rem 1rem;
+          font-size: 0.875rem;
+          cursor: pointer;
+          list-style: none; // hide the default disclosure marker
+
+          &::-webkit-details-marker {
+            display: none;
+          }
+
+          &:hover {
+            color: var(--global-theme-color);
+            border-color: var(--global-theme-color);
+          }
+        }
 
         p {
           line-height: 1.4em;
@@ -701,21 +718,8 @@ footer.sticky-bottom {
         }
       }
 
-      .hidden.open {
-        max-height: 100em;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
-      }
-
-      div.abstract.hidden {
-        border: dashed 1px var(--global-bg-color);
-      }
-
-      div.abstract.hidden.open {
-        border-color: var(--global-text-color);
+      details.abstract[open] {
+        border: dashed 1px var(--global-text-color);
       }
     }
   }
