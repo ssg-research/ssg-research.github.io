@@ -206,7 +206,6 @@ kramdown:
 # Includes & excludes
 include: ['_pages', '_static', '_sources']
 exclude:
-  - bin
   - Gemfile
   - Gemfile.lock
   - vendor
