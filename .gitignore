@@ -9,3 +9,7 @@ _site
 Gemfile.lock
 vendor
 
+# local working notes for maintenance sessions (not part of the site)
+agent_docs/
+.playwright-mcp/
+

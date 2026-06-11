@@ -1,6 +1,6 @@
 # Secure Systems Group
 
-We provide instructions on how to modify webapges in this repository or create a project webpage.
+We provide instructions on how to modify webpages in this repository or create a project webpage.
 
 ## How to make Changes
 
@@ -18,7 +18,7 @@ With [docker](https://www.docker.com/) installed in the cloned repository: `dock
 For creating the project webpage for the first time, please use the template found under `/projects/template.md`
 
 The project webpages should be added to _projects/mlsec or _projects/platsec with the filename as <projectname>.md
-Once the project page has been created, link to the project webpage in _pages/mlsec.md or _pages/platsec.md as [Model extraction attacks and defenses](/_projects/mlsec/modelExtDef)
+Once the project page has been created, link to the project webpage in _pages/mlsec.md or _pages/platsec.md as [Model extraction attacks and defenses](/mlsec/modelExtDef) (use the `permalink:` from the project page's frontmatter, not the file path)
 
 
 If you wish to make your project page in HTML instead, it is recommended to run the website locally for viewing/testing.
