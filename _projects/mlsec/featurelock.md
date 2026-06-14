@@ -17,6 +17,19 @@ Enabling such a scheme requires a feature-locking technique (FLoTE) that is (i) 
 In this line of work, we present LOCKET, the first robust and scalable FLoTE to enable pay-to-unlock schemes.
 
 
-## Pre-Prints
+## Conference/journal paper publications
 
-- Lipeng He, Vasisht Duddu, N. Asokan: **Locket: Robust Feature-Locking Technique for Language Models** arXiv preprint. [arxiv:2510.12117](https://arxiv.org/abs/2510.12117)
+- Lipeng He, Vasisht Duddu, N. Asokan: **Locket: Robust Feature-Locking Technique for Language Models.** ACL 2026. arXiv preprint [arxiv:2510.12117](https://arxiv.org/abs/2510.12117). Workshop version on [OpenReview](https://openreview.net/forum?id=1JBK4x8ik9)
+
+## Talks
+
+- Locket: project overview [video](https://youtu.be/p3Bo0oMexqs)
+
+## Demos and Posters
+
+- Locket [poster](https://static.ouorz.com/locket-cpi-poster.pdf)
+
+## Source code
+
+- [GitHub source code for Locket](https://github.com/ssg-research/locket)
+- [Hugging Face adapters for Locket](https://huggingface.co/collections/ttttonyhe/locket)
