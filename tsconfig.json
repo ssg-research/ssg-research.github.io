@@ -1,0 +1,12 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": [
+    "dist",
+    "_site",
+    "vendor",
+    "assets",
+    ".jekyll-cache",
+    ".playwright-mcp"
+  ]
+}
