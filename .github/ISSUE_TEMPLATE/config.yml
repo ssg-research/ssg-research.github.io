@@ -1,0 +1,7 @@
+# Funnel new issues through the three forms above; turn this to `true` to also
+# allow free-form blank issues.
+blank_issues_enabled: false
+contact_links:
+  - name: Question or general enquiry
+    url: https://crysp.uwaterloo.ca/ssg/
+    about: For questions rather than a bug, request, or content fix, reach out via the group site.

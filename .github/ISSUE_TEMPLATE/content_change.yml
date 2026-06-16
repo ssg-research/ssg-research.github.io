@@ -1,0 +1,23 @@
+name: Content change
+description: Fix or update site copy, links, publications, team, or a project page.
+title: "[Content]: "
+labels: ["content-update"]
+body:
+  - type: markdown
+    attributes:
+      value: Use this for wording, links, publications, team members, or project-page updates.
+  - type: input
+    id: page
+    attributes:
+      label: Which page(s)?
+      description: The page URL(s) or file(s) that need to change.
+      placeholder: https://ssg-research.github.io/...
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+      description: Quote the current text and the corrected version where you can.
+    validations:
+      required: true

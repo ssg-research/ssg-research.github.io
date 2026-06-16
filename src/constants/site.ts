@@ -18,23 +18,17 @@ export interface NavItem {
   external?: boolean;
 }
 
-// Live nav order (al-folio _includes/header.html): About (/), then the external
-// Blog link, then `nav: true` pages sorted by nav_order — MLSec (2),
-// PlatSec (3), Other (4), Dissemination (5), Team (6).
+// Live nav order (al-folio _includes/header.html): About (/), the external Blog
+// link, then the `nav: true` pages sorted by nav_order — MLSec (2), PlatSec (3),
+// Other (4), Dissemination (5), Team (6).
 //
-// Hardcoded here for Stage 2. Stage 3 introduces the `pages` content
-// collection and sources the internal entries from it (nav / nav_order
-// frontmatter); the external Blog link stays declared here.
-export const NAV: readonly NavItem[] = [
-  { title: "About", href: "/" },
-  {
-    title: "Blog",
-    href: "https://crysp.uwaterloo.ca/ssg/blog",
-    external: true,
-  },
-  { title: "MLSec", href: "/mlsec/" },
-  { title: "PlatSec", href: "/platsec/" },
-  { title: "Other", href: "/others/" },
-  { title: "Dissemination", href: "/dissemination/" },
-  { title: "Team", href: "/team/" },
-];
+// The two fixed entries below frame the list; the internal section links are
+// sourced from the `pages` collection in Masthead.astro (nav / nav_order
+// frontmatter), so adding a nav page is a frontmatter change, not a code edit.
+export const HOME_NAV: NavItem = { title: "About", href: "/" };
+
+export const BLOG_NAV: NavItem = {
+  title: "Blog",
+  href: "https://crysp.uwaterloo.ca/ssg/blog",
+  external: true,
+};

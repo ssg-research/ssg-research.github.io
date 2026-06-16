@@ -1,11 +1,11 @@
-# The npm `markdownlint` script already scopes to src/ via its glob; this file
-# guards the lint-staged `markdownlint --fix` path so a staged legacy Markdown
-# file is never reformatted during the migration's first pass.
+# The npm `markdownlint` script lints README.md only; this file guards the
+# lint-staged `markdownlint --fix` path so verbatim-ported and legacy Markdown
+# is never reformatted on commit during the migration's first pass.
 node_modules/
 dist/
 .astro/
+src/content/
 _pages/
 _projects/
 _bibliography/
-README.md
 .github/
