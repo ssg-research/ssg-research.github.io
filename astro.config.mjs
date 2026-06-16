@@ -1,11 +1,12 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 import { unified } from "@astrojs/markdown-remark";
 import rehypeExternalLinks from "rehype-external-links";
 
 export default defineConfig({
   site: "https://ssg-research.github.io",
-  integrations: [sitemap()],
+  integrations: [sitemap(), mdx()],
   // Every URL is trailing-slash (the consistent convention chosen in Stage 4,
   // after the parity discussion). Each page builds to `dir/index.html` and Astro
   // normalises paths to end in a slash, so canonical/og:url and internal links

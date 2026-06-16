@@ -2,47 +2,91 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "zod";
 
-// Two collections mirror the Jekyll source split:
-//   _pages/      → `pages`     (the about + the five nav sections)
-//   _projects/   → `projects`  (one page per research project)
-//
-// The schema is deliberately minimal: a contributor adding a page only needs a
-// `title` and a `permalink`, and gets a readable CI error for anything else.
-// Unlisted Jekyll frontmatter keys (display_categories, horizontal, layout …)
-// are dropped at migration time — they were unused by any surviving page.
-
 const pages = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/pages" }),
   schema: z.object({
     title: z.string(),
-    // The exact live URL, including its trailing slash where the live site has
-    // one (e.g. `/mlsec/`). The catch-all route emits this verbatim; Stage 4
-    // enforces the trailing-slash parity.
     permalink: z.string(),
     description: z.string().optional(),
-    // Home (`/`) only: the al-folio `about` subtitle, raw HTML (the three
-    // university links). Rendered with `set:html`.
     subtitle: z.string().optional(),
-    // Primary-nav membership and order. The masthead lists `nav: true` pages
-    // sorted by `nav_order` (About and the external Blog link are prepended).
-    nav: z.boolean().default(false),
+    nav: z.boolean().optional(),
     nav_order: z.number().optional(),
-    published: z.boolean().default(true),
+    published: z.boolean().optional(),
   }),
 });
 
 const projects = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/projects" }),
   schema: z.object({
     title: z.string(),
     permalink: z.string(),
-    // Old URLs that should 301 to this page (e.g. `/blime/`). Wired into
-    // `astro.config.mjs` redirects in Stage 4.
     redirect_from: z.array(z.string()).optional(),
-    // `false` keeps a page out of the build (the contributor template). The
-    // catch-all skips it, preserving the live 404 at `/mlsec/template`.
-    published: z.boolean().default(true),
+    published: z.boolean().optional(),
   }),
 });
 
-export const collections = { pages, projects };
+const publications = defineCollection({
+  loader: {
+    name: "bibtex-loader",
+    async load({ store, parseData }) {
+      const { promises: fs } = await import("node:fs");
+      // @ts-expect-error No typings available for this package
+      const { parse } = await import("@retorquere/bibtex-parser");
+      const bibStr = await fs.readFile(
+        "./src/bibliography/papers.bib",
+        "utf-8"
+      );
+      // `sentenceCase: false` keeps titles and venues verbatim from the .bib.
+      // The parser's default sentence-casing would lowercase every word not
+      // brace-protected ("BliMe Linter" → "BliMe linter"), which diverges from
+      // the live site (jekyll-scholar renders the source casing as-is).
+      const parsed = parse(bibStr, { sentenceCase: false });
+      for (const entry of parsed.entries) {
+        const data = {
+          type: entry.type,
+          ...entry.fields,
+          bibtex: entry.input,
+        };
+        const parsedData = await parseData({ id: entry.key, data });
+        store.set({ id: entry.key, data: parsedData });
+      }
+    },
+  },
+  schema: z.object({
+    type: z.string(),
+    title: z.string(),
+    author: z
+      .array(
+        z.object({
+          lastName: z.string().optional(),
+          firstName: z.string().optional(),
+        })
+      )
+      .optional(),
+    booktitle: z.string().optional(),
+    journal: z.string().optional(),
+    school: z.string().optional(),
+    location: z.array(z.string()).optional(),
+    year: z.union([z.string(), z.number()]).optional(),
+    month: z.string().optional(),
+    isbn: z.string().optional(),
+    doi: z.string().optional(),
+    selected: z.string().optional(),
+    bibtex_show: z.string().optional(),
+    abbr: z.string().optional(),
+    arxiv: z.string().optional(),
+    html: z.string().optional(),
+    pdf: z.string().optional(),
+    supp: z.string().optional(),
+    blog: z.string().optional(),
+    code: z.string().optional(),
+    poster: z.string().optional(),
+    slides: z.string().optional(),
+    website: z.string().optional(),
+    abstract: z.string().optional(),
+    note: z.string().optional(),
+    bibtex: z.string().optional(),
+  }),
+});
+
+export const collections = { pages, projects, publications };
