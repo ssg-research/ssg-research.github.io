@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE } from "../constants/site";
+import Publications from "../components/Publications.astro";
 
 type ContentEntry = CollectionEntry<"pages"> | CollectionEntry<"projects">;
 
@@ -78,7 +79,7 @@ const metaDescription =
   }
 
   <article>
-    <Content />
+    <Content components={{ Publications }} />
   </article>
 </BaseLayout>
 

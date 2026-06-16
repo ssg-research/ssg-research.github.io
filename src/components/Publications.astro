@@ -1,0 +1,298 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import "./Publications.css";
+
+type PublicationData = CollectionEntry<"publications">["data"];
+type Author = NonNullable<PublicationData["author"]>[number];
+
+interface Props {
+  selected?: string;
+}
+const { selected } = Astro.props;
+
+const allPublications = await getCollection("publications");
+const publications = allPublications
+  .filter((p) => !selected || p.data.selected === selected)
+  .sort((a, b) => {
+    const yearA = parseInt(a.data.year?.toString() || "0");
+    const yearB = parseInt(b.data.year?.toString() || "0");
+    return yearB - yearA;
+  });
+
+// Internal jekyll-scholar keywords stripped from the displayed BibTeX block,
+// mirroring `_config.yml`'s `filtered_bibtex_keywords` (the live `hideCustomBibtex`
+// filter). The link/flag fields are presentation metadata, not part of the citation.
+const FILTERED_BIBTEX_KEYWORDS = new Set([
+  "abbr",
+  "abstract",
+  "arxiv",
+  "bibtex_show",
+  "html",
+  "pdf",
+  "selected",
+  "supp",
+  "blog",
+  "code",
+  "poster",
+  "slides",
+  "website",
+  "preview",
+  "altmetric",
+]);
+
+const MONTH_ABBR = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+function escapeHTML(s: string) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// The parser yields month as a number (or numeric string); the live site shows
+// a capitalised three-letter abbreviation ("Oct", "Aug"). Fall back to
+// capitalising any non-numeric value rather than dropping it.
+function getMonthAbbr(month: string) {
+  const n = parseInt(month, 10);
+  if (!Number.isNaN(n) && n >= 1 && n <= 12) return MONTH_ABBR[n - 1];
+  return month.charAt(0).toUpperCase() + month.slice(1);
+}
+
+function getPeriodicalHTML(data: PublicationData) {
+  let emText = "";
+  const type = data.type?.toLowerCase() || "";
+  const proceedings = ["inproceedings", "incollection"];
+  const thesis = ["thesis", "mastersthesis", "phdthesis"];
+
+  if (type === "article") {
+    emText = data.journal || "";
+  } else if (proceedings.includes(type)) {
+    emText = data.booktitle ? `In ${data.booktitle}` : "";
+  } else if (thesis.includes(type)) {
+    emText = data.school || "";
+  }
+
+  emText = escapeHTML(emText);
+
+  const monthPart = data.month ? getMonthAbbr(String(data.month)) : "";
+  const yearPart = data.year != null ? String(data.year) : "";
+  const datePart = [monthPart, yearPart].filter(Boolean).join(" ");
+
+  let periodical = emText ? `<em>${emText}</em>` : "";
+  if (datePart) {
+    // Live always separates a non-empty venue from the year with ", "
+    // (a month-only tail gets a plain space — an edge the live data never hits).
+    if (periodical && yearPart) periodical += ", ";
+    else if (periodical) periodical += " ";
+    periodical += datePart;
+  }
+
+  return periodical;
+}
+
+// Drop the internal keyword lines from the raw BibTeX so the displayed entry
+// matches the live `hideCustomBibtex` output. A line's field name is everything
+// before its first "="; the entry/closing lines have no "=" and are kept.
+function getFilteredBibtex(raw: string) {
+  return raw
+    .split("\n")
+    .filter((line) => {
+      const eq = line.indexOf("=");
+      if (eq === -1) return true;
+      const key = line.slice(0, eq).trim().toLowerCase();
+      return !FILTERED_BIBTEX_KEYWORDS.has(key);
+    })
+    .join("\n");
+}
+
+function getAuthorHTML(authors: Author[] | undefined) {
+  if (!authors || authors.length === 0) return "";
+  const maxLimit = 3;
+  const showList = authors
+    .slice(0, maxLimit)
+    .map((a) => `${a.firstName || ""} ${a.lastName || ""}`.trim());
+  const moreList = authors
+    .slice(maxLimit)
+    .map((a) => `${a.firstName || ""} ${a.lastName || ""}`.trim());
+
+  let html = showList
+    .map((name, i) => {
+      // Separator carried as a suffix of the preceding name: middle authors get
+      // ", ", and the penultimate author (when the list is complete) gets the
+      // Oxford ", and " — matching the live "A, B, and C" form.
+      let suffix =
+        i < showList.length - 1
+          ? i === showList.length - 2 && moreList.length === 0
+            ? ", and "
+            : ", "
+          : "";
+      return escapeHTML(name) + suffix;
+    })
+    .join("");
+
+  if (moreList.length > 0) {
+    const moreText =
+      moreList.length === 1
+        ? "1 more author"
+        : `${moreList.length} more authors`;
+    // The revealed list is a plain comma-join of the hidden names, matching the
+    // live `more_authors_show` (no leading separator, no "and").
+    const moreNames = escapeHTML(moreList.join(", "));
+    html += `, and <span class="more-authors" data-more="${moreNames}" data-hide="${moreText}" onclick="const isShowing = this.textContent !== this.dataset.hide; this.textContent = isShowing ? this.dataset.hide : this.dataset.more;">${moreText}</span>`;
+  }
+  return html;
+}
+---
+
+<div class="publications">
+  {
+    publications.map(({ id, data }) => (
+      <div class="publication-row" id={id}>
+        <div class="publication-abbr">
+          {data.abbr && <abbr class="badge">{data.abbr}</abbr>}
+        </div>
+        <div class="publication-content">
+          <div class="title">{data.title}</div>
+          <div class="author" set:html={getAuthorHTML(data.author)} />
+          <div class="periodical" set:html={getPeriodicalHTML(data)} />
+          {data.note && <div class="periodical">{data.note}</div>}
+
+          <div class="publication-links">
+            {data.arxiv && (
+              <a
+                href={`https://arxiv.org/abs/${data.arxiv}`}
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                arXiv
+              </a>
+            )}
+            {data.html && (
+              <a
+                href={data.html}
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                HTML
+              </a>
+            )}
+            {data.pdf && (
+              <a
+                href={
+                  data.pdf.includes("://")
+                    ? data.pdf
+                    : `/assets/pdf/${data.pdf}`
+                }
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PDF
+              </a>
+            )}
+            {data.supp && (
+              <a
+                href={
+                  data.supp.includes("://")
+                    ? data.supp
+                    : `/assets/pdf/${data.supp}`
+                }
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Supp
+              </a>
+            )}
+            {data.blog && (
+              <a
+                href={data.blog}
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Blog
+              </a>
+            )}
+            {data.code && (
+              <a
+                href={data.code}
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Code
+              </a>
+            )}
+            {data.poster && (
+              <a
+                href={
+                  data.poster.includes("://")
+                    ? data.poster
+                    : `/assets/pdf/${data.poster}`
+                }
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Poster
+              </a>
+            )}
+            {data.slides && (
+              <a
+                href={
+                  data.slides.includes("://")
+                    ? data.slides
+                    : `/assets/pdf/${data.slides}`
+                }
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Slides
+              </a>
+            )}
+            {data.website && (
+              <a
+                href={data.website}
+                class="btn btn-sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Website
+              </a>
+            )}
+          </div>
+
+          {data.abstract && (
+            <details class="publication-details">
+              <summary class="btn btn-sm">Abs</summary>
+              <p>{data.abstract}</p>
+            </details>
+          )}
+
+          {data.bibtex_show && data.bibtex && (
+            <details class="publication-details">
+              <summary class="btn btn-sm">Bib</summary>
+              <pre>
+                <code>{getFilteredBibtex(data.bibtex)}</code>
+              </pre>
+            </details>
+          )}
+        </div>
+      </div>
+    ))
+  }
+</div>
