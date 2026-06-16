@@ -1,138 +1,71 @@
 ---
-import ThemeToggle from "../components/ThemeToggle.astro";
-import "../styles/main.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Design system — Stage 1 demo</title>
+{
+  /*
+   * Stage 2 demo harness. This sits at "/", so it exercises the home-page
+   * masthead (brand hidden) and the "Secure Systems Group" document title.
+   * The shared chrome — masthead nav, dark-mode toggle, footer — comes from
+   * BaseLayout. Real page content replaces this in Stage 3.
+   */
+}
+<BaseLayout>
+  <h1>Layout &amp; design system</h1>
+  <p>
+    Stage 2 wires the Stage 1 tokens into the shared <code>BaseLayout</code>:
+    masthead with primary nav and the dark-mode toggle, this centred content
+    column, and the footer below. Toggle the theme (top right) — every colour
+    re-resolves from <code>tokens.css</code>. The swatches confirm the semantic
+    roles still resolve inside the real layout.
+  </p>
 
-    {
-      /*
-       * No-flash theme script. Runs before paint (it is in <head>, before the
-       * body renders), so the correct theme is applied with no flash on hard
-       * refresh. is:inline keeps Astro from bundling/deferring it. This moves
-       * into BaseLayout in Stage 2. localStorage key "theme"; values
-       * "light" / "dark".
-       */
-    }
-    <script is:inline>
-      const stored = localStorage.getItem("theme");
-      const theme =
-        stored ??
-        (window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light");
-      document.documentElement.dataset.theme = theme;
-    </script>
-  </head>
-
-  <body>
-    <div class="container">
-      <div class="content">
-        <header class="demo-header">
-          <h1>Design system</h1>
-          <ThemeToggle />
-        </header>
-
-        <p>
-          Stage 1 demo page. Toggle the theme (top right) — every colour below
-          is driven by a semantic token, so light and dark swap from one place
-          in <code>tokens.css</code>. This page exists only to verify the tokens
-          and the dark-mode layer; the real layout arrives in Stage 2.
-        </p>
-
-        <h2>Type scale</h2>
-        <h3>Heading three</h3>
-        <p>
-          Body copy with a <a href="#">link in the theme colour</a> and some
-          <code>inline code</code> on a muted surface. Selecting this text shows the
-          selection colour.
-        </p>
-        <pre><code>// fenced code block on --color-bg-muted
-const theme = "easy to change";</code></pre>
-
-        <hr />
-
-        <h2>Semantic colour roles</h2>
-        <p>These swatches re-resolve when you toggle the theme.</p>
-        <div class="swatches">
-          <div class="swatch" style="background: var(--color-bg-default)">
-            bg-default
-          </div>
-          <div class="swatch" style="background: var(--color-bg-muted)">
-            bg-muted
-          </div>
-          <div class="swatch" style="background: var(--color-surface)">
-            surface
-          </div>
-          <div class="swatch on-accent" style="background: var(--color-theme)">
-            theme
-          </div>
-          <div
-            class="swatch on-accent"
-            style="background: var(--color-accent-1)"
-          >
-            accent-1 · MLSec
-          </div>
-          <div
-            class="swatch on-accent"
-            style="background: var(--color-accent-2)"
-          >
-            accent-2 · PlatSec
-          </div>
-          <div
-            class="swatch on-accent"
-            style="background: var(--color-accent-3)"
-          >
-            accent-3 · Other
-          </div>
-          <div
-            class="swatch on-accent"
-            style="background: var(--color-status-success)"
-          >
-            success
-          </div>
-          <div
-            class="swatch on-accent"
-            style="background: var(--color-status-error)"
-          >
-            error
-          </div>
-        </div>
-      </div>
+  <h2>Semantic colour roles</h2>
+  <div class="swatches">
+    <div class="swatch" style="background: var(--color-bg-default)">
+      bg-default
     </div>
+    <div class="swatch" style="background: var(--color-bg-muted)">bg-muted</div>
+    <div class="swatch" style="background: var(--color-surface)">surface</div>
+    <div class="swatch on-accent" style="background: var(--color-theme)">
+      theme
+    </div>
+    <div class="swatch on-accent" style="background: var(--color-accent-1)">
+      accent-1 · MLSec
+    </div>
+    <div class="swatch on-accent" style="background: var(--color-accent-2)">
+      accent-2 · PlatSec
+    </div>
+    <div class="swatch on-accent" style="background: var(--color-accent-3)">
+      accent-3 · Other
+    </div>
+  </div>
 
-    <style>
-      .demo-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-4);
-      }
+  <p>
+    Body copy with a <a href="#">link in the theme colour</a> and some
+    <code>inline code</code> on a muted surface.
+  </p>
+</BaseLayout>
 
-      .swatches {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-        gap: var(--space-3);
-      }
+<style>
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
 
-      .swatch {
-        padding: var(--space-4);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-md);
-        font-size: var(--font-size-sm);
-        font-family: var(--font-mono);
-        color: var(--color-text-primary);
-      }
+  .swatch {
+    padding: var(--space-4);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-mono);
+    color: var(--color-text-primary);
+  }
 
-      .swatch.on-accent {
-        color: var(--color-white);
-        border-color: transparent;
-      }
-    </style>
-  </body>
-</html>
+  .swatch.on-accent {
+    color: var(--color-white);
+    border-color: transparent;
+  }
+</style>

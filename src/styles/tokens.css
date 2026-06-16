@@ -82,38 +82,40 @@
   --color-border-strong: var(--color-grey-dark); /* section breaks */
 
   /* ─────────────────────────────
-     3. Typography — font families
-     Named families with a system fallback stack; no web-font downloads.
+     3. Typography — Roboto, matching the live site.
+     The live al-folio + MDB stack renders in Roboto (loaded via Google Fonts);
+     we self-host it with @fontsource (imported in BaseLayout, latin subset).
+     Sizes / weights / line-heights below mirror the live computed styles.
      ───────────────────────────── */
   --font-sans:
-    "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
-
-  --font-serif: "Source Serif 4", Georgia, "Times New Roman", Times, serif;
+    "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
 
   --font-mono:
-    "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
 
-  /* Font sizes — modular, restrained */
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-md: 1rem; /* 16px */
-  --font-size-lg: 1.125rem; /* 18px */
-  --font-size-xl: 1.25rem; /* 20px */
-  --font-size-2xl: 1.5rem; /* 24px */
-  --font-size-3xl: 1.875rem; /* 30px */
-  --font-size-4xl: 2.25rem; /* 36px */
+  /* Font sizes — mapped to the live computed scale.
+     h1 40 / h2 32 / h3 28 / h4 24 / h5 20 / body 16 / small 14 / footer 12. */
+  --font-size-xs: 0.75rem; /* 12px — footer */
+  --font-size-sm: 0.875rem; /* 14px — subtitle / small */
+  --font-size-md: 1rem; /* 16px — body, nav, h6 */
+  --font-size-lg: 1.25rem; /* 20px — h5, brand */
+  --font-size-xl: 1.5rem; /* 24px — h4 */
+  --font-size-2xl: 1.75rem; /* 28px — h3 */
+  --font-size-3xl: 2rem; /* 32px — h2 */
+  --font-size-4xl: 2.5rem; /* 40px — h1 */
 
-  /* Font weights */
-  --font-weight-regular: 400;
+  /* Font weights — al-folio is a light theme: thin brand, light headings. */
+  --font-weight-thin: 100; /* brand */
+  --font-weight-light: 300; /* headings, inactive nav */
+  --font-weight-regular: 400; /* body, links, active nav */
   --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  --font-weight-bold: 700; /* strong / b */
 
   /* Line heights */
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
+  --line-height-tight: 1.2; /* headings (live: 48/40, 33.6/28) */
+  --line-height-normal: 1.5; /* body (live: 24/16) */
   --line-height-relaxed: 1.65;
 
   /* Spacing — 8px grid */
