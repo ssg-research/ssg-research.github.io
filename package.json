@@ -17,7 +17,8 @@
     "markdownlint:fix": "markdownlint --fix 'src/**/*.md' --ignore-path .gitignore",
     "test": "vitest run",
     "test:watch": "vitest",
-    "ci": "npm run lint && npm run format:check && npm run markdownlint && npm run check && npm run build && npm run test",
+    "htmlvalidate": "html-validate \"dist/**/*.html\"",
+    "ci": "npm run lint && npm run format:check && npm run markdownlint && npm run check && npm run build && npm run htmlvalidate && npm run test",
     "prepare": "husky"
   },
   "engines": {
@@ -30,8 +31,10 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@eslint/js": "^10.0.1",
+    "@fontsource/roboto": "^5.2.10",
     "eslint": "^10.4.1",
     "eslint-plugin-astro": "^1.7.0",
+    "html-validate": "^11.5.3",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.7",
     "markdownlint-cli": "^0.48.0",

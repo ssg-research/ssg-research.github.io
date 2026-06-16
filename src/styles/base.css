@@ -4,7 +4,10 @@
    ───────────────────────────── */
 
 html {
-  font-size: 16px;
+  /* 100%, not a fixed px, so the visitor's browser font-size / zoom is honoured
+     (a11y). The live al-folio root carries no explicit rule — it's the UA
+     default (16px) — so this matches it while staying user-scalable. */
+  font-size: 100%;
 
   /* Hint native UI (form controls, scrollbars) to match the active theme. */
   color-scheme: light;
@@ -40,36 +43,35 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2); /* 8px, live */
 
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-light); /* 300, live */
+  line-height: var(--line-height-tight); /* 1.2, live */
   color: var(--color-text-primary);
 }
 
 h1 {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-4xl); /* 40px */
 }
 
 h2 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-3xl); /* 32px */
 }
 
 h3 {
-  font-size: var(--font-size-2xl);
-  margin-bottom: var(--space-2);
+  font-size: var(--font-size-2xl); /* 28px */
 }
 
 h4 {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xl); /* 24px */
 }
 
 h5 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-lg); /* 20px */
 }
 
 h6 {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-md); /* 16px */
 }
 
 /* ─────────────────────────────
@@ -78,7 +80,7 @@ h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4); /* 16px, live */
   max-width: var(--max-width-md);
 }
 
