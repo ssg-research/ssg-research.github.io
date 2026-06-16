@@ -1,7 +1,8 @@
 ---
 import "./Masthead.css";
+import { getCollection } from "astro:content";
 import ThemeToggle from "./ThemeToggle.astro";
-import { SITE, NAV } from "../constants/site";
+import { SITE, HOME_NAV, BLOG_NAV, type NavItem } from "../constants/site";
 
 // Normalize a pathname for active-link comparison: drop a trailing slash
 // except on the root. Plain string ops (no regex) per repo convention.
@@ -15,7 +16,14 @@ const current = normalizePath(Astro.url.pathname);
 // faithfully: brand shows on every page except home.
 const isHome = current === "/";
 
-const items = NAV.map((item) => ({
+// Section links come from the `pages` collection (nav: true), ordered by
+// nav_order; About and the external Blog link frame them (see site.ts).
+const navPages: NavItem[] = (await getCollection("pages"))
+  .filter((page) => page.data.nav)
+  .sort((a, b) => (a.data.nav_order ?? 0) - (b.data.nav_order ?? 0))
+  .map((page) => ({ title: page.data.title, href: page.data.permalink }));
+
+const items = [HOME_NAV, BLOG_NAV, ...navPages].map((item) => ({
   ...item,
   active: !item.external && normalizePath(item.href) === current,
 }));
@@ -27,39 +35,17 @@ function linkAttrs(item: (typeof items)[number]) {
 ---
 
 <header class="masthead">
-  {
-    isHome ? null : (
-      <a href="/" class="masthead-brand">
-        {SITE.name}
-      </a>
-    )
-  }
+  <div class="masthead-inner">
+    {
+      isHome ? null : (
+        <a href="/" class="masthead-brand">
+          {SITE.name}
+        </a>
+      )
+    }
 
-  <div class="masthead-right">
-    <nav class="masthead-nav" aria-label="Primary">
-      {
-        items.map((item) => (
-          <a
-            href={item.href}
-            class={`nav-link ${item.active ? "active" : ""}`}
-            aria-current={item.active ? "page" : undefined}
-            {...linkAttrs(item)}
-          >
-            {item.title}
-          </a>
-        ))
-      }
-    </nav>
-
-    <ThemeToggle />
-
-    <details class="masthead-menu">
-      <summary class="menu-summary">
-        <span class="menu-label">Menu</span>
-        <span class="menu-close">×</span>
-      </summary>
-
-      <nav class="menu-panel" aria-label="Primary (mobile)">
+    <div class="masthead-right">
+      <nav class="masthead-nav" aria-label="Primary">
         {
           items.map((item) => (
             <a
@@ -73,6 +59,30 @@ function linkAttrs(item: (typeof items)[number]) {
           ))
         }
       </nav>
-    </details>
+
+      <ThemeToggle />
+
+      <details class="masthead-menu">
+        <summary class="menu-summary">
+          <span class="menu-label">Menu</span>
+          <span class="menu-close">×</span>
+        </summary>
+
+        <nav class="menu-panel" aria-label="Primary (mobile)">
+          {
+            items.map((item) => (
+              <a
+                href={item.href}
+                class={`nav-link ${item.active ? "active" : ""}`}
+                aria-current={item.active ? "page" : undefined}
+                {...linkAttrs(item)}
+              >
+                {item.title}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+    </div>
   </div>
 </header>

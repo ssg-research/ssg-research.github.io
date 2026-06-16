@@ -26,10 +26,11 @@ body {
 
   font-family: var(--font-sans);
   font-size: var(--font-size-md);
+  /* 300 (Roboto Light) is the live base weight — al-folio inherits MDB's
+     `body { font-weight: 300 }`, so body, p, links, lists and the footer all
+     render light. Headings (300) and the masthead set their own weights. */
+  font-weight: var(--font-weight-light);
   line-height: var(--line-height-normal);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ─────────────────────────────
@@ -87,6 +88,14 @@ p {
 small {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
+}
+
+/* Bold runs (**…**) render at 500, not the UA bold — al-folio inherits MDB's
+   `b, strong { font-weight: 500 }`. Set explicitly so it is independent of the
+   300 body weight (a UA `bolder` would resolve to 400 from 300). */
+strong,
+b {
+  font-weight: var(--font-weight-medium);
 }
 
 /* ─────────────────────────────

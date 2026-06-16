@@ -1,15 +1,17 @@
 ---
-// Self-hosted Roboto (latin subset) — the live site's font. Weights match the
-// live computed styles: 100 brand, 300 headings/nav, 400 body/links, 500, 700.
-import "@fontsource/roboto/latin-100.css";
+// Self-hosted Roboto (latin subset) — the live site's font. Live loads only
+// 300/400/500/700 (no Thin), so the masthead brand's `font-weight: 100` snaps
+// to Roboto 300 there; we omit the 100 face for the same render, while keeping
+// the brand's computed weight at 100 to match the live computed style.
 import "@fontsource/roboto/latin-300.css";
 import "@fontsource/roboto/latin-400.css";
 import "@fontsource/roboto/latin-500.css";
 import "@fontsource/roboto/latin-700.css";
-// Preload the primary body weight (400) to avoid a FOUT on cold load. Imported
-// (not hand-written) so Vite resolves the hashed URL — it matches the @font-face
-// src above, so no double-fetch.
-import roboto400 from "@fontsource/roboto/files/roboto-latin-400-normal.woff2";
+// Preload the primary body weight (300 — body, headings, links and nav are all
+// light) to avoid a FOUT on cold load. Imported (not hand-written) so Vite
+// resolves the hashed URL — it matches the @font-face src above, so no
+// double-fetch.
+import roboto300 from "@fontsource/roboto/files/roboto-latin-300-normal.woff2";
 import "../styles/main.css";
 import Masthead from "../components/Masthead.astro";
 import Footer from "../components/Footer.astro";
@@ -46,7 +48,7 @@ const ogImageURL = new URL(SITE.ogImage, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="preload"
-      href={roboto400}
+      href={roboto300}
       as="font"
       type="font/woff2"
       crossorigin
@@ -102,10 +104,10 @@ const ogImageURL = new URL(SITE.ogImage, Astro.site);
 
   <body>
     <div class="page">
+      <Masthead />
+
       <main class="container">
         <div class="content">
-          <Masthead />
-
           <slot />
         </div>
       </main>

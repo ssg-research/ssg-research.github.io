@@ -3,6 +3,11 @@ dist/
 node_modules/
 public/
 
+# Verbatim-ported page/project content (incl. the contributor template). Kept
+# out of Prettier so first-pass porting preserves the source byte-for-byte; the
+# authored chrome (components, layouts, styles) is still formatted.
+src/content/
+
 # Legacy Jekyll tree — ported in later migration stages, removed at the cutover.
 # Kept out of Prettier so `format:check` governs only the Astro surface.
 _bibliography/
@@ -27,4 +32,3 @@ LICENSE
 .github/workflows/ci.yml
 .github/workflows/deploy.yml
 .github/dependabot.yml
-.github/ISSUE_TEMPLATE/

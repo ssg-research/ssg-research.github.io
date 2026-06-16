@@ -1,31 +1,45 @@
 # Secure Systems Group
 
-We provide instructions on how to modify webpages in this repository or create a project webpage.
+Source for the Secure Systems Group (SSG) website. This guide covers how to make
+changes and how to add a project page.
 
-## How to make Changes
+## How to make changes
 
-Any changes should not be made by committing directly to this repository.  Either contact the maintainer (listed at bottom) or submit a pull request.
+Please do not commit directly to this repository. Fork it, make your change on a
+branch, and open a pull request — or contact a maintainer (listed below) and
+send them the Markdown file for your page.
 
-1. Fork this repository to a local version
-2. Submit a pull request or contact a maintainer and send them the `.md` file for your project page
+## Running the site locally
 
-## How to run the website locally
+With [Node.js](https://nodejs.org/) 24 or newer installed, from the cloned
+repository run:
 
-With [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/) installed, from the cloned repository run `bundle install` once, then `bundle exec jekyll serve` to preview the site at `http://localhost:4000`.
+```sh
+npm install
+npm run dev
+```
 
-## How to create a project webpage
+Then open the printed URL (default <http://localhost:4321>) to preview the site.
+`npm run build` writes the production build to `dist/`.
 
-For creating the project webpage for the first time, please use the template found under `_projects/template.md` (it has `published: false` in its frontmatter so it never renders on the live site — remove that line in your copy)
+## Adding a project page
 
-The project webpages should be added to _projects/mlsec or _projects/platsec with the filename as <projectname>.md
-Once the project page has been created, link to the project webpage in _pages/mlsec.md or _pages/platsec.md as [Model extraction attacks and defenses](/mlsec/modelExtDef) (use the `permalink:` from the project page's frontmatter, not the file path)
+1. Copy `src/content/projects/template.md` to a new file under
+   `src/content/projects/`, placing it in the `mlsec/`, `platsec/`, or
+   `others/` subfolder.
+2. Edit the frontmatter: set `title` (the page heading) and `permalink` (the
+   live URL, e.g. `/mlsec/yourproject`), then remove `published: false` so the
+   page is built.
+3. Write the page body in Markdown below the frontmatter.
+4. Link to the new page from its section page (`src/content/pages/mlsec.md`,
+   `platsec.md`, or `others.md`) using the `permalink`, e.g.
+   `[Your project](yourproject)`.
 
-
-If you wish to make your project page in HTML instead, it is recommended to run the website locally for viewing/testing.
-All HTML project pages should follow the `page` template (found in `_layouts/page.html`).
-
-Please make changes only to your own project pages and not the rest of the website.
+To list a publication on a project page, add the entry once to `papers.bib` with
+a `selected={yourkey}` field; the bibliography component renders every matching
+entry, so there is no per-page citation to maintain.
 
 ## Contact
 
-For any questions or requests to change a page, please contact Asim (Machine Learning), Adam Caulfield (Platform Security), Michael (Other Topics)
+For questions or change requests, contact Asim (Machine Learning), Adam
+Caulfield (Platform Security), or Michael (Other Topics).

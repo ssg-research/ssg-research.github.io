@@ -1,0 +1,103 @@
+---
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../constants/site";
+
+type ContentEntry = CollectionEntry<"pages"> | CollectionEntry<"projects">;
+
+export async function getStaticPaths() {
+  // Turn a permalink into a catch-all slug: strip leading/trailing slashes so
+  // `/` → undefined (the home index) and `/platsec/blime` → "platsec/blime".
+  // Defined inside getStaticPaths — Astro evaluates it in an isolated chunk, so
+  // module-scope helpers it references can be tree-shaken away. Plain string
+  // ops (no regex) per repo convention.
+  function toSlug(permalink: string): string | undefined {
+    let s = permalink;
+    while (s.startsWith("/")) s = s.slice(1);
+    while (s.endsWith("/")) s = s.slice(0, -1);
+    return s === "" ? undefined : s;
+  }
+
+  const pages = await getCollection("pages");
+  const projects = await getCollection("projects");
+
+  // `published: false` (the contributor template) is skipped, preserving the
+  // live 404 at its permalink.
+  const entries: ContentEntry[] = [...pages, ...projects].filter(
+    (entry) => entry.data.published !== false
+  );
+
+  return entries.map((entry) => ({
+    params: { slug: toSlug(entry.data.permalink) },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: ContentEntry;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const isHome = entry.data.permalink === "/";
+
+// Header model, derived from the Jekyll layout the page used:
+//   about (home)  → site title + subtitle  (the `about` layout)
+//   pages         → page title + description (the `page` layout)
+//   projects      → no header; the body supplies its own `# Title` (`default`)
+let header: { title: string; subtitle?: string; description?: string } | null =
+  null;
+if (entry.collection === "pages") {
+  header = isHome
+    ? { title: SITE.name, subtitle: entry.data.subtitle }
+    : { title: entry.data.title, description: entry.data.description };
+}
+
+// Home passes no title prop, so <title> is just "Secure Systems Group"
+// (al-folio shows site.title on the about page, not the page's own title).
+const documentTitle = isHome ? undefined : entry.data.title;
+const metaDescription =
+  entry.collection === "pages" ? entry.data.description : undefined;
+---
+
+<BaseLayout title={documentTitle} description={metaDescription}>
+  {
+    header && (
+      <header class="post-header">
+        <h1 class="post-title">{header.title}</h1>
+        {header.subtitle && <p class="desc" set:html={header.subtitle} />}
+        {header.description && (
+          <p class="post-description">{header.description}</p>
+        )}
+      </header>
+    )
+  }
+
+  <article>
+    <Content />
+  </article>
+</BaseLayout>
+
+<style>
+  .post-header {
+    margin-bottom: var(--space-5);
+  }
+
+  /* .post-title is an <h1> — base.css already sizes it (40 / 300, live). */
+
+  /* page-layout subtitle (e.g. "Machine Learning Security and Privacy"):
+     live al-folio .post-description is 0.875rem with a 2rem bottom gap. */
+  .post-description {
+    margin-top: 0;
+    margin-bottom: var(--space-6);
+    font-size: var(--font-size-sm);
+  }
+
+  /* about (`/`) subtitle — the three university links. al-folio leaves .desc
+     unstyled, so its links inherit the global theme colour. */
+  .desc {
+    margin-bottom: var(--space-5);
+  }
+</style>
