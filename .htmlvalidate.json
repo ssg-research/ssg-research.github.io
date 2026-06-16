@@ -1,7 +1,8 @@
 {
   "extends": ["html-validate:recommended"],
   "rules": {
-    "no-inline-style": "off",
-    "long-title": "off"
+    "long-title": "off",
+    "meta-refresh": "off",
+    "doctype-style": "off"
   }
 }

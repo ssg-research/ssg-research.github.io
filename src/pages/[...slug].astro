@@ -7,11 +7,13 @@ import { SITE } from "../constants/site";
 type ContentEntry = CollectionEntry<"pages"> | CollectionEntry<"projects">;
 
 export async function getStaticPaths() {
-  // Turn a permalink into a catch-all slug: strip leading/trailing slashes so
+  // Turn a permalink into a catch-all slug: strip surrounding slashes so
   // `/` → undefined (the home index) and `/platsec/blime` → "platsec/blime".
-  // Defined inside getStaticPaths — Astro evaluates it in an isolated chunk, so
-  // module-scope helpers it references can be tree-shaken away. Plain string
-  // ops (no regex) per repo convention.
+  // `build.format: "directory"` + `trailingSlash: "always"` then emits every
+  // page as `slug/index.html` (served at a trailing-slash URL). Defined inside
+  // getStaticPaths — Astro evaluates it in an isolated chunk, so module-scope
+  // helpers it references can be tree-shaken away. Plain string ops (no regex)
+  // per repo convention.
   function toSlug(permalink: string): string | undefined {
     let s = permalink;
     while (s.startsWith("/")) s = s.slice(1);

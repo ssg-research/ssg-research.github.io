@@ -37,6 +37,8 @@ const description =
 // (matches the live al-folio <title>).
 const documentTitle = pageTitle ? `${pageTitle} | ${SITE.name}` : SITE.name;
 
+// trailingSlash: "always" makes Astro.url.pathname end in a slash for every
+// page, so canonical/og:url are uniform (e.g. /platsec/blime/).
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(SITE.ogImage, Astro.site);
 ---
@@ -100,6 +102,9 @@ const ogImageURL = new URL(SITE.ogImage, Astro.site);
           : "light");
       document.documentElement.dataset.theme = theme;
     </script>
+
+    <!-- Page-level <head> extras (e.g. the 404 page's meta-refresh). -->
+    <slot name="head" />
   </head>
 
   <body>
