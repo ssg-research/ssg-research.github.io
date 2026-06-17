@@ -14,11 +14,11 @@ Our work in this theme is along two dimensions:
 
 # Current Projects
 
-- [Feature Locking in Language Models](featurelock)
-- [Unintended interactions among ML defenses and risks](interactions)
-- [Model extraction attacks and defenses](modelExtDef)
-- [Machine learning property attestations](mlattestation)
-- [Content Moderation for Generative Models](conceptfilter)
+- [Feature Locking in Language Models](featurelock/)
+- [Unintended interactions among ML defenses and risks](interactions/)
+- [Model extraction attacks and defenses](modelExtDef/)
+- [Machine learning property attestations](mlattestation/)
+- [Content Moderation for Generative Models](conceptfilter/)
 
 # Past Projects
 

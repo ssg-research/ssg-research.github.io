@@ -12,7 +12,7 @@ At SSG, we investigate additional research themes which we mentioned below.
 # Current Projects
 
 
-- [Future Internet Architectures](fias)
+- [Future Internet Architectures](fias/)
 
 
 # Past Projects
