@@ -1,0 +1,74 @@
+{
+  "name": "ssg-research.github.io",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Secure Systems Group (SSG) — security and privacy research at the University of Waterloo, KTH Royal Institute of Technology, and Aalto University.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint . && stylelint 'src/**/*.css'",
+    "lint:fix": "eslint --fix . && stylelint --fix 'src/**/*.css'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "markdownlint": "markdownlint '**/*.md'",
+    "markdownlint:fix": "markdownlint --fix '**/*.md'",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "htmlvalidate": "html-validate \"dist/**/*.html\"",
+    "ci": "npm run lint && npm run format:check && npm run markdownlint && npm run check && npm run build && npm run htmlvalidate && npm run test",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.2.0",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^6.4.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/mdx": "^6.0.3",
+    "@eslint/js": "^10.0.1",
+    "@fontsource/roboto": "^5.2.10",
+    "@retorquere/bibtex-parser": "^10.0.0",
+    "eslint": "^10.4.1",
+    "eslint-plugin-astro": "^1.7.0",
+    "html-validate": "^11.5.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
+    "markdownlint-cli": "^0.48.0",
+    "prettier": "^3.8.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "rehype-external-links": "^3.0.0",
+    "stylelint": "^17.13.0",
+    "stylelint-config-standard": "^40.0.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.0",
+    "vitest": "^4.1.8",
+    "zod": "^4.4.3"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
+  },
+  "lint-staged": {
+    "*.{ts,astro,js,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.md": [
+      "markdownlint --fix",
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  }
+}

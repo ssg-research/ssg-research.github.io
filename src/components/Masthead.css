@@ -1,0 +1,191 @@
+/* Masthead: a single row — brand (left) and nav + theme toggle (right). The
+   band is full-bleed (it sits outside .container, like the footer), so its
+   divider spans the whole page like the live fixed navbar; the row inside
+   aligns with the content column. Mobile collapses the nav into a JS-free
+   <details> menu. */
+
+/* Pinned to the top and translucent, like the live al-folio fixed navbar.
+   `position: sticky` (not `fixed`) keeps the bar in normal flow, so it reserves
+   its own height and the content below clears it automatically — no fixed offset
+   to hand-maintain. It still stays glued to the top through the whole scroll
+   (its containing block is the full-height .page), and content scrolls underneath
+   it once pinned. Faithful to the live computed style: an OPAQUE background token
+   plus opacity: 0.95 on the whole element (live computes background
+   rgb(255,255,255) / rgb(28,28,29) with opacity 0.95 — not a translucent rgba
+   background), so underlying content shows through faintly. Dark mode tracks
+   automatically: --color-bg-default and --color-border-subtle flip in the dark
+   token layer (live dark navbar is #1c1c1d / #424246 at the same 0.95).
+   z-index 1030 is Bootstrap's .fixed-top value — above all page content; the
+   opacity < 1 also opens a stacking context, so the mobile menu's scrim/summary/
+   panel z-indices below resolve within the masthead and the whole group floats
+   above content. (opacity does not become the fixed scrim's containing block —
+   only transform/filter/contain do — so the scrim stays viewport-anchored.) */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+
+  background-color: var(--color-bg-default);
+  opacity: 0.95;
+
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* The row, centred and constrained to the content column so the brand and nav
+   align with the page body. 16px of vertical padding seats the nav text ~16px
+   from the top, matching the live navbar (then .container's padding-top opens
+   the gap to the page content). */
+.masthead-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  width: min(100% - (2 * var(--space-6)), var(--max-width-md));
+  margin-inline: auto;
+  padding-block: var(--space-4);
+}
+
+.masthead-brand {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-thin); /* 100, live */
+  font-size: var(--font-size-lg); /* 20px, live */
+  line-height: var(--line-height-tight);
+}
+
+.masthead-brand:hover {
+  text-decoration: none;
+  color: var(--color-link-hover);
+}
+
+/* Right cluster: nav links + toggle, pushed to the end of the row */
+.masthead-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-left: auto;
+}
+
+.masthead-nav {
+  display: flex;
+  gap: var(--space-3); /* ~12px text-to-text, matching the live navbar */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: var(--font-size-md); /* 16px, live */
+  color: var(--color-text-primary); /* black, live */
+  font-weight: var(--font-weight-light); /* 300, live */
+  line-height: 1.6;
+
+  transition: color 150ms ease;
+}
+
+.nav-link.active {
+  color: var(--color-link); /* purple, live */
+  font-weight: var(--font-weight-regular); /* 400, live */
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  text-decoration: none;
+  color: var(--color-link);
+}
+
+/* Mobile menu hidden on desktop */
+.masthead-menu {
+  display: none;
+}
+
+/* =========================
+   Mobile masthead behavior
+   ========================= */
+@media (width <= 640px) {
+  /* Hide the desktop inline nav; the toggle stays in the row */
+  .masthead-nav {
+    display: none;
+  }
+
+  /* Anchor for the dropdown */
+  .masthead-menu {
+    display: inline-block;
+    position: relative;
+  }
+
+  /* Menu toggle */
+  .menu-summary {
+    cursor: pointer;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    list-style: none;
+
+    position: relative;
+    z-index: 50; /* above scrim */
+  }
+
+  .menu-summary > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .menu-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Full-screen scrim that also closes the menu (it's part of summary) */
+  .masthead-menu[open] .menu-summary::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-bg-muted) 96%, transparent);
+    z-index: 1;
+  }
+
+  @supports not (background: color-mix(in srgb, white 50%, transparent)) {
+    .masthead-menu[open] .menu-summary::after {
+      background: rgb(0 0 0 / 8%);
+    }
+  }
+
+  /* Panel aligned under the Menu toggle, overlaying content */
+  .menu-panel {
+    position: absolute;
+    top: calc(100% + var(--space-3));
+    right: 0;
+
+    padding: var(--space-4);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-3);
+
+    background: var(--color-bg-default);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+
+    z-index: 60; /* above scrim */
+  }
+
+  .menu-panel .nav-link {
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  /* Menu label / close-icon swap */
+  .menu-close {
+    display: none;
+    font-size: 1.4em;
+    line-height: 1;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .masthead-menu[open] .menu-label {
+    display: none;
+  }
+
+  .masthead-menu[open] .menu-close {
+    display: inline;
+  }
+}

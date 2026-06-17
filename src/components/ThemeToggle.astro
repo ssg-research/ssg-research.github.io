@@ -1,0 +1,106 @@
+---
+/*
+ * ThemeToggle — the site's only runtime JS.
+ * Flips html[data-theme] between "light" and "dark" and persists the choice
+ * to localStorage under the key "theme". The no-flash script in BaseLayout
+ * (<head>, is:inline) reads that value before paint; this only handles clicks.
+ */
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  aria-label="Toggle dark mode"
+  title="Toggle dark mode"
+>
+  {/* shown in light mode → click to go dark */}
+  <svg
+    class="icon icon-moon"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+
+  {/* shown in dark mode → click to go light */}
+  <svg
+    class="icon icon-sun"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+</button>
+
+<style>
+  /* Bare icon button — no border/background, matching the live site. */
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    color: var(--color-text-primary);
+    background: none;
+    border: none;
+
+    cursor: pointer;
+  }
+
+  .theme-toggle:hover {
+    color: var(--color-link-hover);
+  }
+
+  .icon {
+    display: block;
+  }
+
+  /* Light mode shows the moon; dark mode shows the sun. */
+  .icon-sun {
+    display: none;
+  }
+
+  :global(html[data-theme="dark"]) .icon-moon {
+    display: none;
+  }
+
+  :global(html[data-theme="dark"]) .icon-sun {
+    display: block;
+  }
+</style>
+
+<script>
+  const KEY = "theme";
+  const toggles = document.querySelectorAll<HTMLButtonElement>(".theme-toggle");
+
+  for (const button of toggles) {
+    button.addEventListener("click", () => {
+      const next =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem(KEY, next);
+    });
+  }
+</script>

@@ -1,0 +1,36 @@
+name: Bug report
+description: Something on the site is broken or behaving incorrectly.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting a problem with the site.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What's wrong?
+      description: What did you see, and what did you expect instead?
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where?
+      description: The page URL or part of the site where it happens.
+      placeholder: https://ssg-research.github.io/...
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we see it for ourselves?
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. ...
+  - type: input
+    id: environment
+    attributes:
+      label: Browser / device
+      description: Optional — only if it seems specific to one.
+      placeholder: e.g. Firefox on macOS, Safari on iPhone

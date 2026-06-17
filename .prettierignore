@@ -1,0 +1,14 @@
+dist/
+.astro/
+node_modules/
+public/
+
+# Verbatim-ported page/project content (incl. the contributor template). Kept
+# out of Prettier so first-pass porting preserves the source byte-for-byte; the
+# authored chrome (components, layouts, styles) is still formatted.
+src/content/
+
+# Legacy Jekyll-era GitHub workflows — kept until the Stage 7 cutover (deploy.yml
+# keeps gh-pages current as the rollback snapshot), so not reformatted here.
+.github/workflows/ci.yml
+.github/workflows/deploy.yml

@@ -1,0 +1,123 @@
+---
+// Self-hosted Roboto (latin subset) — the live site's font. Live loads only
+// 300/400/500/700 (no Thin), so the masthead brand's `font-weight: 100` snaps
+// to Roboto 300 there; we omit the 100 face for the same render, while keeping
+// the brand's computed weight at 100 to match the live computed style.
+import "@fontsource/roboto/latin-300.css";
+import "@fontsource/roboto/latin-400.css";
+import "@fontsource/roboto/latin-500.css";
+import "@fontsource/roboto/latin-700.css";
+// Preload the primary body weight (300 — body, headings, links and nav are all
+// light) to avoid a FOUT on cold load. Imported (not hand-written) so Vite
+// resolves the hashed URL — it matches the @font-face src above, so no
+// double-fetch.
+import roboto300 from "@fontsource/roboto/files/roboto-latin-300-normal.woff2";
+import "../styles/main.css";
+import Masthead from "../components/Masthead.astro";
+import Footer from "../components/Footer.astro";
+import { SITE } from "../constants/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  // Markdown pages with a `layout:` frontmatter key (Stage 3) pass their
+  // frontmatter here instead of as top-level props.
+  frontmatter?: {
+    title?: string;
+    description?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+const pageTitle = Astro.props.title ?? frontmatter?.title;
+const description =
+  Astro.props.description ?? frontmatter?.description ?? SITE.description;
+
+// Home renders just the site name; subpages get "<title> | <site name>"
+// (matches the live al-folio <title>).
+const documentTitle = pageTitle ? `${pageTitle} | ${SITE.name}` : SITE.name;
+
+// trailingSlash: "always" makes Astro.url.pathname end in a slash for every
+// page, so canonical/og:url are uniform (e.g. /platsec/blime/).
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(SITE.ogImage, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href={roboto300}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>{documentTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={SITE.keywords} />
+    <meta name="author" content={SITE.name} />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#ffffff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#1c1c1d"
+    />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph / social cards (Decision 5) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={pageTitle ?? SITE.name} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle ?? SITE.name} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    {
+      /*
+       * No-flash theme script. Runs synchronously in <head> before paint, so
+       * the stored/preferred theme is applied with no flash on hard refresh.
+       * is:inline keeps Astro from bundling or deferring it. localStorage key
+       * "theme"; values "light" / "dark". ThemeToggle handles clicks.
+       */
+    }
+    <script is:inline>
+      const stored = localStorage.getItem("theme");
+      const theme =
+        stored ??
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+      document.documentElement.dataset.theme = theme;
+    </script>
+
+    <!-- Page-level <head> extras (e.g. the 404 page's meta-refresh). -->
+    <slot name="head" />
+  </head>
+
+  <body>
+    <div class="page">
+      <Masthead />
+
+      <main class="container">
+        <div class="content">
+          <slot />
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+</html>

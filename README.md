@@ -1,31 +1,52 @@
 # Secure Systems Group
 
-We provide instructions on how to modify webpages in this repository or create a project webpage.
+Source for the [Secure Systems Group (SSG)](https://ssg-research.github.io)
+website.
 
-## How to make Changes
+This README is for **adding or editing content** — a project page or a
+publication. If you maintain the website itself (layout, components, build,
+deploy), see [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Any changes should not be made by committing directly to this repository.  Either contact the maintainer (listed at bottom) or submit a pull request.
+## Adding or editing a project page
 
-1. Fork this repository to a local version
-2. Submit a pull request or contact a maintainer and send them the `.md` file for your project page
+You will need [Node.js](https://nodejs.org/) 24 or newer.
 
-## How to run the website locally
+1. Fork this repository, clone your fork, then install and start the dev server:
 
-With [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/) installed, from the cloned repository run `bundle install` once, then `bundle exec jekyll serve` to preview the site at `http://localhost:4000`.
+   ```sh
+   npm install
+   npm run dev
+   ```
 
-## How to create a project webpage
+   Open the printed URL (default <http://localhost:4321>) to preview as you edit.
 
-For creating the project webpage for the first time, please use the template found under `_projects/template.md` (it has `published: false` in its frontmatter so it never renders on the live site — remove that line in your copy)
+2. Copy `src/content/projects/template.md` to a new file under
+   `src/content/projects/`, in the `mlsec/`, `platsec/`, or `others/` subfolder.
 
-The project webpages should be added to _projects/mlsec or _projects/platsec with the filename as <projectname>.md
-Once the project page has been created, link to the project webpage in _pages/mlsec.md or _pages/platsec.md as [Model extraction attacks and defenses](/mlsec/modelExtDef) (use the `permalink:` from the project page's frontmatter, not the file path)
+3. Edit the frontmatter — set `title` (the page heading) and `permalink` (the
+   live URL, e.g. `/mlsec/yourproject`), then remove the `published: false` line.
+   Write the page body in Markdown below the frontmatter.
 
+4. Link to your page from its section page (`src/content/pages/mlsec.md`,
+   `platsec.md`, or `others.md`) using the permalink, e.g.
+   `[Your project](yourproject)`.
 
-If you wish to make your project page in HTML instead, it is recommended to run the website locally for viewing/testing.
-All HTML project pages should follow the `page` template (found in `_layouts/page.html`).
+5. Commit on a branch and open a pull request.
 
-Please make changes only to your own project pages and not the rest of the website.
+Prefer not to use git? Send your Markdown file to a maintainer (see
+[Contact](#contact)) and they will add it.
+
+## Adding a publication
+
+Add the entry once to `src/bibliography/papers.bib` with a `selected={yourkey}`
+field that matches the project. It then appears on that project's page
+automatically — there is no per-page citation to maintain.
 
 ## Contact
 
-For any questions or requests to change a page, please contact Asim (Machine Learning), Adam Caulfield (Platform Security), Michael (Other Topics)
+For questions or change requests, contact Asim Waheed (Machine Learning), Adam
+Caulfield (Platform Security), or Michael (Other Topics).
+
+## License
+
+Released under the [MIT License](LICENSE).

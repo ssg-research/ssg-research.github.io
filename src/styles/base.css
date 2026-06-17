@@ -1,0 +1,162 @@
+/* ─────────────────────────────
+   Base styles
+   Applies design tokens to HTML primitives. No layout, no components.
+   ───────────────────────────── */
+
+html {
+  /* 100%, not a fixed px, so the visitor's browser font-size / zoom is honoured
+     (a11y). The live al-folio root carries no explicit rule — it's the UA
+     default (16px) — so this matches it while staying user-scalable. */
+  font-size: 100%;
+
+  /* Hint native UI (form controls, scrollbars) to match the active theme. */
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--color-bg-default);
+  color: var(--color-text-primary);
+
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  /* 300 (Roboto Light) is the live base weight — al-folio inherits MDB's
+     `body { font-weight: 300 }`, so body, p, links, lists and the footer all
+     render light. Headings (300) and the masthead set their own weights. */
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-normal);
+}
+
+/* ─────────────────────────────
+   Headings
+   ───────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: var(--space-2); /* 8px, live */
+
+  font-weight: var(--font-weight-light); /* 300, live */
+  line-height: var(--line-height-tight); /* 1.2, live */
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-4xl); /* 40px */
+}
+
+h2 {
+  font-size: var(--font-size-3xl); /* 32px */
+}
+
+h3 {
+  font-size: var(--font-size-2xl); /* 28px */
+}
+
+h4 {
+  font-size: var(--font-size-xl); /* 24px */
+}
+
+h5 {
+  font-size: var(--font-size-lg); /* 20px */
+}
+
+h6 {
+  font-size: var(--font-size-md); /* 16px */
+}
+
+/* ─────────────────────────────
+   Text
+   ───────────────────────────── */
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-4); /* 16px, live */
+  max-width: var(--max-width-md);
+}
+
+small {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Bold runs (**…**) render at 500, not the UA bold — al-folio inherits MDB's
+   `b, strong { font-weight: 500 }`. Set explicitly so it is independent of the
+   300 body weight (a UA `bolder` would resolve to 400 from 300). */
+strong,
+b {
+  font-weight: var(--font-weight-medium);
+}
+
+/* ─────────────────────────────
+   Links
+   ───────────────────────────── */
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+/* ─────────────────────────────
+   Code
+   ───────────────────────────── */
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+}
+
+code {
+  padding: 0.1em 0.3em;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-muted);
+}
+
+pre {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-muted);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+/* ─────────────────────────────
+   Rules
+   ───────────────────────────── */
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-border-subtle);
+  margin-block: var(--space-6);
+}
+
+/* ─────────────────────────────
+   Selection
+   ───────────────────────────── */
+
+::selection {
+  background-color: var(--color-selection);
+  color: var(--color-white);
+}

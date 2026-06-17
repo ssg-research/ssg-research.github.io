@@ -1,0 +1,27 @@
+/* Layout primitives
+   Structural layout only (page frame + container + content). No colours,
+   no type scale.
+*/
+
+/* Sticky-footer frame: main grows so the footer settles at the bottom of
+   the viewport on short pages and after the content on long ones. */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1 0 auto;
+  width: min(100% - (2 * var(--space-6)), var(--max-width-lg));
+  margin-inline: auto;
+  /* The masthead is `position: sticky`, so it reserves its own height in flow;
+     this is just the gap below it (the live mt-5 offset). */
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-7);
+}
+
+.content {
+  max-width: var(--max-width-md);
+  margin-inline: auto;
+}
