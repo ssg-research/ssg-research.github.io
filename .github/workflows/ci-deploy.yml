@@ -5,13 +5,16 @@ on:
     branches: [astro-migration, main]
   push:
     branches: [astro-migration, main]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
   group: ci-deploy-${{ github.ref }}
-  cancel-in-progress: true
+  # Cancel superseded runs on feature branches, but never interrupt a main
+  # deploy (queue instead).
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   ci:
@@ -47,5 +50,34 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: HTML validate
+        run: npm run htmlvalidate
+
       - name: Test
         run: npm run test
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ./dist
+
+  deploy:
+    needs: ci
+    # Deploy only from main (the cutover branch); never on integration-branch or
+    # PR runs, which still produce and validate the artifact above.
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

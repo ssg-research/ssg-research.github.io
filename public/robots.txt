@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://ssg-research.github.io/sitemap-index.xml

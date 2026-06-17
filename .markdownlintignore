@@ -1,11 +1,12 @@
-# The npm `markdownlint` script lints README.md only; this file guards the
-# lint-staged `markdownlint --fix` path so verbatim-ported and legacy Markdown
-# is never reformatted on commit during the migration's first pass.
+# Build output and dependencies.
 node_modules/
 dist/
 .astro/
+
+# Verbatim-ported page/project content (incl. the contributor template). Not
+# linted so first-pass porting preserves intentional source quirks (multiple
+# H1s, raw HTML, double blank lines).
 src/content/
-_pages/
-_projects/
-_bibliography/
-.github/
+
+# Local-only working notes (not part of the site).
+agent_docs/

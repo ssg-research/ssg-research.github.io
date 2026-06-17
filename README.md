@@ -1,45 +1,52 @@
 # Secure Systems Group
 
-Source for the Secure Systems Group (SSG) website. This guide covers how to make
-changes and how to add a project page.
+Source for the [Secure Systems Group (SSG)](https://ssg-research.github.io)
+website.
 
-## How to make changes
+This README is for **adding or editing content** — a project page or a
+publication. If you maintain the website itself (layout, components, build,
+deploy), see [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Please do not commit directly to this repository. Fork it, make your change on a
-branch, and open a pull request — or contact a maintainer (listed below) and
-send them the Markdown file for your page.
+## Adding or editing a project page
 
-## Running the site locally
+You will need [Node.js](https://nodejs.org/) 24 or newer.
 
-With [Node.js](https://nodejs.org/) 24 or newer installed, from the cloned
-repository run:
+1. Fork this repository, clone your fork, then install and start the dev server:
 
-```sh
-npm install
-npm run dev
-```
+   ```sh
+   npm install
+   npm run dev
+   ```
 
-Then open the printed URL (default <http://localhost:4321>) to preview the site.
-`npm run build` writes the production build to `dist/`.
+   Open the printed URL (default <http://localhost:4321>) to preview as you edit.
 
-## Adding a project page
+2. Copy `src/content/projects/template.md` to a new file under
+   `src/content/projects/`, in the `mlsec/`, `platsec/`, or `others/` subfolder.
 
-1. Copy `src/content/projects/template.md` to a new file under
-   `src/content/projects/`, placing it in the `mlsec/`, `platsec/`, or
-   `others/` subfolder.
-2. Edit the frontmatter: set `title` (the page heading) and `permalink` (the
-   live URL, e.g. `/mlsec/yourproject`), then remove `published: false` so the
-   page is built.
-3. Write the page body in Markdown below the frontmatter.
-4. Link to the new page from its section page (`src/content/pages/mlsec.md`,
-   `platsec.md`, or `others.md`) using the `permalink`, e.g.
+3. Edit the frontmatter — set `title` (the page heading) and `permalink` (the
+   live URL, e.g. `/mlsec/yourproject`), then remove the `published: false` line.
+   Write the page body in Markdown below the frontmatter.
+
+4. Link to your page from its section page (`src/content/pages/mlsec.md`,
+   `platsec.md`, or `others.md`) using the permalink, e.g.
    `[Your project](yourproject)`.
 
-To list a publication on a project page, add the entry once to `papers.bib` with
-a `selected={yourkey}` field; the bibliography component renders every matching
-entry, so there is no per-page citation to maintain.
+5. Commit on a branch and open a pull request.
+
+Prefer not to use git? Send your Markdown file to a maintainer (see
+[Contact](#contact)) and they will add it.
+
+## Adding a publication
+
+Add the entry once to `src/bibliography/papers.bib` with a `selected={yourkey}`
+field that matches the project. It then appears on that project's page
+automatically — there is no per-page citation to maintain.
 
 ## Contact
 
-For questions or change requests, contact Asim (Machine Learning), Adam
+For questions or change requests, contact Asim Waheed (Machine Learning), Adam
 Caulfield (Platform Security), or Michael (Other Topics).
+
+## License
+
+Released under the [MIT License](LICENSE).
