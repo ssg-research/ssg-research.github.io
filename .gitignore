@@ -1,18 +1,11 @@
-_site
-.bundle
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
+# OS
 .DS_store
-.ruby-version
-.tweet-cache
-vendor
 
-# Astro / Node toolchain (added for the Jekyll → Astro migration)
+# Astro / Node toolchain
 node_modules/
 dist/
 .astro/
 
-# local working notes for maintenance sessions (not part of the site)
+# Local working notes / scratch for maintenance sessions (not part of the site)
 agent_docs/
 .playwright-mcp/

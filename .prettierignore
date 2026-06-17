@@ -8,27 +8,7 @@ public/
 # authored chrome (components, layouts, styles) is still formatted.
 src/content/
 
-# Legacy Jekyll tree — ported in later migration stages, removed at the cutover.
-# Kept out of Prettier so `format:check` governs only the Astro surface.
-_bibliography/
-_config.yml
-_includes/
-_layouts/
-_pages/
-_plugins/
-_projects/
-_sass/
-assets/
-vendor/
-Gemfile
-Gemfile.lock
-404.html
-robots.txt
-README.md
-LICENSE
-.pre-commit-config.yaml
-
-# Legacy Jekyll-era GitHub metadata (not reformatted in the first pass).
+# Legacy Jekyll-era GitHub workflows — kept until the Stage 7 cutover (deploy.yml
+# keeps gh-pages current as the rollback snapshot), so not reformatted here.
 .github/workflows/ci.yml
 .github/workflows/deploy.yml
-.github/dependabot.yml

@@ -7,16 +7,6 @@ export default [
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
   {
-    ignores: [
-      "dist/",
-      "node_modules/",
-      ".astro/",
-      // Legacy Jekyll tree (carried until the Stage 7 cutover, then removed).
-      "_site/",
-      "vendor/",
-      "assets/",
-      ".jekyll-cache/",
-      ".playwright-mcp/",
-    ],
+    ignores: ["dist/", "node_modules/", ".astro/"],
   },
 ];
