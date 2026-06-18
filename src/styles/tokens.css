@@ -95,14 +95,15 @@
     SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 
-  /* Font sizes — mapped to the live computed scale.
-     h1 40 / h2 32 / h3 28 / h4 24 / h5 20 / body 16 / small 14 / footer 12. */
+  /* Font sizes. The raw scale mirrors the live al-folio computed sizes; base.css
+     maps headings onto it: h1 40 / h2 32 / h3 24 / h4 20 / h6 16, body 16,
+     small 14, footer 12. */
   --font-size-xs: 0.75rem; /* 12px — footer */
   --font-size-sm: 0.875rem; /* 14px — subtitle / small */
   --font-size-md: 1rem; /* 16px — body, nav, h6 */
-  --font-size-lg: 1.25rem; /* 20px — h5, brand */
-  --font-size-xl: 1.5rem; /* 24px — h4 */
-  --font-size-2xl: 1.75rem; /* 28px — h3 */
+  --font-size-lg: 1.25rem; /* 20px — h4, h5, brand */
+  --font-size-xl: 1.5rem; /* 24px — h3 */
+  --font-size-2xl: 1.75rem; /* 28px */
   --font-size-3xl: 2rem; /* 32px — h2 */
   --font-size-4xl: 2.5rem; /* 40px — h1 */
 

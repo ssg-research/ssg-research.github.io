@@ -32,3 +32,16 @@ export const BLOG_NAV: NavItem = {
   href: "https://crysp.uwaterloo.ca/ssg/blog",
   external: true,
 };
+
+// The CS858 reading wiki, vendored as a submodule and rendered through the
+// catch-all route. Single source of truth for the link rewriter (build-time)
+// and the permalink helper (route): change the URL space or content path once,
+// here. Intentionally absent from HOME_NAV/BLOG_NAV — the wiki is shared by raw
+// URL, never linked from the masthead.
+export const WIKI = {
+  // URL prefix for every wiki page. Leading and trailing slash required.
+  base: "/dissemination/cs858wiki/",
+  // Filesystem path (repo-root relative) the loader globs and the link
+  // rewriter resolves relative `.md` targets against.
+  contentRoot: "vendor/cs858-wiki/wiki",
+} as const;

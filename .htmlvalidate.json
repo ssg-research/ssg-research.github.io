@@ -3,6 +3,7 @@
   "rules": {
     "long-title": "off",
     "meta-refresh": "off",
-    "doctype-style": "off"
+    "doctype-style": "off",
+    "no-inline-style": "off"
   }
 }

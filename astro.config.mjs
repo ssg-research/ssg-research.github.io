@@ -3,6 +3,8 @@ import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import { unified } from "@astrojs/markdown-remark";
 import rehypeExternalLinks from "rehype-external-links";
+import remarkWikiLinks from "./src/plugins/remark-wiki-links.mjs";
+import { WIKI } from "./src/constants/site";
 
 export default defineConfig({
   site: "https://ssg-research.github.io",
@@ -24,9 +26,16 @@ export default defineConfig({
   },
   markdown: {
     // Astro 6.4 moved remark/rehype config out of `markdown.rehypePlugins`
-    // into a `unified()` processor. External links open in a new tab with a
-    // safe rel — the site's only markdown-level transform.
+    // into a `unified()` processor.
     processor: unified({
+      // Rewrite the vendored wiki's relative `.md` links to site URLs. The
+      // plugin is gated to files under WIKI.contentRoot, so pages/projects
+      // markdown is left untouched. base/contentRoot come from the shared WIKI
+      // constant — one source of truth with the loader and permalink helper.
+      remarkPlugins: [
+        [remarkWikiLinks, { base: WIKI.base, contentRoot: WIKI.contentRoot }],
+      ],
+      // External links open in a new tab with a safe rel.
       rehypePlugins: [
         [
           rehypeExternalLinks,

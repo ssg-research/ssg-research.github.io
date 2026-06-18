@@ -10,3 +10,7 @@ src/content/
 
 # Local-only working notes (not part of the site).
 agent_docs/
+
+# Vendored cs858-wiki submodule — governed by its own repo's lint rules, not
+# this site's. Consumed read-only; never relinted or reformatted here.
+vendor/

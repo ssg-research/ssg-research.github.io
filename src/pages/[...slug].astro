@@ -3,9 +3,13 @@ import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE } from "../constants/site";
+import { wikiPermalink, wikiTitle } from "../lib/wiki";
 import Publications from "../components/Publications.astro";
 
-type ContentEntry = CollectionEntry<"pages"> | CollectionEntry<"projects">;
+type ContentEntry =
+  | CollectionEntry<"pages">
+  | CollectionEntry<"projects">
+  | CollectionEntry<"wiki">;
 
 export async function getStaticPaths() {
   // Turn a permalink into a catch-all slug: strip surrounding slashes so
@@ -24,15 +28,20 @@ export async function getStaticPaths() {
 
   const pages = await getCollection("pages");
   const projects = await getCollection("projects");
+  const wiki = await getCollection("wiki");
 
-  // `published: false` (the contributor template) is skipped, preserving the
-  // live 404 at its permalink.
-  const entries: ContentEntry[] = [...pages, ...projects].filter(
-    (entry) => entry.data.published !== false
-  );
+  // pages/projects carry an explicit permalink; wiki permalinks are derived
+  // from the file path (src/lib/wiki.ts). `published: false` (the contributor
+  // template) is skipped, preserving the live 404 at its permalink.
+  const built: { permalink: string; entry: ContentEntry }[] = [
+    ...[...pages, ...projects]
+      .filter((entry) => entry.data.published !== false)
+      .map((entry) => ({ permalink: entry.data.permalink, entry })),
+    ...wiki.map((entry) => ({ permalink: wikiPermalink(entry.id), entry })),
+  ];
 
-  return entries.map((entry) => ({
-    params: { slug: toSlug(entry.data.permalink) },
+  return built.map(({ permalink, entry }) => ({
+    params: { slug: toSlug(permalink) },
     props: { entry },
   }));
 }
@@ -44,12 +53,14 @@ interface Props {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-const isHome = entry.data.permalink === "/";
+const isWiki = entry.collection === "wiki";
+// Only `pages` carry a permalink; home is the page whose permalink is "/".
+const isHome = entry.collection === "pages" && entry.data.permalink === "/";
 
 // Header model, derived from the Jekyll layout the page used:
 //   about (home)  → site title + subtitle  (the `about` layout)
 //   pages         → page title + description (the `page` layout)
-//   projects      → no header; the body supplies its own `# Title` (`default`)
+//   projects/wiki → no header; the body supplies its own `# Title` (`default`)
 let header: { title: string; subtitle?: string; description?: string } | null =
   null;
 if (entry.collection === "pages") {
@@ -58,11 +69,19 @@ if (entry.collection === "pages") {
     : { title: entry.data.title, description: entry.data.description };
 }
 
-// Home passes no title prop, so <title> is just "Secure Systems Group"
-// (al-folio shows site.title on the about page, not the page's own title).
-const documentTitle = isHome ? undefined : entry.data.title;
+// Wiki pages carry no `permalink`/`title`, so derive the <title> from
+// frontmatter title / first H1 / path. Home passes no title prop, so <title>
+// is just "Secure Systems Group" (al-folio shows site.title on the about page).
+const documentTitle = isWiki
+  ? wikiTitle(entry.data, entry.body, entry.id)
+  : isHome
+    ? undefined
+    : entry.data.title;
+// `description` exists on pages and wiki, not projects.
 const metaDescription =
-  entry.collection === "pages" ? entry.data.description : undefined;
+  entry.collection === "wiki" || entry.collection === "pages"
+    ? entry.data.description
+    : undefined;
 ---
 
 <BaseLayout title={documentTitle} description={metaDescription}>
