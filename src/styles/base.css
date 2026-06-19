@@ -173,12 +173,9 @@ td {
 }
 
 thead th {
+  background-color: var(--color-bg-muted);
   border-bottom-color: var(--color-border-default);
   font-weight: var(--font-weight-medium);
-}
-
-tbody tr:nth-child(even) {
-  background-color: var(--color-bg-muted);
 }
 
 /* ─────────────────────────────
