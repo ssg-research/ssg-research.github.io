@@ -10,6 +10,7 @@ At SSG, we investigate the design of new hardware and software platform security
 
 # Current Projects
 
+- [Enhancing Memory-Safe Architectures](coloredcaps/)
 - [Resolving Availability and Integrity Conflicts](pair/)
 
 # Past Projects
