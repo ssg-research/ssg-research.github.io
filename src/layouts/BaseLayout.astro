@@ -1,16 +1,13 @@
 ---
-// Self-hosted Roboto (latin subset) — the live site's font. Live loads only
-// 300/400/500/700 (no Thin), so the masthead brand's `font-weight: 100` snaps
-// to Roboto 300 there; we omit the 100 face for the same render, while keeping
-// the brand's computed weight at 100 to match the live computed style.
+// Self-hosted Roboto (latin subset) — the live site's font. Three weights cover
+// the design: 300 (base — body, links, h1/h2, brand, inactive nav), 400 (h3–h6,
+// active nav) and 500 (strong/b, table headers, badges, menu).
 import "@fontsource/roboto/latin-300.css";
 import "@fontsource/roboto/latin-400.css";
 import "@fontsource/roboto/latin-500.css";
-import "@fontsource/roboto/latin-700.css";
-// Preload the primary body weight (300 — body, headings, links and nav are all
-// light) to avoid a FOUT on cold load. Imported (not hand-written) so Vite
-// resolves the hashed URL — it matches the @font-face src above, so no
-// double-fetch.
+// Preload the base body weight (300 — body, links, h1/h2 and inactive nav) to
+// avoid a FOUT on cold load. Imported (not hand-written) so Vite resolves the
+// hashed URL — it matches the @font-face src above, so no double-fetch.
 import roboto300 from "@fontsource/roboto/files/roboto-latin-300-normal.woff2";
 import "../styles/main.css";
 import Masthead from "../components/Masthead.astro";
@@ -20,8 +17,8 @@ import { SITE } from "../constants/site";
 interface Props {
   title?: string;
   description?: string;
-  // Markdown pages with a `layout:` frontmatter key (Stage 3) pass their
-  // frontmatter here instead of as top-level props.
+  // Markdown pages with a `layout:` frontmatter key pass their frontmatter here
+  // instead of as top-level props.
   frontmatter?: {
     title?: string;
     description?: string;
@@ -33,8 +30,7 @@ const pageTitle = Astro.props.title ?? frontmatter?.title;
 const description =
   Astro.props.description ?? frontmatter?.description ?? SITE.description;
 
-// Home renders just the site name; subpages get "<title> | <site name>"
-// (matches the live al-folio <title>).
+// Home renders just the site name; subpages get "<title> | <site name>".
 const documentTitle = pageTitle ? `${pageTitle} | ${SITE.name}` : SITE.name;
 
 // trailingSlash: "always" makes Astro.url.pathname end in a slash for every
@@ -73,7 +69,7 @@ const ogImageURL = new URL(SITE.ogImage, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Open Graph / social cards (Decision 5) -->
+    <!-- Open Graph / social cards -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={pageTitle ?? SITE.name} />

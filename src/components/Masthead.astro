@@ -12,8 +12,8 @@ function normalizePath(path: string): string {
 
 const current = normalizePath(Astro.url.pathname);
 
-// al-folio hides the brand on the home page (the `/` permalink). Replicated
-// faithfully: brand shows on every page except home.
+// The brand is hidden on the home page (the `/` permalink); it shows on every
+// other page.
 const isHome = current === "/";
 
 // Section links come from the `pages` collection (nav: true), ordered by

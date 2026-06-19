@@ -4,17 +4,17 @@
    aligns with the content column. Mobile collapses the nav into a JS-free
    <details> menu. */
 
-/* Pinned to the top and translucent, like the live al-folio fixed navbar.
+/* Pinned to the top and translucent, like the al-folio fixed navbar it replaced.
    `position: sticky` (not `fixed`) keeps the bar in normal flow, so it reserves
    its own height and the content below clears it automatically — no fixed offset
    to hand-maintain. It still stays glued to the top through the whole scroll
    (its containing block is the full-height .page), and content scrolls underneath
-   it once pinned. Faithful to the live computed style: an OPAQUE background token
-   plus opacity: 0.95 on the whole element (live computes background
+   it once pinned. Faithful to al-folio's computed style: an OPAQUE background
+   token plus opacity: 0.95 on the whole element (al-folio computed background
    rgb(255,255,255) / rgb(28,28,29) with opacity 0.95 — not a translucent rgba
    background), so underlying content shows through faintly. Dark mode tracks
    automatically: --color-bg-default and --color-border-subtle flip in the dark
-   token layer (live dark navbar is #1c1c1d / #424246 at the same 0.95).
+   token layer (al-folio's dark navbar was #1c1c1d / #424246 at the same 0.95).
    z-index 1030 is Bootstrap's .fixed-top value — above all page content; the
    opacity < 1 also opens a stacking context, so the mobile menu's scrim/summary/
    panel z-indices below resolve within the masthead and the whole group floats
@@ -48,7 +48,7 @@
 .masthead-brand {
   text-decoration: none;
   color: var(--color-text-primary);
-  font-weight: var(--font-weight-thin); /* 100, live */
+  font-weight: var(--font-weight-light); /* 300 */
   font-size: var(--font-size-lg); /* 20px, live */
   line-height: var(--line-height-tight);
 }

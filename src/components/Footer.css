@@ -1,7 +1,7 @@
 /* Footer: a slim full-bleed band at the bottom of the page, barely taller than
-   its text (matching the live al-folio footer). The band spans the viewport (it
-   sits outside .container); its text aligns with the content column. Uses the
-   Stage 1 footer-* role tokens, so it inverts in dark mode. */
+   its text. The band spans the viewport (it sits outside .container); its text
+   aligns with the content column. Uses the footer-* role tokens, so it inverts
+   in dark mode. */
 
 .footer {
   background: var(--color-footer-bg);

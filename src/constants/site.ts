@@ -6,9 +6,8 @@ export const SITE = {
     "Secure Systems Group (SSG): security and privacy research at the University of Waterloo, KTH Royal Institute of Technology, and Aalto University.",
   keywords:
     "security, privacy, machine learning, platform security, systems security, research group",
-  // Default OG/social-card image (Decision 5: 2025 group photo). The asset
-  // itself is copied into public/assets/ in Stage 6; the tag carries the
-  // absolute URL now.
+  // Default OG/social-card image (the 2025 group photo). The asset lives in
+  // public/assets/; the tag carries its absolute URL.
   ogImage: "/assets/gp2025.jpeg",
 } as const;
 
@@ -18,9 +17,9 @@ export interface NavItem {
   external?: boolean;
 }
 
-// Live nav order (al-folio _includes/header.html): About (/), the external Blog
-// link, then the `nav: true` pages sorted by nav_order — MLSec (2), PlatSec (3),
-// Other (4), Dissemination (5), Team (6).
+// Nav order: About (/), the external Blog link, then the `nav: true` pages
+// sorted by nav_order — MLSec (2), PlatSec (3), Other (4), Dissemination (5),
+// Team (6).
 //
 // The two fixed entries below frame the list; the internal section links are
 // sourced from the `pages` collection in Masthead.astro (nav / nav_order
@@ -32,3 +31,16 @@ export const BLOG_NAV: NavItem = {
   href: "https://crysp.uwaterloo.ca/ssg/blog",
   external: true,
 };
+
+// The CS858 reading wiki, vendored as a submodule and rendered through the
+// catch-all route. Single source of truth for the link rewriter (build-time)
+// and the permalink helper (route): change the URL space or content path once,
+// here. Intentionally absent from HOME_NAV/BLOG_NAV — the wiki is shared by raw
+// URL, never linked from the masthead.
+export const WIKI = {
+  // URL prefix for every wiki page. Leading and trailing slash required.
+  base: "/dissemination/cs858wiki/",
+  // Filesystem path (repo-root relative) the loader globs and the link
+  // rewriter resolves relative `.md` targets against.
+  contentRoot: "vendor/cs858-wiki/wiki",
+} as const;

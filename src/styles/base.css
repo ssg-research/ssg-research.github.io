@@ -5,8 +5,7 @@
 
 html {
   /* 100%, not a fixed px, so the visitor's browser font-size / zoom is honoured
-     (a11y). The live al-folio root carries no explicit rule — it's the UA
-     default (16px) — so this matches it while staying user-scalable. */
+     (a11y). Leaving the root at the UA default (16px) keeps it user-scalable. */
   font-size: 100%;
 
   /* Hint native UI (form controls, scrollbars) to match the active theme. */
@@ -26,9 +25,10 @@ body {
 
   font-family: var(--font-sans);
   font-size: var(--font-size-md);
-  /* 300 (Roboto Light) is the live base weight — al-folio inherits MDB's
-     `body { font-weight: 300 }`, so body, p, links, lists and the footer all
-     render light. Headings (300) and the masthead set their own weights. */
+  /* Roboto Light (300) is the base body weight; p, links, lists, small and the
+     footer inherit it, as do h1/h2 and the masthead brand. h3–h6 step up one
+     notch to regular (400); strong/b, table headers and the masthead's own
+     elements set their weights explicitly. */
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-normal);
 }
@@ -46,29 +46,37 @@ h6 {
   margin-top: 0;
   margin-bottom: var(--space-2); /* 8px, live */
 
-  font-weight: var(--font-weight-light); /* 300, live */
+  font-weight: var(--font-weight-regular); /* 400 (h1/h2 drop to light below) */
   line-height: var(--line-height-tight); /* 1.2, live */
   color: var(--color-text-primary);
 }
 
+/* h1 and h2 are large enough to hold the page on their own, so they stay at the
+   body's light weight; h3–h6 keep the shared rule's regular (400). */
 h1 {
   font-size: var(--font-size-4xl); /* 40px */
+  font-weight: var(--font-weight-light); /* 300 */
 }
 
 h2 {
   font-size: var(--font-size-3xl); /* 32px */
+  font-weight: var(--font-weight-light); /* 300 */
 }
 
+/* h3 and h4 step one rung down the type scale: h3 stays well below h2, and on
+   the team page the nested h4 sub-groups stay below their h3 sections. h4 and h5
+   share the brand's lg token, so both drop to md together; the masthead keeps
+   lg. */
 h3 {
-  font-size: var(--font-size-2xl); /* 28px */
+  font-size: var(--font-size-lg); /* 20px */
 }
 
 h4 {
-  font-size: var(--font-size-xl); /* 24px */
+  font-size: var(--font-size-md); /* 16px */
 }
 
 h5 {
-  font-size: var(--font-size-lg); /* 20px */
+  font-size: var(--font-size-md); /* 16px */
 }
 
 h6 {
@@ -90,9 +98,9 @@ small {
   color: var(--color-text-secondary);
 }
 
-/* Bold runs (**…**) render at 500, not the UA bold — al-folio inherits MDB's
-   `b, strong { font-weight: 500 }`. Set explicitly so it is independent of the
-   300 body weight (a UA `bolder` would resolve to 400 from 300). */
+/* Bold runs (**…**) render at 500, not the UA bold — set explicitly so they are
+   independent of the 300 body weight (a UA `bolder` would resolve to 400 from
+   300). */
 strong,
 b {
   font-weight: var(--font-weight-medium);
@@ -140,6 +148,34 @@ pre {
 pre code {
   padding: 0;
   background: none;
+}
+
+/* ─────────────────────────────
+   Tables
+   The site's own pages use no tables; the wiki's Markdown tables (index
+   listings, paper summaries) get plain bordered styling in the site's tokens.
+   Per-column Markdown alignment (`:---:`) emits an inline text-align that still
+   wins over the default left.
+   ───────────────────────────── */
+
+table {
+  width: 100%;
+  margin-bottom: var(--space-4);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border-subtle);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  background-color: var(--color-bg-muted);
+  border-bottom-color: var(--color-border-default);
+  font-weight: var(--font-weight-medium);
 }
 
 /* ─────────────────────────────

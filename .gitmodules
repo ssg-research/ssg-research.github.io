@@ -1,0 +1,3 @@
+[submodule "vendor/cs858-wiki"]
+	path = vendor/cs858-wiki
+	url = git@github.com:ssg-research/cs858-wiki.git
