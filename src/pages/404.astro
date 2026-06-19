@@ -1,8 +1,8 @@
 ---
 // The site 404. Astro always emits this route as `404.html` (regardless of
-// build.format), which GitHub Pages serves for any unknown path — matching the
-// live Jekyll 404. Ported faithfully from the live al-folio 404 (page layout +
-// a 3-second meta-refresh back to home).
+// build.format), which GitHub Pages serves for any unknown path. Keeps the
+// al-folio 404 behaviour: a page-layout body plus a 3-second meta-refresh back
+// to home.
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Page not found";

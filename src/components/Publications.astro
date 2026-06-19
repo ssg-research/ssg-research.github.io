@@ -19,9 +19,8 @@ const publications = allPublications
     return yearB - yearA;
   });
 
-// Internal jekyll-scholar keywords stripped from the displayed BibTeX block,
-// mirroring `_config.yml`'s `filtered_bibtex_keywords` (the live `hideCustomBibtex`
-// filter). The link/flag fields are presentation metadata, not part of the citation.
+// Internal keyword lines stripped from the displayed BibTeX block: the link/flag
+// fields below are presentation metadata, not part of the citation.
 const FILTERED_BIBTEX_KEYWORDS = new Set([
   "abbr",
   "abstract",
@@ -101,8 +100,8 @@ function getPeriodicalHTML(data: PublicationData) {
 }
 
 // Drop the internal keyword lines from the raw BibTeX so the displayed entry
-// matches the live `hideCustomBibtex` output. A line's field name is everything
-// before its first "="; the entry/closing lines have no "=" and are kept.
+// shows only citation fields. A line's field name is everything before its
+// first "="; the entry/closing lines have no "=" and are kept.
 function getFilteredBibtex(raw: string) {
   return raw
     .split("\n")

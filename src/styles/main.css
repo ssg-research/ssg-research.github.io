@@ -1,5 +1,5 @@
 /* Main stylesheet
-   Design system entry point. Import this once (in BaseLayout from Stage 2).
+   Design system entry point. Import this once (in BaseLayout).
 */
 
 @import url("./tokens.css");

@@ -71,7 +71,7 @@
   --color-status-success: var(--color-green);
   --color-status-error: var(--color-red);
 
-  /* Footer (rendered in Stage 2; tokens defined now) */
+  /* Footer */
   --color-footer-bg: var(--color-grey-dark);
   --color-footer-text: var(--color-grey-light);
   --color-footer-link: var(--color-white);
@@ -82,10 +82,9 @@
   --color-border-strong: var(--color-grey-dark); /* section breaks */
 
   /* ─────────────────────────────
-     3. Typography — Roboto, matching the live site.
-     The live al-folio + MDB stack renders in Roboto (loaded via Google Fonts);
-     we self-host it with @fontsource (imported in BaseLayout, latin subset).
-     Sizes / weights / line-heights below mirror the live computed styles.
+     3. Typography — Roboto, the site's typeface.
+     The former al-folio + MDB theme used Roboto (via Google Fonts); the site
+     self-hosts it with @fontsource (imported in BaseLayout, latin subset).
      ───────────────────────────── */
   --font-sans:
     "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -95,24 +94,22 @@
     SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 
-  /* Font sizes. The raw scale mirrors the live al-folio computed sizes; base.css
-     maps headings onto it: h1 40 / h2 32 / h3 24 / h4 20 / h6 16, body 16,
-     small 14, footer 12. */
+  /* Font sizes. base.css maps headings onto this scale: h1 40 / h2 32 / h3 20 /
+     h4 16 / h5 16 / h6 16, body 16, small 14, footer 12. */
   --font-size-xs: 0.75rem; /* 12px — footer */
   --font-size-sm: 0.875rem; /* 14px — subtitle / small */
-  --font-size-md: 1rem; /* 16px — body, nav, h6 */
-  --font-size-lg: 1.25rem; /* 20px — h4, h5, brand */
-  --font-size-xl: 1.5rem; /* 24px — h3 */
+  --font-size-md: 1rem; /* 16px — body, nav, h4, h5, h6 */
+  --font-size-lg: 1.25rem; /* 20px — brand */
+  --font-size-xl: 1.5rem; /* 24px */
   --font-size-2xl: 1.75rem; /* 28px */
   --font-size-3xl: 2rem; /* 32px — h2 */
   --font-size-4xl: 2.5rem; /* 40px — h1 */
 
-  /* Font weights — al-folio is a light theme: thin brand, light headings. */
-  --font-weight-thin: 100; /* brand */
-  --font-weight-light: 300; /* headings, inactive nav */
-  --font-weight-regular: 400; /* body, links, active nav */
-  --font-weight-medium: 500;
-  --font-weight-bold: 700; /* strong / b */
+  /* Font weights. Body and h1/h2 are light; h3–h6 step up to regular; strong/b
+     and small UI accents use medium. */
+  --font-weight-light: 300; /* base: body, links, h1, h2, brand, inactive nav */
+  --font-weight-regular: 400; /* one step up: h3–h6, active nav */
+  --font-weight-medium: 500; /* strong/b, table headers, badges, mobile menu */
 
   /* Line heights */
   --line-height-tight: 1.2; /* headings (live: 48/40, 33.6/28) */

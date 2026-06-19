@@ -44,11 +44,11 @@ Run `npm run ci` before pushing — it is exactly what CI enforces.
 ## Reviewing or smoke-testing a branch
 
 To check out a branch and view the real built site (substitute the branch under
-review for `astro-migration`):
+review for `<branch>`):
 
 ```sh
 git fetch origin
-git checkout astro-migration
+git checkout <branch>
 git pull
 npm install
 npm run build

@@ -38,8 +38,8 @@ const publications = defineCollection({
       );
       // `sentenceCase: false` keeps titles and venues verbatim from the .bib.
       // The parser's default sentence-casing would lowercase every word not
-      // brace-protected ("BliMe Linter" → "BliMe linter"), which diverges from
-      // the live site (jekyll-scholar renders the source casing as-is).
+      // brace-protected ("BliMe Linter" → "BliMe linter"); keeping the source
+      // casing preserves the intended capitalisation.
       const parsed = parse(bibStr, { sentenceCase: false });
       for (const entry of parsed.entries) {
         const data = {
