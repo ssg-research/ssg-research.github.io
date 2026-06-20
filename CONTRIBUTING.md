@@ -17,11 +17,13 @@ Astro/CSS, and publications are generated from a single BibTeX file.
 ## Setup
 
 ```sh
-git clone https://github.com/ssg-research/ssg-research.github.io.git
+git clone --recurse-submodules https://github.com/ssg-research/ssg-research.github.io.git
 cd ssg-research.github.io
 npm install
 npm run dev
 ```
+
+If you already cloned without `--recurse-submodules`, run `git submodule update --init` to fetch `vendor/cs858-wiki`.
 
 `npm run dev` starts the dev server with hot reload at <http://localhost:4321>.
 
@@ -96,6 +98,25 @@ expected pages build (and the unpublished template page does not), that every
 internal link and asset reference resolves, that `robots.txt` and the sitemap
 are emitted, and that the home page carries its title and OG image.
 `html-validate` (part of `npm run ci`) checks the built markup.
+
+## Updating the CS858 wiki
+
+The CS858 wiki is pulled in as a git submodule at `vendor/cs858-wiki`, pinned to
+a commit of [ssg-research/cs858-wiki](https://github.com/ssg-research/cs858-wiki).
+Editing the wiki happens in that repository; this repository only tracks which
+commit of it to render. To pull in wiki changes and bump the pointer:
+
+```sh
+cd vendor/cs858-wiki
+git pull origin main
+cd ../..
+npm run dev    # or npm run build && npm run preview
+```
+
+`git status` will show `vendor/cs858-wiki` as modified once the submodule
+commit it points to has moved. Commit that change and open a pull request like
+any other change — the live site only picks up the new wiki content once the
+pointer bump lands on `main` and deploys.
 
 ## Gotchas
 
