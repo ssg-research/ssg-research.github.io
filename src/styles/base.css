@@ -178,6 +178,64 @@ thead th {
   font-weight: var(--font-weight-medium);
 }
 
+/* Section-header band: a `<th colspan>` inside `<tbody>` introduces a group of
+   rows (the reading list's themes). Left-aligned and a touch heavier than the
+   column headers, with a stronger top rule so each theme reads as a band. */
+tbody th[colspan] {
+  background-color: var(--color-bg-muted);
+  border-top: 2px solid var(--color-border-default);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+}
+
+/* Numeric first column (the reading `#`) stays compact so the topic and
+   reading columns get the width. */
+tbody td:first-child {
+  width: 1%;
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+/* Reading rows sit one step below body text — topic, titles and essential
+   links all read at `sm`, with the labels stepping down again to `xs` below.
+   Scoped via `:has` to rows carrying the `Primary` kicker so the Contents
+   table, which shares these cell positions, keeps body size. */
+tbody tr:has(td > strong:first-child) td {
+  font-size: var(--font-size-sm);
+}
+
+/* "Primary" kicker labelling the required reading, paired with the "Essential
+   readings" disclosure below it. A quiet medium-weight lead-in (strong is 500),
+   set in the secondary colour and a step smaller so it cues without competing
+   with the title. */
+td > strong:first-child {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+/* Essential readings collapsed under each primary reading. The summary is a
+   quiet, clickable affordance; the list sits indented when expanded. */
+td details {
+  margin-top: var(--space-2);
+}
+
+td summary {
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+}
+
+td details[open] summary {
+  margin-bottom: var(--space-2);
+}
+
+td details ul {
+  margin: 0;
+  padding-left: var(--space-5);
+}
+
 /* ─────────────────────────────
    Rules
    ───────────────────────────── */
