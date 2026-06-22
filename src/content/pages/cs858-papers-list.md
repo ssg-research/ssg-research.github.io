@@ -1,6 +1,6 @@
 ---
 title: CS858 Paper List
-permalink: /dissemination/cs858-papers-list/
+permalink: /dissemination/cs858-F26-papers-list/
 description: Reading list for CS858 (Trustworthy Machine Learning), Fall 2026
 ---
 
