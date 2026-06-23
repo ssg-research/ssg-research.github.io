@@ -30,6 +30,11 @@ TOPIC_COL = 4
 ESSENTIAL_COL = 5
 
 
+def esc(text: str) -> str:
+    """Escape markdown inline/table metacharacters in plain cell text."""
+    return text.replace("|", "\\|").replace("*", "\\*")
+
+
 def cell_item(row: tuple, col: int) -> str:
     """Return the cell as a markdown link if it has a hyperlink, else plain text."""
     cell = row[col - 1]
@@ -38,13 +43,9 @@ def cell_item(row: tuple, col: int) -> str:
         return ""
     href = cell.hyperlink.target if cell.hyperlink else None
     if href:
-        safe = text.replace("[", "\\[").replace("]", "\\]").replace("|", "\\|")
+        safe = esc(text).replace("[", "\\[").replace("]", "\\]")
         return f"[{safe}]({href})"
-    return text.replace("|", "\\|")
-
-
-def esc(text: str) -> str:
-    return text.replace("|", "\\|")
+    return esc(text)
 
 
 def main() -> None:
