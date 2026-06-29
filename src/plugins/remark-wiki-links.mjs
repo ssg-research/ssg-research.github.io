@@ -13,10 +13,10 @@ import { visit } from "unist-util-visit";
 // markdown is left untouched. External, mail/tel, and pure in-page anchors are
 // left alone.
 export default function remarkWikiLinks(options = {}) {
-  const base = options.base ?? "/dissemination/cs858wiki/";
+  const base = options.base ?? "/dissemination/cs858wiki-F26/";
   const contentRoot = path.resolve(
     process.cwd(),
-    options.contentRoot ?? "vendor/cs858-wiki/wiki"
+    options.contentRoot ?? "vendor/cs858-wiki/wiki-f26"
   );
 
   return (tree, file) => {

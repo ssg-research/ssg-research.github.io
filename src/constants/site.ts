@@ -39,8 +39,8 @@ export const BLOG_NAV: NavItem = {
 // URL, never linked from the masthead.
 export const WIKI = {
   // URL prefix for every wiki page. Leading and trailing slash required.
-  base: "/dissemination/cs858wiki/",
+  base: "/dissemination/cs858wiki-F26/",
   // Filesystem path (repo-root relative) the loader globs and the link
   // rewriter resolves relative `.md` targets against.
-  contentRoot: "vendor/cs858-wiki/wiki",
+  contentRoot: "vendor/cs858-wiki/wiki-f26",
 } as const;

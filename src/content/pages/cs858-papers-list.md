@@ -2,7 +2,7 @@
 title: CS858 Paper List
 permalink: /dissemination/cs858-F26-papers-list/
 description: Reading list for CS858 (Trustworthy Machine Learning), Fall 2026
----claude
+---
 
 ## Part 1: Risks to trustworthiness in ML
 
@@ -20,7 +20,7 @@ description: Reading list for CS858 (Trustworthy Machine Learning), Fall 2026
 | 10 | [DAWN: Dynamic Adversarial Watermarking of Neural Networks](https://arxiv.org/abs/1906.00830) | Model Extraction and Distillation | Model Watermarking / Fingerprinting | [False Claims against Model Ownership Resolution](https://arxiv.org/abs/2304.06607); [Can LLM Watermarks Robustly Prevent Unauthorized Knowledge Distillation?](https://arxiv.org/abs/2502.11598) |
 | 11 | [Neural Cleanse: Identifying and Mitigating Backdoor Attacks in Neural Networks](http://people.cs.uchicago.edu/~ravenben/publications/pdf/backdoor-sp19.pdf) | Data Integrity and Supply-Chain Security | Training-data Poisoning | [BadNets: Identifying Vulnerabilities in the Machine Learning Model Supply Chain](https://arxiv.org/abs/1708.06733); [Poisoning Language Models During Instruction Tuning](https://arxiv.org/abs/2305.00944) |
 | 12 | [PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation of Large Language Models](https://arxiv.org/abs/2402.07867) | Data Integrity and Supply-Chain Security | Preference Manipulation / RAG Poisoning | [Adversarial Search Engine Optimization for Large Language Models](https://arxiv.org/abs/2406.18382); [Certifiably Robust RAG against Retrieval Corruption](https://arxiv.org/abs/2405.15556) |
-| 13 | [Representation Engineering: A Top-Down Approach to AI Transparency](https://arxiv.org/abs/2310.01405) | Cross-Cutting Topics | Mechanistic Interpretability for AI safety | [Refusal in Language Models Is Mediated by a Single Direction](https://arxiv.org/abs/2406.11717); [Improving Alignment and Robustness with Circuit Breakers](https://arxiv.org/abs/2406.04313) |
+| 13 | [What Makes and Breaks Safety Fine-tuning? A Mechanistic Study](https://arxiv.org/abs/2407.10264) | Cross-Cutting Topics | Mechanistic Interpretability for AI safety | [Refusal in Language Models Is Mediated by a Single Direction](https://arxiv.org/abs/2406.11717); [Improving Alignment and Robustness with Circuit Breakers](https://arxiv.org/abs/2406.04313) |
 | 14 | [SoK: Unintended Interactions among Machine Learning Defenses and Risks](https://arxiv.org/abs/2312.04542) | Cross-Cutting Topics | Unintended Interactions among ML Defenses and Risks | [Conflicting Interactions Among Protection Mechanisms for Machine Learning Models](https://arxiv.org/abs/2207.01991); [Combining Machine Learning Defenses without Conflicts](https://arxiv.org/abs/2411.09776) |
 | 15 | [A Watermark for Large Language Models](https://arxiv.org/abs/2301.10226) | Cross-Cutting Topics | Media Forensics and Proactive Provenance | [Tree-Ring Watermarks: Fingerprints for Diffusion Images that are Invisible and Robust](https://arxiv.org/abs/2305.20030); [Media Forensics and DeepFakes: An Overview](https://arxiv.org/abs/2001.06564) |
 | 16 | [Examining Zero-Shot Vulnerability Repair with Large Language Models](https://arxiv.org/abs/2112.02125) | Cross-Cutting Topics | AI for Cybersecurity | [LLM Agents can Autonomously Exploit One-day Vulnerabilities](https://arxiv.org/abs/2404.08144); [AI Agents Enable Adaptive Computer Worms](https://arxiv.org/abs/2606.03811) |
