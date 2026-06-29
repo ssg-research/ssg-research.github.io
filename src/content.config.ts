@@ -97,7 +97,7 @@ const publications = defineCollection({
 const wiki = defineCollection({
   loader: glob({
     pattern: "**/*.md",
-    base: "./vendor/cs858-wiki/wiki",
+    base: "./vendor/cs858-wiki/wiki-f26",
     // Preserve the file path verbatim as the id (minus `.md`). The glob
     // loader's default generateId slugifies — it lowercases `README` to
     // `readme`, which would break the README→directory mapping in
