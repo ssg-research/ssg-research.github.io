@@ -19,8 +19,62 @@ concurrency:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    # `web` carries the path-detection result so the deploy job can gate on it
+    # too. The job itself ALWAYS runs to completion — it is the required status
+    # check on main, and a check is only reported when its job runs (a workflow
+    # skipped by a trigger-level path filter never reports, which would block
+    # every PR). Only the expensive steps below are gated, so an editor-config
+    # change (e.g. .vscode/) reports green in seconds without building.
+    outputs:
+      web: ${{ steps.changes.outputs.web }}
     steps:
+      # Decide whether anything that affects the built site changed. Runs before
+      # checkout: `gh api …/compare` reads the diff from the API, so no clone (or
+      # submodule fetch) is needed to make the call.
+      - name: Detect web-code changes
+        id: changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Paths that never affect the built site. A change touching only these
+          # skips the build and deploy. Extend this list, not the build steps.
+          is_web_change() {
+            case "$1" in
+              .vscode/*) return 1 ;;
+              *) return 0 ;;
+            esac
+          }
+          base=""; head=""
+          case "${{ github.event_name }}" in
+            pull_request)
+              base="${{ github.event.pull_request.base.sha }}"
+              head="${{ github.event.pull_request.head.sha }}" ;;
+            push)
+              base="${{ github.event.before }}"
+              head="${{ github.sha }}" ;;
+          esac
+          # Manual runs and a branch's first push (no diff base) build as normal;
+          # a failed compare also falls through to web=true (fail safe — never
+          # skip a build we are unsure about).
+          web=true
+          if [ -n "$base" ] && [ -n "$head" ] \
+             && [ "$base" != "0000000000000000000000000000000000000000" ]; then
+            if files=$(gh api \
+                 "repos/${{ github.repository }}/compare/${base}...${head}" \
+                 --jq '.files[].filename' 2>/dev/null); then
+              web=false
+              while IFS= read -r f; do
+                [ -z "$f" ] && continue
+                if is_web_change "$f"; then web=true; break; fi
+              done <<< "$files"
+            fi
+          fi
+          echo "web=$web" >> "$GITHUB_OUTPUT"
+          echo "Web-code changed: $web"
+
       - name: Checkout
+        if: steps.changes.outputs.web == 'true'
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           # cs858-wiki is a public submodule fetched over HTTPS, so it checks
@@ -28,48 +82,60 @@ jobs:
           submodules: recursive
 
       - name: Setup Node
+        if: steps.changes.outputs.web == 'true'
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: 26
           cache: npm
 
       - name: Install dependencies
+        if: steps.changes.outputs.web == 'true'
         run: npm ci --ignore-scripts
 
       - name: Audit dependencies
+        if: steps.changes.outputs.web == 'true'
         run: npm audit --audit-level=high
 
       - name: Lint (ESLint + Stylelint)
+        if: steps.changes.outputs.web == 'true'
         run: npm run lint
 
       - name: Format check
+        if: steps.changes.outputs.web == 'true'
         run: npm run format:check
 
       - name: Markdownlint
+        if: steps.changes.outputs.web == 'true'
         run: npm run markdownlint
 
       - name: Type check
+        if: steps.changes.outputs.web == 'true'
         run: npm run check
 
       - name: Build
+        if: steps.changes.outputs.web == 'true'
         run: npm run build
 
       - name: HTML validate
+        if: steps.changes.outputs.web == 'true'
         run: npm run htmlvalidate
 
       - name: Test
+        if: steps.changes.outputs.web == 'true'
         run: npm run test
 
       - name: Upload Pages artifact
+        if: steps.changes.outputs.web == 'true'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: ./dist
 
   deploy:
     needs: ci
-    # Deploy only from main (the cutover branch); never on integration-branch or
+    # Deploy only from main (the cutover branch) and only when web code actually
+    # changed (no artifact is produced otherwise); never on integration-branch or
     # PR runs, which still produce and validate the artifact above.
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    if: needs.ci.outputs.web == 'true' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: read

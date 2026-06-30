@@ -1,0 +1,73 @@
+/* Wiki content styling
+   Scoped to the cs858 reading wiki: the catch-all route tags the <article> with
+   `class="wiki"` for wiki entries, so none of this touches the site's own pages.
+   Two concerns:
+     1. A tighter heading scale — the wiki leans on h1/h2 far more heavily than
+        the site's own pages (one h1 title, many h2 sections per paper), so each
+        steps down a rung.
+     2. The paper-page disclosure toggle (`<details><summary><h2>…`) — the source
+        keeps the heading inside <summary> so it renders at heading size when the
+        Markdown is viewed on GitHub; these rules align the marker with that
+        heading on the built site.
+   Both reuse existing tokens; the rest of the site is unchanged.
+*/
+
+/* 1. Heading scale: h1 40→28, h2 32→24 (h3–h6 keep base.css sizes). */
+.wiki h1 {
+  font-size: var(--font-size-2xl); /* 28px */
+}
+
+.wiki h2 {
+  font-size: var(--font-size-xl); /* 24px */
+}
+
+/* 2. Paper-page toggle. Scoped to `.wiki > details` — a direct child of the
+   article — so the reading-list table's nested `td summary` toggles (styled in
+   base.css) are left alone.
+
+   A heading inside <summary> is block-level, so the native disclosure triangle
+   drops onto its own line above the heading (GitHub avoids this with
+   `summary h2 { display: inline-block }`; the site had no equivalent). Making
+   <summary> a flex row lets a custom triangle marker sit vertically centred
+   against the heading at any size — the native list-item marker cannot be
+   centred, so it is removed and replaced. */
+.wiki > details {
+  margin-block: var(--space-4);
+}
+
+.wiki > details > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  list-style: none; /* drop the native marker (Firefox) */
+}
+
+/* WebKit/Blink expose the marker as a pseudo-element; hide it so only the custom
+   triangle shows. */
+.wiki > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom marker: a right-pointing CSS triangle that rotates to point down when
+   open. currentColor tracks the heading colour, so it follows the active theme. */
+.wiki > details > summary::before {
+  content: "";
+  flex: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent currentColor;
+  transition: transform 0.15s ease;
+}
+
+.wiki > details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* The heading carries the summary's text; zero its margins so the flex row stays
+   tight. Its font-size still comes from the .wiki h2 rule above. */
+.wiki > details > summary > :where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+}
