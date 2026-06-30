@@ -94,16 +94,16 @@
     SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 
-  /* Font sizes. base.css maps headings onto this scale: h1 40 / h2 32 / h3 20 /
+  /* Font sizes. base.css maps headings onto this scale: h1 28 / h2 24 / h3 20 /
      h4 16 / h5 16 / h6 16, body 16, small 14, footer 12. */
   --font-size-xs: 0.75rem; /* 12px — footer */
   --font-size-sm: 0.875rem; /* 14px — subtitle / small */
   --font-size-md: 1rem; /* 16px — body, nav, h4, h5, h6 */
-  --font-size-lg: 1.25rem; /* 20px — brand */
-  --font-size-xl: 1.5rem; /* 24px */
-  --font-size-2xl: 1.75rem; /* 28px */
-  --font-size-3xl: 2rem; /* 32px — h2 */
-  --font-size-4xl: 2.5rem; /* 40px — h1 */
+  --font-size-lg: 1.25rem; /* 20px — brand, h3 */
+  --font-size-xl: 1.5rem; /* 24px — h2 */
+  --font-size-2xl: 1.75rem; /* 28px — h1 */
+  --font-size-3xl: 2rem; /* 32px — spare upper rung */
+  --font-size-4xl: 2.5rem; /* 40px — spare upper rung */
 
   /* Font weights. Body and h1/h2 are light; h3–h6 step up to regular; strong/b
      and small UI accents use medium. */
@@ -112,7 +112,7 @@
   --font-weight-medium: 500; /* strong/b, table headers, badges, mobile menu */
 
   /* Line heights */
-  --line-height-tight: 1.2; /* headings (live: 48/40, 33.6/28) */
+  --line-height-tight: 1.2; /* headings (1.2 × font-size) */
   --line-height-normal: 1.5; /* body (live: 24/16) */
   --line-height-relaxed: 1.65;
 

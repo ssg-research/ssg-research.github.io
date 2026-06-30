@@ -1,0 +1,69 @@
+/* Wiki content styling
+   Scoped to the cs858 reading wiki: the catch-all route tags the <article> with
+   `class="wiki"` for wiki entries. This holds only the features the site's own
+   pages do not have; the heading scale lives in base.css and applies site-wide.
+   Two features: the paper-page disclosure toggle, and the "Wiki Home" nav banner.
+
+   Paper-page disclosure toggle (`<details><summary><h2>…`): a heading inside
+   <summary> is block-level, so the native disclosure triangle drops onto its own
+   line above the heading (GitHub avoids this with `summary h2 { display:
+   inline-block }`; the site had no equivalent). Making <summary> a flex row lets
+   a custom triangle marker sit vertically centred against the heading at any
+   size — the native list-item marker cannot be centred, so it is removed and
+   replaced. The source keeps the heading inside <summary> so it still renders at
+   heading size when the Markdown is viewed on GitHub.
+
+   Scoped to `.wiki > details` — a direct child of the article — so the reading
+   list table's nested `td summary` toggles (styled in base.css) are left alone. */
+.wiki > details {
+  margin-block: var(--space-4);
+}
+
+.wiki > details > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  list-style: none; /* drop the native marker (Firefox) */
+}
+
+/* WebKit/Blink expose the marker as a pseudo-element; hide it so only the custom
+   triangle shows. */
+.wiki > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom marker: a right-pointing CSS triangle that rotates to point down when
+   open. currentColor tracks the heading colour, so it follows the active theme. */
+.wiki > details > summary::before {
+  content: "";
+  flex: none;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent currentColor;
+  transition: transform 0.15s ease;
+}
+
+.wiki > details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* The heading carries the summary's text; zero its margins so the flex row stays
+   tight. Its font-size still comes from the site-wide heading rule in base.css. */
+.wiki > details > summary > :where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+}
+
+/* "Wiki Home" nav banner. Paper and concept pages open with `## [Wiki Home](…)`,
+   which renders as a first-child <h2> wrapping the home link. The site keeps
+   headings rule-free, so this nav otherwise sits flush against the page title; a
+   hairline rule plus spacing sets it off as a header strip. Guarded by `:has(a)`
+   and `:first-child` so it only matches the nav line — index pages open with an
+   <h1>, and section headings are never the article's first child. */
+.wiki > h2:first-child:has(a) {
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
