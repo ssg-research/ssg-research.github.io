@@ -1,36 +1,20 @@
 /* Wiki content styling
    Scoped to the cs858 reading wiki: the catch-all route tags the <article> with
-   `class="wiki"` for wiki entries, so none of this touches the site's own pages.
-   Two concerns:
-     1. A tighter heading scale — the wiki leans on h1/h2 far more heavily than
-        the site's own pages (one h1 title, many h2 sections per paper), so each
-        steps down a rung.
-     2. The paper-page disclosure toggle (`<details><summary><h2>…`) — the source
-        keeps the heading inside <summary> so it renders at heading size when the
-        Markdown is viewed on GitHub; these rules align the marker with that
-        heading on the built site.
-   Both reuse existing tokens; the rest of the site is unchanged.
-*/
+   `class="wiki"` for wiki entries. This holds only the features the site's own
+   pages do not have; the heading scale lives in base.css and applies site-wide.
+   Two features: the paper-page disclosure toggle, and the "Wiki Home" nav banner.
 
-/* 1. Heading scale: h1 40→28, h2 32→24 (h3–h6 keep base.css sizes). */
-.wiki h1 {
-  font-size: var(--font-size-2xl); /* 28px */
-}
+   Paper-page disclosure toggle (`<details><summary><h2>…`): a heading inside
+   <summary> is block-level, so the native disclosure triangle drops onto its own
+   line above the heading (GitHub avoids this with `summary h2 { display:
+   inline-block }`; the site had no equivalent). Making <summary> a flex row lets
+   a custom triangle marker sit vertically centred against the heading at any
+   size — the native list-item marker cannot be centred, so it is removed and
+   replaced. The source keeps the heading inside <summary> so it still renders at
+   heading size when the Markdown is viewed on GitHub.
 
-.wiki h2 {
-  font-size: var(--font-size-xl); /* 24px */
-}
-
-/* 2. Paper-page toggle. Scoped to `.wiki > details` — a direct child of the
-   article — so the reading-list table's nested `td summary` toggles (styled in
-   base.css) are left alone.
-
-   A heading inside <summary> is block-level, so the native disclosure triangle
-   drops onto its own line above the heading (GitHub avoids this with
-   `summary h2 { display: inline-block }`; the site had no equivalent). Making
-   <summary> a flex row lets a custom triangle marker sit vertically centred
-   against the heading at any size — the native list-item marker cannot be
-   centred, so it is removed and replaced. */
+   Scoped to `.wiki > details` — a direct child of the article — so the reading
+   list table's nested `td summary` toggles (styled in base.css) are left alone. */
 .wiki > details {
   margin-block: var(--space-4);
 }
@@ -67,7 +51,19 @@
 }
 
 /* The heading carries the summary's text; zero its margins so the flex row stays
-   tight. Its font-size still comes from the .wiki h2 rule above. */
+   tight. Its font-size still comes from the site-wide heading rule in base.css. */
 .wiki > details > summary > :where(h1, h2, h3, h4, h5, h6) {
   margin: 0;
+}
+
+/* "Wiki Home" nav banner. Paper and concept pages open with `## [Wiki Home](…)`,
+   which renders as a first-child <h2> wrapping the home link. The site keeps
+   headings rule-free, so this nav otherwise sits flush against the page title; a
+   hairline rule plus spacing sets it off as a header strip. Guarded by `:has(a)`
+   and `:first-child` so it only matches the nav line — index pages open with an
+   <h1>, and section headings are never the article's first child. */
+.wiki > h2:first-child:has(a) {
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
