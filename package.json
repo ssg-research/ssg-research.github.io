@@ -50,7 +50,7 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.0",
     "unist-util-visit": "^5.1.0",
-    "vitest": "^4.1.8",
+    "vitest": "^4.1.10",
     "zod": "^4.4.3"
   },
   "overrides": {
