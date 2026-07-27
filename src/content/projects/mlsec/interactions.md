@@ -18,6 +18,7 @@ This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-inter
 - Vasisht Duddu, Sebastian Szyller, N. Asokan: **SoK: Unintended Interactions among Machine Learning Defenses and Risks.** [IEEE S&P 2024](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2312.04542](https://arxiv.org/abs/2312.04542). (Distinguished paper award)
 - Sebastian Szyller, N. Asokan: **Conflicting Interactions Among Protection Mechanisms for Machine Learning Models**. [AAAI 2023](https://aaai-23.aaai.org). arXiv preprint [arXiv:2207.01991](https://arxiv.org/abs/2207.01991)
 - Vasisht Duddu, Rui Zhang, N. Asokan: **Combining Machine Learning Defenses without Conflicts.**. [Transactions on Machine Learning Research (TMLR)](https://openreview.net/forum?id=C7FgsjfFRC). arXiv preprint [arXiv:2411.09776](https://arxiv.org/abs/2411.09776).
+- Vasisht Duddu, Lipeng He, Asim Waheed, N. Asokan: **SoK: Colluding Adversaries in Machine Learning Pipelines.** [USENIX Security 2026](https://www.usenix.org/conference/usenixsecurity26/presentation/duddu). arXiv preprint [arXiv:2606.10091](https://arxiv.org/abs/2606.10091).
 
 ## Software Library
 
