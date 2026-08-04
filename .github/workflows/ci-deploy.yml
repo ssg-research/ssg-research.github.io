@@ -92,10 +92,6 @@ jobs:
         if: steps.changes.outputs.web == 'true'
         run: npm ci --ignore-scripts
 
-      - name: Audit dependencies
-        if: steps.changes.outputs.web == 'true'
-        run: npm audit --audit-level=high
-
       - name: Lint (ESLint + Stylelint)
         if: steps.changes.outputs.web == 'true'
         run: npm run lint
@@ -129,6 +125,35 @@ jobs:
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: ./dist
+
+  # Kept out of `ci` on purpose: this is the one check whose input lives outside
+  # the repository, so it is deliberately NOT a required status check. A newly
+  # published advisory against a transitive dev dependency would otherwise turn
+  # every open PR red at once and block merging, including the Dependabot PR
+  # carrying the fix. Failing here surfaces the advisory as its own red check
+  # without gating merges or the deploy below.
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      # Unlike every other job here, this one ignores the path-detection result:
+      # the advisory database changes independently of the repository, so an
+      # untouched lockfile can be clean today and vulnerable tomorrow. Gating on
+      # changed files would hide exactly those advisories.
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        # No submodules: `npm ci` reads only package.json and package-lock.json.
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 26
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
 
   deploy:
     needs: ci
