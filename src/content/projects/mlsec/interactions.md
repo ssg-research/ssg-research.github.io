@@ -22,7 +22,7 @@ This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-inter
 
 ## Software Library
 
-- **Amulet: A Library for Evaluating interactions among Machine Learning Risks and Defenses** [Code](https://github.com/ssg-research/amulet)
+- **Amulet: A Library for Interactions among Machine Learning Defenses and Risks** [Code](https://github.com/ssg-research/amulet)
 
 ## Posters
 
