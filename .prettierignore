@@ -8,10 +8,5 @@ public/
 # authored chrome (components, layouts, styles) is still formatted.
 src/content/
 
-# Legacy Jekyll-era GitHub workflows — kept until the Stage 7 cutover (deploy.yml
-# keeps gh-pages current as the rollback snapshot), so not reformatted here.
-.github/workflows/ci.yml
-.github/workflows/deploy.yml
-
 # Vendored cs858-wiki submodule — owned by its own repo; not reformatted here.
 vendor/

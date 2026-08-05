@@ -4,13 +4,17 @@ import { SITE } from "../constants/site";
 
 // Build-time copyright year (matches the live site's `site.time | date: '%Y'`).
 const year = new Date().getFullYear();
+
+// Built as one string rather than adjacent `{year} {SITE.name}` expressions:
+// Prettier wraps that pair onto separate lines, and JSX drops whitespace that
+// spans a newline, silently rendering "2026Secure Systems Group".
+const copyright = `© Copyright ${year} ${SITE.name}.`;
 ---
 
 <footer class="footer">
   <div class="footer-inner">
     <p class="footer-copy">
-      © Copyright {year}
-      {SITE.name}. Built with <a
+      {copyright} Built with <a
         href="https://astro.build"
         target="_blank"
         rel="noopener noreferrer">Astro</a
