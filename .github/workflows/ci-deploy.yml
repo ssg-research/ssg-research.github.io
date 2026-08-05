@@ -126,6 +126,78 @@ jobs:
         with:
           path: ./dist
 
+  # External URLs only, and — like `audit` below — deliberately NOT a required
+  # status check, for the same reason: the input lives outside the repository.
+  # A publisher that starts refusing bots, or a conference site that goes down
+  # for an afternoon, would otherwise redden every open PR at once. Internal
+  # links and asset references are a separate matter: they are fully
+  # deterministic, so `tests/build-output.test.ts` checks those against the
+  # built site inside the required `ci` job.
+  #
+  # Scoped to the files the PR actually touches. Checking the whole site on
+  # every PR would report pre-existing breakage as though this PR caused it,
+  # which is how link checkers get ignored.
+  links:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        # No submodules: the vendored wiki is filtered out below, so its
+        # Markdown is never handed to the checker.
+
+      # Same `gh api …/compare` approach the `ci` job uses to detect web
+      # changes — no extra third-party action for something one API call and a
+      # filter already do.
+      - name: List Markdown files changed in this PR
+        id: changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # `status != removed` — a deleted file has no links left to check and
+          # is no longer on disk for the checker to open.
+          files=$(gh api \
+            "repos/${{ github.repository }}/compare/${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" \
+            --jq '.files[] | select(.status != "removed") | .filename')
+          list=""
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            case "$f" in
+              vendor/*) continue ;;   # owned by the cs858-wiki repository
+              *.md) list="$list $f" ;;
+            esac
+          done <<< "$files"
+          echo "files=${list# }" >> "$GITHUB_OUTPUT"
+          echo "Markdown files to check:${list:-" (none)"}"
+
+      - name: Check external links
+        if: steps.changed.outputs.files != ''
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          # --accept: 403/418/429 are how publishers (ACM, IEEE) say "you are a
+          #   bot", not "this link is dead". A URL that is genuinely gone still
+          #   answers 404/410 and is still reported.
+          # --root-dir: lets root-relative asset links (/assets/pdf/…) resolve
+          #   against public/ instead of erroring as unresolvable.
+          # --exclude-loopback: CONTRIBUTING.md cites the dev-server URL
+          #   (localhost:4321) as documentation, not as a link to follow.
+          # --exclude-path: the contributor template's placeholder URLs
+          #   (arxiv.org/abs/0000.00000) are meant to be broken.
+          # Hosts that refuse automated clients outright live in .lycheeignore.
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --accept 200..=299,403,418,429
+            --max-retries 3
+            --timeout 30
+            --root-dir public
+            --exclude-loopback
+            --exclude-path src/content/projects/template.md
+            ${{ steps.changed.outputs.files }}
+          fail: true
+          jobSummary: true
+
   # Kept out of `ci` on purpose: this is the one check whose input lives outside
   # the repository, so it is deliberately NOT a required status check. A newly
   # published advisory against a transitive dev dependency would otherwise turn

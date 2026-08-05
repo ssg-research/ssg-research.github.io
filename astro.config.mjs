@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import mdx from "@astrojs/mdx";
 import { unified } from "@astrojs/markdown-remark";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkWikiLinks from "./src/plugins/remark-wiki-links.mjs";
@@ -8,7 +7,7 @@ import { WIKI } from "./src/constants/site";
 
 export default defineConfig({
   site: "https://ssg-research.github.io",
-  integrations: [sitemap(), mdx()],
+  integrations: [sitemap()],
   // Every URL is trailing-slash (the consistent site-wide convention). Each page
   // builds to `dir/index.html` and Astro normalises paths to end in a slash, so
   // canonical/og:url and internal links are uniform. No-slash project URLs (e.g.

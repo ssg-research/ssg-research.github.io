@@ -17,7 +17,11 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
 
 ## Conference/journal paper publications
 
-<Publications selected="blime" />
+- H ElAtali, M Gülmez, T Nyman, N Asokan: **BLACKOUT: Data-Oblivious Computation with Blinded Capabilities.** [ACM Conference on Computer and Communications Security (CCS) 2025](https://doi.org/10.1145/3719027.3765169). arXiv preprint [arXiv:2504.14654](https://arxiv.org/abs/2504.14654). [Project website](https://blindedcapabilities.github.io/).
+- P Makkar, H ElAtali, A Caulfield, N Asokan: **MAGNET: Memory Tagging with Efficient Tag Prediction.** [International Workshop on Hardware and Architectural Support for Security and Privacy (HASP) 2025](https://doi.org/10.1145/3768725.3768728).
+- H ElAtali, L J Gunn, H Liljestrand, N Asokan: **BliMe: Verifiably Secure Outsourced Computation with Hardware-Enforced Taint Tracking.** [Network and Distributed Systems Symposium (NDSS) 2024](https://www.ndss-symposium.org/ndss-paper/blime-verifiably-secure-outsourced-computation-with-hardware-enforced-taint-tracking/). arXiv preprint [arXiv:2204.09649](https://arxiv.org/abs/2204.09649).
+- H ElAtali, X Duan, H Liljestrand, M Xu, N Asokan: **BliMe Linter.** [IEEE Secure Development Conference (SecDev) 2024](https://doi.org/10.1109/SecDev61143.2024.00011). arXiv preprint [arXiv:2406.15302](https://arxiv.org/abs/2406.15302).
+- H ElAtali, J Z Jekel, L J Gunn, N Asokan: **Data-Oblivious ML Accelerators using Hardware Security Extensions.** [IEEE International Symposium on Hardware Oriented Security and Trust (HOST) 2024](https://doi.org/10.1109/HOST55342.2024.10545398). arXiv preprint [arXiv:2401.16583](https://arxiv.org/abs/2401.16583).
 
 ## Doctoral Dissertations
 - Hossam ElAtali, [Hardware-Assisted Defenses for Data Integrity and Confidentiality](https://uwspace.uwaterloo.ca/items/b84f777e-53c1-4904-9c5a-b28931e4c7c7), University of Waterloo, 2025
@@ -37,6 +41,6 @@ We provide a machine-checked security proof of BliMe extensions, and an RTL impl
 - [BliMe-BOOM on Chipyard/FireSim](https://github.com/ssg-research/BliMe/tree/main/firesim)
 - [Formal model in F*](https://blinded-computation.github.io/blime-model/index.html)
 
-{/* ## Follow-up work
+<!-- ## Follow-up work
 
-- [BLACKOUT](https://blindedcapabilities.github.io/) */}
+- [BLACKOUT](https://blindedcapabilities.github.io/) -->
