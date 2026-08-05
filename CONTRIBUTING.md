@@ -6,7 +6,7 @@ a publication), see the [README](README.md) instead.
 
 The site is built with [Astro](https://astro.build). Content lives in Markdown
 under `src/content/`; the layout, components, and styles are the surrounding
-Astro/CSS, and publications are generated from a single BibTeX file.
+Astro/CSS.
 
 ## Prerequisites
 
@@ -59,22 +59,20 @@ npm run preview
 
 Open the printed URL (default <http://localhost:4321>) and click through the
 site. Worth checking: every nav page loads, the dark-mode toggle persists across
-a reload, the layout holds at a narrow mobile width (~390px), the publication
-pages on `/platsec/blime/`, `/platsec/probandroid/`, and `/platsec/memallo/`
-render their entries and the BibTeX/abstract toggles expand, and the asset links
-(PDFs, the group photo) open. To run the automated checks against the same
-build, run `npm run ci`.
+a reload, the layout holds at a narrow mobile width (~390px), the project pages
+on `/platsec/blime/`, `/platsec/probandroid/`, and `/platsec/memallo/` list
+their publications, and the asset links (PDFs, the group photo) open. To run the
+automated checks against the same build, run `npm run ci`.
 
 ## Project structure
 
 ```text
 src/
-├─ bibliography/papers.bib   # single source of truth for publications
 ├─ content/
 │  ├─ pages/                 # top-level pages (about, mlsec, platsec, …)
 │  └─ projects/              # project pages, grouped mlsec/ platsec/ others/
-├─ components/               # Masthead, Footer, Publications, ThemeToggle
-├─ content.config.ts         # the pages, projects, and publications collections
+├─ components/               # Masthead, Footer, ThemeToggle
+├─ content.config.ts         # the pages, projects, and wiki collections
 ├─ layouts/BaseLayout.astro  # <head>, meta/OG, theme script, masthead + footer
 ├─ pages/                    # [...slug].astro catch-all route, 404
 └─ styles/                   # design tokens + base/layout CSS
@@ -84,11 +82,12 @@ public/assets/               # PDFs, slides, images (served at /assets/…)
 ## Content model
 
 A single catch-all route, `src/pages/[...slug].astro`, builds every entry in the
-`pages` and `projects` collections at its `permalink`. Publications are a third
-collection loaded from `src/bibliography/papers.bib`; the `<Publications
-selected="key" />` component (used in `.mdx` project pages) renders every entry
-with a matching `selected` field, newest-first. The author-facing flow for
-adding pages and publications is in the [README](README.md).
+`pages` and `projects` collections at its `permalink`, plus the vendored CS858
+wiki at a path derived from its filename. Content is plain Markdown throughout —
+publications are written as bullets on the project page they belong to, so a
+page renders from its own file with nothing to cross-reference. The
+author-facing flow for editing pages in the browser is in the
+[README](README.md).
 
 ## Testing
 
