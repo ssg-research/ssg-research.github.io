@@ -1,0 +1,17 @@
+# Hosts excluded from the external link check.
+#
+# Everything here is a host that refuses or cannot serve automated clients, not
+# a host with broken links. A URL that is genuinely gone answers 404/410, and
+# the checker still reports that — these entries only suppress the responses
+# that say "you are a bot" or never answer at all.
+#
+# Bot-blocking responses that do prove the host is alive (403, 418, 429) are
+# handled with `--accept` in the workflow instead, so those hosts stay checked.
+
+# Answers 418 to curl and 502 to the checker behind its redirect chain; a
+# browser loads the same URLs fine.
+^https://ieeexplore\.ieee\.org/
+
+# Does not respond to requests from outside the university network (plain curl
+# times out too), so every check is a false negative.
+^https://aaltodoc\.aalto\.fi/
