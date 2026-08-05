@@ -36,5 +36,6 @@ This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-inter
 ## Source code
 
 - [GitHub source code for Amulet](https://github.com/ssg-research/amulet)
-- [GitHub source code for SoK](https://github.com/ssg-research/sok-unintended-interactions)
+- [GitHub source code for SoK: Unintended Interactions](https://github.com/ssg-research/sok-unintended-interactions)
 - [GitHub source code for Conflicting Interactions](https://github.com/ssg-research/conflicts-in-ml-protection-mechanisms)
+- [GitHub source code for SoK: Colluding Adversaries](https://github.com/ssg-research/sok-collusion)
