@@ -16,11 +16,7 @@ One or two paragraphs describing the project.
 
 ## Conference/journal paper publications
 
-<!-- TODO(bibliography): render papers with selected=yourkey -->
-
-To list a paper here, add it once to `papers.bib` with a `selected={yourkey}`
-field; the bibliography component renders every entry that matches. Nothing else
-needs editing.
+- First Author, Second Author, N. Asokan: **Title of the Paper.** [Venue Year](https://example.org/paper). arXiv preprint [arXiv:0000.00000](https://arxiv.org/abs/0000.00000).
 
 ## Source code
 

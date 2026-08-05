@@ -4,7 +4,6 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE } from "../constants/site";
 import { wikiPermalink, wikiTitle } from "../lib/wiki";
-import Publications from "../components/Publications.astro";
 
 type ContentEntry =
   | CollectionEntry<"pages">
@@ -98,7 +97,7 @@ const metaDescription =
   }
 
   <article class:list={{ wiki: isWiki }}>
-    <Content components={{ Publications }} />
+    <Content />
   </article>
 </BaseLayout>
 

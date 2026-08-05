@@ -17,9 +17,8 @@ To this end, we focus on (i) discovering various sources of hints that can provi
 
 ## Conference/journal paper publications
 
-<Publications selected="bluebird" />
-
-<Publications selected="ariadne" />
+- Parjanya Vyas, Asim Waheed, Yousra Aafer, N. Asokan: **Auditing Framework APIs via Inferred App-side Security Specifications.** [32nd USENIX Security Symposium (USENIX Security 23)](https://www.usenix.org/conference/usenixsecurity23/presentation/vyas), Aug 2023.
+- Parjanya Vyas, Haseeb Ur Rehman Faheem, Yousra Aafer, N. Asokan: **Ariadne: Navigating through the Labyrinth of Data-Driven Customization Inconsistencies in Android.** [34th USENIX Security Symposium (USENIX Security 25)](https://www.usenix.org/conference/usenixsecurity25/presentation/vyas), Aug 2025.
 
 ## Talks
 
