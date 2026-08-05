@@ -10,7 +10,7 @@ permalink: /mlsec/interactions
 Machine learning models are susceptible to a wide range of risks to security, privacy, and fairness.
 Several defenses have been proposed to mitigate these risks.
 However, defending against a specific risk can result in an unintended increase (or decrease) in susceptibility to other risks.
-Similarly when defenses against multiple risks are applied to a machine learning model, there could be conflicting interactions among among them.
+Similarly when defenses against multiple risks are applied to a machine learning model, there could be conflicting interactions among them.
 This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-interactions-among-ml.html) provides additional context for this work.
 
 ## Conference/journal paper publications
@@ -22,7 +22,7 @@ This [blog article](https://crysp.uwaterloo.ca/ssg/blog/2024/05/unintended-inter
 
 ## Software Library
 
-- **Amulet: A Library for Evaluating interactions among Machine Learning Risks and Defeneses** [Code](https://github.com/ssg-research/amulet)
+- **Amulet: A Library for Evaluating interactions among Machine Learning Risks and Defenses** [Code](https://github.com/ssg-research/amulet)
 
 ## Posters
 
