@@ -34,10 +34,10 @@ nav_order: 6
 - [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-)
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 - [Ruizhe Wang](https://ruizhe-w.github.io/) (co-supervised by Meng Xu and N. Asokan, 2024-)
+- [Lipeng (Tony) He](https://lipeng.ac) (co-supervised by Yaoliang Yang and N. Asokan, 2025-)
 
 ### Master's Students (@ University of Waterloo)
 
-- [Lipeng (Tony) He](https://lipeng.ac) (supervised by N. Asokan, 2025-)
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
 
 ### Alumni (@ University of Waterloo)
