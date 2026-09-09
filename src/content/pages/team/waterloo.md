@@ -1,21 +1,10 @@
 ---
-title: Team
-permalink: /team/
-description: Current and past researchers of SSG
-nav: true
-nav_order: 6
+title: SSG @ Waterloo
+permalink: /team/waterloo/
+description: Current and past researchers of SSG @ Waterloo
 ---
 
-<div style="display: flex; gap: 10px;">
-	<img src="../assets/stairs2.jpg" alt="Group Photo 2025" style="width: 33%;">
-	<div style="width: 33%; display: gap: 10px;">
-		<img src="../assets/gp2025.jpeg" alt="Group Photo 2026" style="width: 100%;">
-		<img src="../assets/gp2025-2.jpeg" alt="Group Photo 2026" style="width: 100%;">
-	</div>
-	<img src="../assets/stairs.jpeg" alt="Group Photo 2025" style="width: 33%;">
-</div>
-
-### Affiliated Faculty Members (@ University of Waterloo)
+### Affiliated Faculty Members
 
 - [Yousra Aafer](https://cs.uwaterloo.ca/~yaafer/)
 - [Diogo Barradas](https://cs.uwaterloo.ca/~dbarrada/)
@@ -27,20 +16,19 @@ nav_order: 6
 - [Yihan Wang](https://yihan-wang.com/) (supervised by N. Asokan. 2025-)
 - [Adam Caulfield](https://adamicaulfield.github.io/) (supervised by N. Asokan. 2025-)
 
-### Doctoral Students (@ University of Waterloo)
+### Doctoral Students
 
-- Anudeep Das (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
-- Asim Waheed (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
-- [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-)
-- Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
-- [Ruizhe Wang](https://ruizhe-w.github.io/) (co-supervised by Meng Xu and N. Asokan, 2024-)
+- [Anudeep Das](https://anudeepdas.cyber-ad.workers.dev/) (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
+- [Asim Waheed](https://asimwaheed.com/) (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
 - [Lipeng (Tony) He](https://lipeng.ac) (co-supervised by Yaoliang Yang and N. Asokan, 2025-)
+- [Ruizhe Wang](https://ruizhe-w.github.io/) (co-supervised by Meng Xu and N. Asokan, 2024-)
+- Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 
-### Master's Students (@ University of Waterloo)
+### Master's Students
 
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
 
-### Alumni (@ University of Waterloo)
+### Alumni
 
 #### Post-doctoral researchers
 
@@ -50,6 +38,7 @@ nav_order: 6
 
 #### Doctoral researchers
 
+- [Vasisht Duddu](https://vasishtduddu.github.io/) (supervised by N. Asokan, 2022-2026)
 - [Hossam ElAtali](https://elatalhm.github.io/) (supervised by N. Asokan. 2021-2025)
 - Parjanya Vyas (co-supervised by Yousra Aafer and N. Asokan, 2021-2025)
 
@@ -72,5 +61,3 @@ nav_order: 6
 - Lachlan J. Gunn (Lecturer @ Aalto University, 2022)
 - Sebastian Szyller (Doctoral Student @ Aalto University, 2022)
 - Zhang Rui (Doctoral student @ Zhejiang University, 2023-2024)
-
-### [Faculty, Students, and Alumni (@Aalto University)](https://ssg.aalto.fi/people/)
