@@ -4,7 +4,7 @@ permalink: /team/waterloo/
 description: Current and past researchers of SSG @ Waterloo
 ---
 
-### Affiliated Faculty Members 
+### Affiliated Faculty Members
 
 - [Yousra Aafer](https://cs.uwaterloo.ca/~yaafer/)
 - [Diogo Barradas](https://cs.uwaterloo.ca/~dbarrada/)
@@ -16,7 +16,7 @@ description: Current and past researchers of SSG @ Waterloo
 - [Yihan Wang](https://yihan-wang.com/) (supervised by N. Asokan. 2025-)
 - [Adam Caulfield](https://adamicaulfield.github.io/) (supervised by N. Asokan. 2025-)
 
-### Doctoral Students 
+### Doctoral Students
 
 - [Anudeep Das](https://anudeepdas.cyber-ad.workers.dev/) (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
 - [Asim Waheed](https://asimwaheed.com/) (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
@@ -24,11 +24,11 @@ description: Current and past researchers of SSG @ Waterloo
 - [Ruizhe Wang](https://ruizhe-w.github.io/) (co-supervised by Meng Xu and N. Asokan, 2024-)
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 
-### Master's Students 
+### Master's Students
 
 - Prach Chantasantitam (supervised by N. Asokan, 2024-)
 
-### Alumni 
+### Alumni
 
 #### Post-doctoral researchers
 
