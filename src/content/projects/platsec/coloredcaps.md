@@ -13,6 +13,10 @@ Capability Hardware Enhanced RISC Instructions (CHERI) is an instruction-set arc
 
 - Merve Gülmez, Ruben Sturm, Hossam ElAtali, Håkan Englund, Jonathan Woodruff, N. Asokan, Thomas Nyman: **PICASSO: Scaling CHERI Use-After-Free Protection to Millions of Allocations using Colored Capabilities** USENIX Security 2026, arXiv preprint [arXiv:2602.09131](https://arxiv.org/abs/2602.09131)
 
+## Technical Reports
+
+- Merve Gülmez, Adam Caulfield, Håkan Englund, N. Asokan, Thomas Nyman: **PRISM: Lightweight Enclave Isolation with Prismatic Capabilities**, arXiv preprint [arXiv:2608.26367](https://arxiv.org/abs/2608.26367)
+
 ## Source code
 
-- [Project page (for more resources like source code)](https://github.com/coloredcapabilities)
+- [PICASSO project page (for more resources like source code)](https://github.com/coloredcapabilities)
