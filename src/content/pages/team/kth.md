@@ -8,7 +8,7 @@ description: Current and past researchers of SSG @ KTH
 - [Panagiotis Papadimitratos](https://www.kth.se/profile/papadim/)
 
 ### Post-doctoral researchers
-- Yuxi Xia (supervised by N. Asokan. 2026-)
+- Yuxi Xia (Co-supervised by N. Asokan. and Panagiotis Papadimitratos 2026-)
 
 ### Doctoral Students
 

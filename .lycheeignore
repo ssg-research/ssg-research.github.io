@@ -15,3 +15,4 @@
 # Does not respond to requests from outside the university network (plain curl
 # times out too), so every check is a false negative.
 ^https://aaltodoc\.aalto\.fi/
+https://www\.kth\.se/profile/.*
