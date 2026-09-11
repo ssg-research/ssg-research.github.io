@@ -5,7 +5,7 @@ description: Current and past researchers of SSG @ KTH
 ---
 
 ### Affiliated Faculty Members
-- [Panagiotis Papadimitratos](https://www.kth.se/profile/papadim)
+- [Panagiotis Papadimitratos](https://www.kth.se/profile/papadim/)
 
 ### Post-doctoral researchers
 - Yuxi Xia (supervised by N. Asokan. 2026-)
