@@ -10,16 +10,4 @@ description: Current and past researchers of SSG @ KTH
 ### Post-doctoral researchers
 - Yuxi Xia (Co-supervised by N. Asokan. and Panagiotis Papadimitratos 2026-)
 
-### Doctoral Students
 
-### Master's Students
-
-### Alumni
-
-#### Post-doctoral researchers
-
-#### Doctoral researchers
-
-#### Masters Students
-
-#### Past Visitors
