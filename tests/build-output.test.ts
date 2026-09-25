@@ -91,6 +91,91 @@ describe("links", () => {
       []
     );
   });
+
+  // The companion to the check above: that one proves every link points at a
+  // page, this one proves every page is pointed at. Without it a page can build
+  // and deploy while being unreachable by navigation — which is what happens
+  // when two entries collide on one permalink and the loser is dropped with
+  // only a build warning.
+  it("links to every published page from somewhere on the site", () => {
+    // Pages reachable only by typing the URL. Each is deliberate, so a new
+    // entry here needs a reason — that review is the point of the list.
+    const unlinked = new Set([
+      "/maintain/", // access-restricted; kept out of the nav on purpose
+      "/dissemination/cs858-F26-papers-list/", // handed to the class directly
+      "/dissemination/cs858wiki-F26/under-construction/", // wiki placeholder target
+    ]);
+
+    const htmls = walk(DIST).filter((p) => p.endsWith(".html"));
+    const refRe = /href="([^"]+)"/g;
+    const linked = new Set<string>();
+
+    for (const file of htmls) {
+      const pageUrl =
+        "/" + file.slice(DIST.length + 1).replace(/index\.html$/, "");
+      for (const match of readFileSync(file, "utf8").matchAll(refRe)) {
+        let ref = match[1];
+        if (/^(https?:|mailto:|tel:|data:|#|\/\/)/.test(ref)) continue;
+        ref = ref.split("#")[0].split("?")[0];
+        if (!ref) continue;
+        const resolved = ref.startsWith("/")
+          ? ref
+          : posix.normalize(posix.join(pageUrl, ref));
+        linked.add(resolved.endsWith("/") ? resolved : resolved + "/");
+      }
+    }
+
+    const orphans = htmls
+      .filter((p) => p.endsWith("index.html"))
+      .filter((p) => !readFileSync(p, "utf8").includes('name="robots"'))
+      .map((p) => "/" + p.slice(DIST.length + 1).replace(/index\.html$/, ""))
+      .filter((url) => url !== "/" && !unlinked.has(url) && !linked.has(url));
+
+    expect(
+      orphans,
+      `built but unreachable — no page links to them:\n${orphans.join("\n")}`
+    ).toEqual([]);
+  });
+});
+
+// Source-level, unlike everything else in this file. Two entries claiming one
+// permalink collide on the loader's id, and the loader resolves that by
+// dropping one and emitting a build warning — it does not fail the build.
+// Which one survives is glob iteration order, so identical source can deploy
+// different pages on different runs. By the time `dist/` exists the loser has
+// left no trace, so this is the one invariant that has to be read from source.
+describe("content sources", () => {
+  const COLLECTIONS = ["src/content/pages", "src/content/projects"];
+
+  it("declares each permalink exactly once", () => {
+    const owners = new Map<string, string[]>();
+
+    for (const base of COLLECTIONS) {
+      for (const file of walk(base).filter((p) => p.endsWith(".md"))) {
+        const lines = readFileSync(file, "utf8").split("\n");
+        if (lines[0].trim() !== "---") continue;
+        const end = lines.indexOf("---", 1);
+        for (const line of lines.slice(1, end === -1 ? 1 : end)) {
+          if (!line.startsWith("permalink:")) continue;
+          const permalink = line
+            .slice("permalink:".length)
+            .split("#")[0]
+            .trim();
+          owners.set(permalink, [...(owners.get(permalink) ?? []), file]);
+        }
+      }
+    }
+
+    const collisions = [...owners]
+      .filter(([, files]) => files.length > 1)
+      .map(([permalink, files]) => `${permalink} <- ${files.join(", ")}`);
+
+    expect(
+      collisions,
+      `permalink claimed by more than one file — the build drops all but one, ` +
+        `and which one survives is not stable:\n${collisions.join("\n")}`
+    ).toEqual([]);
+  });
 });
 
 describe("metadata", () => {
