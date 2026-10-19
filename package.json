@@ -52,7 +52,10 @@
     "zod": "^4.6.5"
   },
   "overrides": {
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.1",
+    "markdownlint-cli": {
+      "js-yaml": "^5.4.1"
+    }
   },
   "lint-staged": {
     "*.{ts,astro,js,mjs}": [
