@@ -9,7 +9,7 @@ nav_order: 5
 ### Publications
 Our publications from 2019 onwards can be found on the [CrySP publications page](https://crysp.uwaterloo.ca/publications). Earlier publications are available on the Aalto [SSG publications page](https://ssg.aalto.fi/publications/).
 
-Sometimes we [blog about our research results](https://crysp.uwaterloo.ca/ssg/blog).
+Sometimes we [blog about our research results](https://blog.ssg.aalto.fi/).
 
 ### Events
 - [“Systems Security Research at KTH” workshop](https://nss.proj.kth.se/asokan_workshop.html) (24 April 2026)

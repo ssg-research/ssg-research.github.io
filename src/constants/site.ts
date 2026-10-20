@@ -28,7 +28,7 @@ export const HOME_NAV: NavItem = { title: "About", href: "/" };
 
 export const BLOG_NAV: NavItem = {
   title: "Blog",
-  href: "https://crysp.uwaterloo.ca/ssg/blog",
+  href: "https://blog.ssg.aalto.fi/",
   external: true,
 };
 
