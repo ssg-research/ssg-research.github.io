@@ -2,7 +2,7 @@
 # Copy this file to start a new project page, then remove `published: false`
 # so it goes live. Only the keys below are read — keep the frontmatter minimal.
 title: Project Title
-permalink: /mlsec/dlm-infilling-extraction # the live URL: pick /mlsec, /platsec, or /others
+permalink: /mlsec/dlminfillingextraction # the live URL: pick /mlsec, /platsec, or /others
 # redirect_from:               # optional — old URLs that should redirect here
 #   - /oldpath/
 # published: false
