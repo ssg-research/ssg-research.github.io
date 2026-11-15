@@ -18,6 +18,7 @@ Sometimes we [blog about our research results](https://blog.ssg.aalto.fi/).
 
 Below is a list of publicly available source code related to past and current SSG projects.
 
+- [Extracting Training Data from Diffusion Language Models via Infilling](https://github.com/ssg-research/DLM-Infilling-Extraction) (2026)
 - [BLACKOUT](https://github.com/blindedcapabilities) (2025)
 - [Amulet](https://github.com/ssg-research/amulet) (2024)
 - [Distributional Attestation](https://github.com/ssg-research/distribution-attestation) (2024)
