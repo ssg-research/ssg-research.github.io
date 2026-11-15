@@ -20,6 +20,7 @@ Below is a list of publicly available source code related to past and current SS
 
 - [Extracting Training Data from Diffusion Language Models via Infilling](https://github.com/ssg-research/DLM-Infilling-Extraction) (2026)
 - [BLACKOUT](https://github.com/blindedcapabilities) (2025)
+- [Espresso](https://github.com/ssg-research/concept-filtering) (2025)
 - [Amulet](https://github.com/ssg-research/amulet) (2024)
 - [Distributional Attestation](https://github.com/ssg-research/distribution-attestation) (2024)
 - [Code for SoK: Unintended Interactions among ML Defenses](https://github.com/ssg-research/sok-unintended-interactions) (2024)

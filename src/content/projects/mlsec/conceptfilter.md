@@ -24,3 +24,7 @@ We demonstrate that, despite concept replacement techniques being applied, when 
 ## Pre-Prints
 
 - Anudeep Das, Gurjot Singh, Prach Chantasantitam, N. Asokan:  **Do Concept Replacement Techniques Really Erase Unacceptable Concepts?** arXiv preprint. [arxiv:2506.08991](https://arxiv.org/abs/2506.08991)
+
+## Source Code
+
+- [GitHub source code for Espresso](https://github.com/ssg-research/concept-filtering)
