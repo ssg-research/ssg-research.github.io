@@ -11,13 +11,13 @@ At SSG, we investigate the design of new hardware and software platform security
 # Current Projects
 
 - [Enhancing Memory-Safe Architectures](coloredcaps/)
-- [Resolving Availability and Integrity Conflicts](pair/)
+- [Availability and Run-time Integrity Conflicts](pair/)
 
 # Past Projects
 
-- [BliME](blime/)
+- [Blinded Memory (BliMe)](blime/)
 - [Probably Android](probandroid/)
-- [Secure Memory Allocators](memallo/)
+- [Memory Allocation](memallo/)
 - [On-Board Credentials](https://ssg.aalto.fi/research/projects/on-board-credentials/)
 - [Open-TEE](https://open-tee.github.io/)
 - [Hardware Platform Security for Mobile Devices](https://ssg.aalto.fi/publications/hardware-platform-security-for-mobile-devices/)

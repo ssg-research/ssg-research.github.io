@@ -11,5 +11,4 @@ This includes adding relevant project details after publications, and including 
 
 - Asim Waheed: Access to MLSec webpages
 - Adam Caulfield: Access to PlatSec webpages
-- Parjanya Vyas: Access to PlatSec/Probably Android/ + Maintaining the "paper repository" which includes list of rebuttals and reviews for each paper submission in the group
 - Michael Wrana: Access to Other/Future Internet Architectures/

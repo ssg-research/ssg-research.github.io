@@ -15,7 +15,7 @@ In this line of work, we present LOCKET, the first robust and scalable FLoTE to 
 
 ## Conference/journal paper publications
 
-- Lipeng He, Vasisht Duddu, N. Asokan: **Locket: Robust Feature-Locking Technique for Language Models.** [ACL 2026](https://2026.aclweb.org). arXiv preprint [arxiv:2510.12117](https://arxiv.org/abs/2510.12117)
+- Lipeng He, Vasisht Duddu, N. Asokan: **Locket: Robust Feature-Locking Technique for Language Models.** [ACL 2026](https://2026.aclweb.org). arXiv preprint [arXiv:2510.12117](https://arxiv.org/abs/2510.12117)
 
 ## Talks
 

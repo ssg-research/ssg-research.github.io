@@ -10,10 +10,10 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Conference/journal paper publications
 
-- Rui Zhang, Jian Liu, Sebastian Szyller, Kui Ren, N. Asokan: **False Claims Against Model Ownership Resolution.** [Usenix Sec 2024](https://www.usenix.org/conference/usenixsecurity24) arXiv preprint [arXiv:2304.06607](https://arxiv.org/abs/2304.06607)
+- Rui Zhang, Jian Liu, Sebastian Szyller, Kui Ren, N. Asokan: **False Claims Against Model Ownership Resolution.** [USENIX Security 2024](https://www.usenix.org/conference/usenixsecurity24) arXiv preprint [arXiv:2304.06607](https://arxiv.org/abs/2304.06607)
 - Asim Waheed, Vasisht Duddu, N. Asokan: **GrOVe: Ownership Verification of Graph Neural Networks using Embeddings.** [IEEE S&P 2024](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2304.08566](https://arxiv.org/abs/2304.08566)
-- Buse Gul Atli Tekgul, N Asokan: **FLARE: Fingerprinting Deep Reinforcement Learning Agents using Universal Adversarial Masks.** [ACSAC 2023](https://sp2024.ieee-security.org/). arXiv preprint [arXiv:2307.14751](https://arxiv.org/abs/2307.14751)
-- Sebastian Szyller, Rui Zhang, Jian Liu, N. Asokan: **On the Robustness of Dataset Inference.** [TMLR 2023](https://openreview.net/forum?id=LKz5SqIXPJ)</a>. arXiv preprint [arXiv:2210.13631](https://arxiv.org/abs/2210.13631)
+- Buse Gul Atli Tekgul, N Asokan: **FLARE: Fingerprinting Deep Reinforcement Learning Agents using Universal Adversarial Masks.** [ACSAC 2023](https://www.acsac.org/2023/). arXiv preprint [arXiv:2307.14751](https://arxiv.org/abs/2307.14751)
+- Sebastian Szyller, Rui Zhang, Jian Liu, N. Asokan: **On the Robustness of Dataset Inference.** [TMLR 2023](https://openreview.net/forum?id=LKz5SqIXPJ). arXiv preprint [arXiv:2210.13631](https://arxiv.org/abs/2210.13631)
 - Sebastian Szyller, N. Asokan: **Conflicting Interactions Among Protection Mechanisms for Machine Learning Models**. [AAAI 2023](https://aaai-23.aaai.org). arXiv preprint [arXiv:2207.01991](https://arxiv.org/abs/2207.01991)
 - Buse G. A. Tekgul, N. Asokan: **On the Effectiveness of Dataset Watermarking.** [CODASPY-IWSPA 2022](https://sites.google.com/view/iwspa-2022/). arXiv preprint [arXiv:2202.12506](https://arxiv.org/abs/2202.12506)
 - Sebastian Szyller, Buse G. A. Tekgul, Samuel Marchal, N. Asokan: **DAWN: Dynamic Adversarial Watermarking of Neural Networks.** [ACM Multimedia 2021](https://2021.acmmm.org/). arXiv preprint [arXiv:1906.00830](https://arxiv.org/abs/1906.00830)
@@ -35,7 +35,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 ## Talks
 
 - GrOVe: Ownership Verification of Graph Neural Networks using Embeddings [talk](https://youtu.be/jq25gEOjrCE)
-- On the Robustness of Dataset Watermarking: TMLR'23 [talk](https://www.youtube.com/watch?v=jZ3Lw98gfv8)
+- On the Robustness of Dataset Inference: TMLR'23 [talk](https://www.youtube.com/watch?v=jZ3Lw98gfv8)
 - On the Effectiveness of Dataset Watermarking: IWSPA'22 [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/IWSPA2022-DatasetWatermarking.pdf) [talk](https://www.youtube.com/watch?v=9whoREZim2U&list=PLabB1oNtPsdC7cbfHt0VacTaf1XB8Bmhz&index=10)
 - WAFFLE: SRDS'21 [pdf](https://ssg.aalto.fi/wp-content/uploads/2022/05/SRDS2021-WAFFLE.pdf) [talk](https://www.youtube.com/watch?v=C_zoHSU1wOs)
 - Extraction of Complex DNN models: Brief overview [pdf](https://ssg.aalto.fi/wp-content/uploads/2020/02/IntelTalk_Jan_2020.pdf), AAAI-EDSMLS'20 [pdf](https://ssg.aalto.fi/wp-content/uploads/2019/12/EDSMLS_presentation.pdf)
@@ -43,7 +43,7 @@ As machine learning (ML) applications become increasingly prevalent, protecting 
 
 ## Demos and Posters
 
-- GrOVe Poster[pdf](../../assets/pdf/mlsec/grove_poster.pdf)
+- GrOVe poster [pdf](/assets/pdf/mlsec/grove_poster.pdf)
 - [CS Research Day 2020](https://www.aalto.fi/en/events/cs-research-day-2020): **WAFFLE: Watermarking in Federated Learning** (October 1, Aalto University, Finland), [presentation](https://www.youtube.com/watch?v=C_zoHSU1wOs)
 - [Secure Systems Demo Day 2019](https://ssg.aalto.fi/events/demo-day-2019/): **Stealing Complex DNN Models: Limitations and Defense Strategies** (May 29, Aalto University, Finland), [poster](https://ssg.aalto.fi/wp-content/uploads/2019/05/20_Atli.pdf)
 

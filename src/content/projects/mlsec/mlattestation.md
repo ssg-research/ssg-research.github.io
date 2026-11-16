@@ -15,7 +15,7 @@ We explore different technical mechanisms such as trusted execution environments
 
 ## Conference/journal paper publications
 
-- Vasisht Duddu, Oskari Järvinen, Lachlan J. Gunn, N. Asokan. **Laminator: Verifiable ML Property Cards using Hardware-assisted Attestations.** [ACM CODASPY 2025](https://www.codaspy.org/2025/). arXiV preprint [arXiv:2406.17548](https://arxiv.org/abs/2406.17548)
+- Vasisht Duddu, Oskari Järvinen, Lachlan J. Gunn, N. Asokan. **Laminator: Verifiable ML Property Cards using Hardware-assisted Attestations.** [ACM CODASPY 2025](https://www.codaspy.org/2025/). arXiv preprint [arXiv:2406.17548](https://arxiv.org/abs/2406.17548)
 
 - Vasisht Duddu, Anudeep Das, Nora Khayata, Hossein Yalame, Thomas Schneider, N. Asokan: **Attesting Distributional Properties of Training Data for Machine Learning.** [ESORICS 2024](https://esorics2024.org/). arXiv preprint [arXiv:2308.09552](https://arxiv.org/abs/2308.09552)
 
@@ -25,7 +25,7 @@ We explore different technical mechanisms such as trusted execution environments
 
 ## Posters
 
-- Vasisht Duddu, Oskari Jarvinen, Lachlan J. Gunn, N. Asokan. **Machine Learning Property Attestations using TEEs.** [pdf](../../assets/pdf/mlsec/AttestedML_poster.pdf). IEEE S&P'24.
+- Vasisht Duddu, Oskari Järvinen, Lachlan J. Gunn, N. Asokan. **Machine Learning Property Attestations using TEEs.** [pdf](/assets/pdf/mlsec/AttestedML_poster.pdf). IEEE S&P'24.
 
 ## Source code
 
