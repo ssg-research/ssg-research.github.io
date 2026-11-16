@@ -19,12 +19,12 @@ We demonstrate that, despite concept replacement techniques being applied, when 
 
 ## Conference/journal paper publications
 
-- Anudeep Das, Vasisht Duddu, Rui Zhang, N. Asokan: **Espresso: Robust Concept Filtering in Text-to-Image Models.** [ACM CODASPY 2025](https://www.codaspy.org/2025/). arXiv preprint. [arxiv:2404.19227](https://arxiv.org/abs/2404.19227) (Best paper award)
+- Anudeep Das, Vasisht Duddu, Rui Zhang, N. Asokan: **Espresso: Robust Concept Filtering in Text-to-Image Models.** [ACM CODASPY 2025](https://www.codaspy.org/2025/). arXiv preprint [arXiv:2404.19227](https://arxiv.org/abs/2404.19227) (Best paper award)
 
-## Pre-Prints
+## Technical reports
 
-- Anudeep Das, Gurjot Singh, Prach Chantasantitam, N. Asokan:  **Do Concept Replacement Techniques Really Erase Unacceptable Concepts?** arXiv preprint. [arxiv:2506.08991](https://arxiv.org/abs/2506.08991)
+- Anudeep Das, Gurjot Singh, Prach Chantasantitam, N. Asokan: **Do Concept Replacement Techniques Really Erase Unacceptable Concepts?** arXiv preprint. [arXiv:2506.08991](https://arxiv.org/abs/2506.08991)
 
-## Source Code
+## Source code
 
 - [GitHub source code for Espresso](https://github.com/ssg-research/concept-filtering)

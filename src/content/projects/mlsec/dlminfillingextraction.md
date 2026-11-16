@@ -16,7 +16,7 @@ In particular, an adversary who obtains a PII-redacted copy of the training data
 Tunable parameters for decoding measurably affect extraction performance, while a follow-up supervised fine-tuning stage does not eliminate the prior memorization.
 
 
-## Conference paper publications
+## Conference/journal paper publications
 
 - Yihan Wang, N. Asokan: **Extracting Training Data from Diffusion Language Models via Infilling.** [NeurIPS 2026](https://neurips.cc/virtual/2026/loc/sydney/poster/149365). arXiv preprint [arXiv:2605.24173](https://arxiv.org/abs/2605.24173).
 

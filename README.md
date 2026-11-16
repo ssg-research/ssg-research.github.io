@@ -29,7 +29,7 @@ A maintainer reviews the pull request and merges it. The site redeploys itself.
 | [PlatSec](https://ssg-research.github.io/platsec/)             | [platsec.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/pages/platsec.md)             |
 | [Other](https://ssg-research.github.io/others/)                | [others.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/pages/others.md)               |
 | [Dissemination](https://ssg-research.github.io/dissemination/) | [dissemination.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/pages/dissemination.md) |
-| [Team](https://ssg-research.github.io/team/)                   | [team.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/pages/team.md)                   |
+| [Team](https://ssg-research.github.io/team/)                   | [team/index.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/pages/team/index.md)       |
 | [Maintainers](https://ssg-research.github.io/maintain/)        | [maintainer.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/projects/maintainer.md)    |
 
 ### Project pages
@@ -46,7 +46,7 @@ A maintainer reviews the pull request and merges it. The site redeploys itself.
 | [Memory Allocation](https://ssg-research.github.io/platsec/memallo/)                                      | [memallo.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/projects/platsec/memallo.md)           |
 | [Availability and Run-time Integrity Conflicts](https://ssg-research.github.io/platsec/pair/)             | [pair.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/projects/platsec/pair.md)                 |
 | [Probably Android](https://ssg-research.github.io/platsec/probandroid/)                                   | [probandroid.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/projects/platsec/probandroid.md)   |
-| [FIAs](https://ssg-research.github.io/others/fias/)                                                       | [fias.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/projects/others/fias.md)                  |
+| [Future Internet Architectures](https://ssg-research.github.io/others/fias/)                              | [fias.md](https://github.com/ssg-research/ssg-research.github.io/edit/main/src/content/projects/others/fias.md)                  |
 
 Two pages are not hand-edited. The
 [CS858 paper list](https://ssg-research.github.io/dissemination/cs858-F26-papers-list/)

@@ -13,15 +13,15 @@ Our work in this theme is along two dimensions:
 
 
 # Current Projects
-- [Extracting Training Data from Diffusion Language Models](dlminfillingextraction/)
-- [Feature Locking in Language Models](featurelock/)
-- [Unintended interactions among ML defenses and risks](interactions/)
-- [Model extraction attacks and defenses](modelExtDef/)
-- [Machine learning property attestations](mlattestation/)
+- [Extracting Training Data from Diffusion Language Models via Infilling](dlminfillingextraction/)
+- [Feature Locking for Language Models](featurelock/)
+- [Unintended Interactions among ML Risks and Defenses](interactions/)
+- [Machine Learning Property Attestations](mlattestation/)
 - [Content Moderation for Generative Models](conceptfilter/)
 
 # Past Projects
 
+- [Model Extraction Attacks and Defenses](modelExtDef/)
 - [Automated generation of deceptive text](https://ssg.aalto.fi/research/projects/mlsec/deceptive-text/)
 - [Privacy-preserving machine learning predictions](https://ssg.aalto.fi/research/projects/mlsec/ppml/)
 - [Deception detection via text analysis](https://ssg.aalto.fi/research/projects/deception-detection-via-text-analysis/)
