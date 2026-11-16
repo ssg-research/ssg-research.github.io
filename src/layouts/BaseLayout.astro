@@ -81,14 +81,12 @@ const ogImageURL = new URL(SITE.ogImage, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    {
-      /*
-       * No-flash theme script. Runs synchronously in <head> before paint, so
-       * the stored/preferred theme is applied with no flash on hard refresh.
-       * is:inline keeps Astro from bundling or deferring it. localStorage key
-       * "theme"; values "light" / "dark". ThemeToggle handles clicks.
-       */
-    }
+    {/*
+     * No-flash theme script. Runs synchronously in <head> before paint, so
+     * the stored/preferred theme is applied with no flash on hard refresh.
+     * is:inline keeps Astro from bundling or deferring it. localStorage key
+     * "theme"; values "light" / "dark". ThemeToggle handles clicks.
+     */}
     <script is:inline>
       const stored = localStorage.getItem("theme");
       const theme =

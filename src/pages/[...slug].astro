@@ -84,17 +84,15 @@ const metaDescription =
 ---
 
 <BaseLayout title={documentTitle} description={metaDescription}>
-  {
-    header && (
-      <header class="post-header">
-        <h1 class="post-title">{header.title}</h1>
-        {header.subtitle && <p class="desc" set:html={header.subtitle} />}
-        {header.description && (
-          <p class="post-description">{header.description}</p>
-        )}
-      </header>
-    )
-  }
+  {header && (
+    <header class="post-header">
+      <h1 class="post-title">{header.title}</h1>
+      {header.subtitle && <p class="desc" set:html={header.subtitle} />}
+      {header.description && (
+        <p class="post-description">{header.description}</p>
+      )}
+    </header>
+  )}
 
   <article class:list={{ wiki: isWiki }}>
     <Content />
