@@ -36,28 +36,24 @@ function linkAttrs(item: (typeof items)[number]) {
 
 <header class="masthead">
   <div class="masthead-inner">
-    {
-      isHome ? null : (
-        <a href="/" class="masthead-brand">
-          {SITE.name}
-        </a>
-      )
-    }
+    {isHome ? null : (
+      <a href="/" class="masthead-brand">
+        {SITE.name}
+      </a>
+    )}
 
     <div class="masthead-right">
       <nav class="masthead-nav" aria-label="Primary">
-        {
-          items.map((item) => (
-            <a
-              href={item.href}
-              class={`nav-link ${item.active ? "active" : ""}`}
-              aria-current={item.active ? "page" : undefined}
-              {...linkAttrs(item)}
-            >
-              {item.title}
-            </a>
-          ))
-        }
+        {items.map((item) => (
+          <a
+            href={item.href}
+            class={`nav-link ${item.active ? "active" : ""}`}
+            aria-current={item.active ? "page" : undefined}
+            {...linkAttrs(item)}
+          >
+            {item.title}
+          </a>
+        ))}
       </nav>
 
       <ThemeToggle />
@@ -69,18 +65,16 @@ function linkAttrs(item: (typeof items)[number]) {
         </summary>
 
         <nav class="menu-panel" aria-label="Primary (mobile)">
-          {
-            items.map((item) => (
-              <a
-                href={item.href}
-                class={`nav-link ${item.active ? "active" : ""}`}
-                aria-current={item.active ? "page" : undefined}
-                {...linkAttrs(item)}
-              >
-                {item.title}
-              </a>
-            ))
-          }
+          {items.map((item) => (
+            <a
+              href={item.href}
+              class={`nav-link ${item.active ? "active" : ""}`}
+              aria-current={item.active ? "page" : undefined}
+              {...linkAttrs(item)}
+            >
+              {item.title}
+            </a>
+          ))}
         </nav>
       </details>
     </div>
