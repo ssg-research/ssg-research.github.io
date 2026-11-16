@@ -23,6 +23,7 @@ Below is a list of publicly available source code related to past and current SS
 - [SoK: Colluding adversaries in machine learning pipelines](https://github.com/ssg-research/sok-collusion) (2026)
 - [PICASSO: Scaling CHERI use-after-free protection using colored capabilities](https://github.com/coloredcapabilities) (2026)
 - [BLACKOUT](https://github.com/blindedcapabilities) (2025)
+- [Combining machine learning defenses without conflicts](https://github.com/ssg-research/combining-defenses) (2025)
 - [Espresso](https://github.com/ssg-research/concept-filtering) (2025)
 - [Laminator: Verifiable ML property cards using hardware-assisted attestations](https://github.com/ssg-research/laminator) (2025)
 - [Amulet](https://github.com/ssg-research/amulet) (2024)

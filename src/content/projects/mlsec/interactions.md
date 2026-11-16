@@ -39,3 +39,4 @@ This [blog article](https://blog.ssg.aalto.fi/2024/05/unintended-interactions-am
 - [GitHub source code for SoK: Unintended Interactions](https://github.com/ssg-research/sok-unintended-interactions)
 - [GitHub source code for Conflicting Interactions](https://github.com/ssg-research/conflicts-in-ml-protection-mechanisms)
 - [GitHub source code for SoK: Colluding Adversaries](https://github.com/ssg-research/sok-collusion)
+- [GitHub source code for Combining Defenses](https://github.com/ssg-research/combining-defenses)
