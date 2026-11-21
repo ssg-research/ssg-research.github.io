@@ -13,6 +13,7 @@ Our work in this theme is along two dimensions:
 
 
 # Current Projects
+- [Prompt Injection Attacks and Defenses](promptinjection/)
 - [Extracting Training Data from Diffusion Language Models via Infilling](dlminfillingextraction/)
 - [Feature Locking for Language Models](featurelock/)
 - [Unintended Interactions among ML Risks and Defenses](interactions/)

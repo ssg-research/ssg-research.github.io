@@ -20,7 +20,7 @@ description: Current and past researchers of SSG @ Waterloo
 
 - [Anudeep Das](https://anudeepdas.cyber-ad.workers.dev/) (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
 - [Asim Waheed](https://asimwaheed.com/) (co-supervised by Florian Kerschbaum and N. Asokan, 2025-)
-- [Lipeng (Tony) He](https://lipeng.ac) (co-supervised by Yaoliang Yang and N. Asokan, 2025-)
+- [Lipeng (Tony) He](https://lipeng.ac) (co-supervised by Yaoliang Yu and N. Asokan, 2025-)
 - [Ruizhe Wang](https://ruizhe-w.github.io/) (co-supervised by Meng Xu and N. Asokan, 2024-)
 - Michael Wrana (co-supervised by Diogo Barradas and N. Asokan, 2022-)
 
